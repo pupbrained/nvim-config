@@ -129,7 +129,6 @@ in {
       cmp-cmdline.enable = true;
       dap.enable = true;
       fidget.enable = true;
-      indent-blankline.enable = true;
       leap.enable = true;
       lspkind.enable = true;
       neo-tree.enable = true;

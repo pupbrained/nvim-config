@@ -1,4 +1,5 @@
 require('hoverhints').setup()
+require('hlchunk').setup({})
 require('lsp-lens').setup()
 require('diagflow').setup({
   show_borders = true,
