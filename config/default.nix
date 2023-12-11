@@ -98,6 +98,8 @@ in {
       foldcolumn = "1";
       foldlevel = 99;
       foldenable = true;
+      shell = "bash";
+      fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:";
     };
 
     globals = {
