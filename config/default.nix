@@ -163,9 +163,9 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       neo-tree.enable = true;
-      noice.enable = true;
       nvim-ufo.enable = true;
       surround.enable = true;
+      ts-autotag.enable = true;
 
       bufferline = {
         enable = true;
@@ -264,6 +264,20 @@ in {
           move = {};
           trailspace = {};
         };
+      };
+
+      noice = {
+        enable = true;
+        routes = [
+          {
+            filter = {
+              event = "msg_show";
+              kind = "";
+              find = "written";
+            };
+            opts.skip = true;
+          }
+        ];
       };
 
       notify = {
