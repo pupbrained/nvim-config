@@ -120,11 +120,6 @@ in {
         mode = "n";
       }
       {
-        key = "<C-_>";
-        action = "<CMD>call nerdcommenter#Comment(0, 'toggle')<CR>";
-        mode = ["n" "v"];
-      }
-      {
         key = "<Leader>a";
         action = "<CMD>Lspsaga code_action<CR>";
         mode = "n";
@@ -154,6 +149,11 @@ in {
         action = "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>";
         mode = "t";
       }
+      {
+        key = "<Leader>f";
+        action = "<Esc><CMD>'<,'>fold<CR>";
+        mode = "v";
+      }
     ];
 
     plugins = {
@@ -163,7 +163,6 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       neo-tree.enable = true;
-      nvim-ufo.enable = true;
       surround.enable = true;
       ts-autotag.enable = true;
 
@@ -369,6 +368,7 @@ in {
       hoverhints-nvim
       lsp-lens-nvim
       nerdcommenter
+      nvim-ufo
       satellite-nvim
       tabout-nvim
       ultimate-autopair-nvim
