@@ -1,15 +1,7 @@
 require('hoverhints').setup()
 require('hlchunk').setup({})
 require('lsp-lens').setup()
-require('diagflow').setup({
-  show_borders = true,
-  border_chars = {
-    top_left = "╭",
-    top_right = "╮",
-    bottom_left = "╰",
-    bottom_right = "╯"
-  }
-})
+require('diagflow').setup({})
 
 require('tabout').setup()
 require('codeium').setup()

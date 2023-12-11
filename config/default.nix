@@ -134,6 +134,26 @@ in {
         action = "<CMD>Lspsaga show_cursor_diagnostics<CR>";
         mode = "n";
       }
+      {
+        key = "<Leader>n";
+        action = "<CMD>Lspsaga diagnostic_jump_next<CR>";
+        mode = "n";
+      }
+      {
+        key = "<Leader>N";
+        action = "<CMD>Lspsaga diagnostic_jump_prev<CR>";
+        mode = "n";
+      }
+      {
+        key = "<C-t>";
+        action = "<CMD>Lspsaga term_toggle<CR>";
+        mode = "n";
+      }
+      {
+        key = "<C-t>";
+        action = "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>";
+        mode = "t";
+      }
     ];
 
     plugins = {
@@ -335,6 +355,7 @@ in {
       hoverhints-nvim
       lsp-lens-nvim
       nerdcommenter
+      nvterm
       satellite-nvim
       tabout-nvim
       ultimate-autopair-nvim
