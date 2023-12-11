@@ -51,18 +51,21 @@ in {
 
         native_lsp = {
           enabled = true;
+
           virtual_text = {
             errors = ["italic"];
             hints = ["italic"];
             warnings = ["italic"];
             information = ["italic"];
           };
+
           underlines = {
             errors = ["underline"];
             hints = ["underline"];
             warnings = ["underline"];
             information = ["underline"];
           };
+
           inlay_hints = {
             background = true;
           };
@@ -92,6 +95,9 @@ in {
       list = true;
       completeopt = "menuone,menuone,noselect";
       laststatus = 3;
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldenable = true;
     };
 
     globals = {
@@ -116,12 +122,17 @@ in {
       {
         key = "<C-_>";
         action = "<CMD>call nerdcommenter#Comment(0, 'toggle')<CR>";
+        mode = ["n" "v"];
+      }
+      {
+        key = "<Leader>a";
+        action = "<CMD>Lspsaga code_action<CR>";
         mode = "n";
       }
       {
-        key = "<C-_>";
-        action = "<CMD>'<,'>call nerdcommenter#Comment(0, 'toggle')<CR>";
-        mode = "v";
+        key = "<Leader>d";
+        action = "<CMD>Lspsaga show_cursor_diagnostics<CR>";
+        mode = "n";
       }
     ];
 
@@ -133,6 +144,7 @@ in {
       lspkind.enable = true;
       neo-tree.enable = true;
       noice.enable = true;
+      nvim-ufo.enable = true;
       surround.enable = true;
 
       bufferline = {
@@ -195,6 +207,7 @@ in {
         servers = {
           eslint.enable = true;
           gopls.enable = true;
+          hls.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
@@ -316,7 +329,7 @@ in {
       dressing-nvim
       dropbar-nvim
       guess-indent-nvim
-      haskell-tools-nvim
+      #haskell-tools-nvim
       hlchunk-nvim
       hover-nvim
       hoverhints-nvim

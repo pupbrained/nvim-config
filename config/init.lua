@@ -42,14 +42,14 @@ require("hover").setup({
 })
 
 -- Setup keymaps
-vim.keymap.set("n", "K", require("hover").hover, { desc = "hover.nvim" })
+vim.keymap.set("n", "<Leader>k", require("hover").hover, { desc = "hover.nvim" })
 vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
 
-vim.g.haskell_tools = {
-  tools = {
-    hover = {
-      stylize_markdown = true,
-      auto_focus = true,
-    },
-  },
-}
+--vim.g.haskell_tools = {
+--  tools = {
+--    hover = {
+--      stylize_markdown = true,
+--      auto_focus = true,
+--    },
+--  },
+--}
