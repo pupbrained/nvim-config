@@ -355,7 +355,6 @@ in {
       hoverhints-nvim
       lsp-lens-nvim
       nerdcommenter
-      nvterm
       satellite-nvim
       tabout-nvim
       ultimate-autopair-nvim
