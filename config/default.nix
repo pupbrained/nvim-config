@@ -113,79 +113,30 @@ in {
       rust_recommended_style = false;
     };
 
-    keymaps = [
-      {
-        key = "<Leader>e";
-        action = "<CMD>Neotree toggle<CR>";
-        mode = "n";
-        options.desc = "Toggle NeoTree";
-      }
-      {
-        key = "<Leader>b";
-        action = "<CMD>Telescope buffers<CR>";
-        mode = "n";
-        options.desc = "Manage buffers";
-      }
-      {
-        key = "<Leader>a";
-        action = "<CMD>Lspsaga code_action<CR>";
-        mode = "n";
-        options.desc = "Code Action";
-      }
-      {
-        key = "<Leader>d";
-        action = "<CMD>Lspsaga show_cursor_diagnostics<CR>";
-        mode = "n";
-        options.desc = "Show Cursor Diagnostics";
-      }
-      {
-        key = "<Leader>n";
-        action = "<CMD>Lspsaga diagnostic_jump_next<CR>";
-        mode = "n";
-        options.desc = "Next Diagnostic";
-      }
-      {
-        key = "<Leader>N";
-        action = "<CMD>Lspsaga diagnostic_jump_prev<CR>";
-        mode = "n";
-        options.desc = "Previous Diagnostic";
-      }
-      {
-        key = "<C-t>";
-        action = "<CMD>Lspsaga term_toggle<CR>";
-        mode = "n";
-        options.desc = "Toggle Terminal";
-      }
-      {
-        key = "<C-t>";
-        action = "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>";
-        mode = "t";
-        options.desc = "Toggle Terminal";
-      }
-      {
-        key = "<Leader>f";
-        action = "<Esc><CMD>'<,'>fold<CR>";
-        mode = "v";
-        options.desc = "Fold Selected";
-      }
-      {
-        key = "<Leader>k";
-        action = "<CMD>lua require('hover').hover()<CR>";
-        mode = "n";
-        options.desc = "Hover";
-      }
-      {
-        key = "gK";
-        action = "<CMD>lua require('hover').hover_select()<CR>";
-        mode = "n";
-        options.desc = "Hover (Select)";
-      }
-      {
-        key = "s";
-        action = "<Esc><CMD>'<,'>!sort<CR>";
-        mode = "v";
-        options.desc = "Sort Selected Lines";
-      }
+    keymaps = with lib; let
+      mkNormalLeader = key: action: desc: {
+        key = concatStrings ["<Leader>" key];
+        action = concatStrings ["<CMD>" action "<CR>"];
+        options.desc = desc;
+      };
+
+      mkMap = key: action: mode: desc: {
+        inherit key action mode;
+        options.desc = desc;
+      };
+    in [
+      (mkNormalLeader "e" "Neotree toggle" "Toggle NeoTree")
+      (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
+      (mkNormalLeader "a" "Lspsaga code_action" "Code Action")
+      (mkNormalLeader "d" "Lspsaga show_cursor_diagnostics" "Show Cursor Diagnostics")
+      (mkNormalLeader "n" "Lspsaga diagnostic_jump_next" "Next Diagnostic")
+      (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
+      (mkNormalLeader "k" "lua require('hover').hover()" "Hover")
+      (mkMap "<C-t>" "<CMD>Lspsaga term_toggle<CR>" "n" "Toggle Terminal")
+      (mkMap "<C-t>" "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>" "t" "Toggle Terminal")
+      (mkMap "<Leader>f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
+      (mkMap "gK" "<CMD>lua require('hover').hover_select()<CR>" "n" "Hover (Select)")
+      (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
     ];
 
     plugins = {
