@@ -84,6 +84,8 @@ in {
     };
 
     options = {
+      autoindent = true;
+      cindent = true;
       number = true;
       relativenumber = true;
       shiftwidth = 0;
@@ -108,6 +110,7 @@ in {
       neovide_cursor_animation_length = 2.5e-2;
       neovide_cursor_vfx_mode = "railgun";
       NERDDefaultAlign = "left";
+      closetag_filetypes = "html,xhtml,phtml,vue";
     };
 
     keymaps = [
@@ -166,7 +169,6 @@ in {
       lspkind.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
-      ts-autotag.enable = true;
 
       bufferline = {
         enable = true;
@@ -290,11 +292,6 @@ in {
         };
       };
 
-      nvim-autopairs = {
-        enable = true;
-        checkTs = true;
-      };
-
       nvim-cmp = {
         enable = true;
 
@@ -374,6 +371,7 @@ in {
       satellite-nvim
       tabout-nvim
       ultimate-autopair-nvim
+      vim-closetag
       vim-cool
       vim-haskellConcealPlus
     ];

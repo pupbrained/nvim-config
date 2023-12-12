@@ -5,10 +5,7 @@
     nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    codeium = {
-      url = "github:jcdickinson/codeium.nvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    codeium.url = "github:jcdickinson/codeium.nvim";
   };
 
   outputs = {
