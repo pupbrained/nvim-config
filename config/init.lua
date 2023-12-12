@@ -1,5 +1,21 @@
 require("hoverhints").setup()
-require("hlchunk").setup({})
+require("hlchunk").setup({
+	chunk = {
+		style = {
+			{ fg = "#a6e3a1" },
+			{ fg = "#313244" }, -- this fg is used to highlight wrong chunk
+		},
+	},
+	line_num = {
+		style = "#a6e3a1",
+	},
+	indent = {
+		style = "#a6e3a1",
+	},
+	blank = {
+		enable = false,
+	},
+})
 require("lsp-lens").setup()
 require("diagflow").setup({})
 
