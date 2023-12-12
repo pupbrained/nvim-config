@@ -49,10 +49,6 @@ require("hover").setup({
 	mouse_delay = 1000,
 })
 
--- Setup keymaps
-vim.keymap.set("n", "<Leader>k", require("hover").hover, { desc = "hover.nvim" })
-vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "hover.nvim (select)" })
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.foldingRange = {

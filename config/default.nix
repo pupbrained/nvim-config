@@ -86,31 +86,31 @@ in {
     options = {
       autoindent = true;
       cindent = true;
+      completeopt = "menuone,menuone,noselect";
+      expandtab = true;
+      fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:";
+      foldcolumn = "1";
+      foldenable = true;
+      foldlevel = 99;
+      laststatus = 3;
+      list = true;
       number = true;
       relativenumber = true;
-      shiftwidth = 0;
-      tabstop = 2;
-      expandtab = true;
-      smarttab = true;
-      showmode = false;
-      undofile = true;
-      list = true;
-      completeopt = "menuone,menuone,noselect";
-      laststatus = 3;
-      foldcolumn = "1";
-      foldlevel = 99;
-      foldenable = true;
       shell = "bash";
-      fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:";
+      shiftwidth = 0;
+      showmode = false;
+      smarttab = true;
+      tabstop = 2;
+      undofile = true;
     };
 
     globals = {
-      mapleader = " ";
-      rust_recommended_style = false;
-      neovide_cursor_animation_length = 2.5e-2;
-      neovide_cursor_vfx_mode = "railgun";
       NERDDefaultAlign = "left";
       closetag_filetypes = "html,xhtml,phtml,vue";
+      mapleader = " ";
+      neovide_cursor_animation_length = 2.5e-2;
+      neovide_cursor_vfx_mode = "railgun";
+      rust_recommended_style = false;
     };
 
     keymaps = [
@@ -118,46 +118,73 @@ in {
         key = "<Leader>e";
         action = "<CMD>Neotree toggle<CR>";
         mode = "n";
+        options.desc = "Toggle NeoTree";
       }
       {
         key = "<Leader>b";
         action = "<CMD>Telescope buffers<CR>";
         mode = "n";
+        options.desc = "Manage buffers";
       }
       {
         key = "<Leader>a";
         action = "<CMD>Lspsaga code_action<CR>";
         mode = "n";
+        options.desc = "Code Action";
       }
       {
         key = "<Leader>d";
         action = "<CMD>Lspsaga show_cursor_diagnostics<CR>";
         mode = "n";
+        options.desc = "Show Cursor Diagnostics";
       }
       {
         key = "<Leader>n";
         action = "<CMD>Lspsaga diagnostic_jump_next<CR>";
         mode = "n";
+        options.desc = "Next Diagnostic";
       }
       {
         key = "<Leader>N";
         action = "<CMD>Lspsaga diagnostic_jump_prev<CR>";
         mode = "n";
+        options.desc = "Previous Diagnostic";
       }
       {
         key = "<C-t>";
         action = "<CMD>Lspsaga term_toggle<CR>";
         mode = "n";
+        options.desc = "Toggle Terminal";
       }
       {
         key = "<C-t>";
         action = "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>";
         mode = "t";
+        options.desc = "Toggle Terminal";
       }
       {
         key = "<Leader>f";
         action = "<Esc><CMD>'<,'>fold<CR>";
         mode = "v";
+        options.desc = "Fold Selected";
+      }
+      {
+        key = "<Leader>k";
+        action = "<CMD>lua require('hover').hover()<CR>";
+        mode = "n";
+        options.desc = "Hover";
+      }
+      {
+        key = "gK";
+        action = "<CMD>lua require('hover').hover_select()<CR>";
+        mode = "n";
+        options.desc = "Hover (Select)";
+      }
+      {
+        key = "s";
+        action = "<Esc><CMD>'<,'>!sort<CR>";
+        mode = "v";
+        options.desc = "Sort Selected Lines";
       }
     ];
 
@@ -169,6 +196,7 @@ in {
       lspkind.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
+      which-key.enable = true;
 
       bufferline = {
         enable = true;
@@ -198,15 +226,13 @@ in {
           lua = ["stylua"];
           nix = ["alejandra"];
           rust = ["rustfmt"];
-          vue = ["eslint_d"];
           typescript = ["eslint_d"];
+          vue = ["eslint_d"];
         };
 
-        extraOptions = {
-          format_on_save = {
-            timeout_ms = 1000;
-            lsp_fallback = true;
-          };
+        extraOptions.format_on_save = {
+          timeout_ms = 1000;
+          lsp_fallback = true;
         };
       };
 
@@ -238,17 +264,6 @@ in {
           typst-lsp.enable = true;
           vls.enable = true;
           volar.enable = true;
-
-          rust-analyzer = {
-            enable = false;
-            installCargo = false;
-            installRustc = false;
-
-            settings = {
-              checkOnSave = true;
-              check.command = "clippy";
-            };
-          };
         };
       };
 
@@ -361,7 +376,6 @@ in {
       dressing-nvim
       dropbar-nvim
       guess-indent-nvim
-      #haskell-tools-nvim
       hlchunk-nvim
       hover-nvim
       hoverhints-nvim
