@@ -5,7 +5,6 @@ require("codeium").setup()
 require("ultimate-autopair").setup()
 require("guess-indent").setup()
 require("satellite").setup()
-require("diagflow").setup({})
 
 require("hlchunk").setup({
 	chunk = {
@@ -96,4 +95,10 @@ require("ufo").setup({
 
 		return newVirtText
 	end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "LspAttached",
+	once = true,
+	callback = vim.lsp.codelens.refresh,
 })

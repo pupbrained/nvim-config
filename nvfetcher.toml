@@ -22,9 +22,9 @@ fetch.github = "j-morano/buffer_manager.nvim"
 src.git = "https://github.com/Jxstxs/conceal.nvim"
 fetch.github = "Jxstxs/conceal.nvim"
 
-[diagflow-nvim]
-src.git = "https://github.com/dgagn/diagflow.nvim"
-fetch.github = "dgagn/diagflow.nvim"
+#[diagflow-nvim]
+#src.git = "https://github.com/dgagn/diagflow.nvim"
+#fetch.github = "dgagn/diagflow.nvim"
 
 [hlchunk-nvim]
 src.git="https://github.com/shellRaining/hlchunk.nvim"

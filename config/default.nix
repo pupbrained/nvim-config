@@ -141,6 +141,7 @@ in {
       dap.enable = true;
       fidget.enable = true;
       leap.enable = true;
+      lsp-lines.enable = true;
       lspkind.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
@@ -199,6 +200,13 @@ in {
               end,
             })
           end
+
+          vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+              buffer = bufnr,
+              callback = vim.lsp.codelens.refresh,
+          })
+
+          vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
         '';
 
         servers = {
@@ -311,7 +319,6 @@ in {
     extraPlugins = with vimPlugins; [
       alternate-toggler-nvim
       codeium-nvim
-      diagflow-nvim
       dressing-nvim
       dropbar-nvim
       guess-indent-nvim
