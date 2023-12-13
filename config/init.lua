@@ -1,9 +1,17 @@
 require("hoverhints").setup()
+require("lsp-lens").setup()
+require("tabout").setup()
+require("codeium").setup()
+require("ultimate-autopair").setup()
+require("guess-indent").setup()
+require("satellite").setup()
+require("diagflow").setup({})
+
 require("hlchunk").setup({
 	chunk = {
 		style = {
 			{ fg = "#a6e3a1" },
-			{ fg = "#313244" }, -- this fg is used to highlight wrong chunk
+			{ fg = "#313244" },
 		},
 	},
 	line_num = {
@@ -16,14 +24,6 @@ require("hlchunk").setup({
 		enable = false,
 	},
 })
-require("lsp-lens").setup()
-require("diagflow").setup({})
-
-require("tabout").setup()
-require("codeium").setup()
-require("ultimate-autopair").setup()
-require("guess-indent").setup()
-require("satellite").setup()
 
 require("hover").setup({
 	init = function()
@@ -71,9 +71,11 @@ require("ufo").setup({
 		local sufWidth = vim.fn.strdisplaywidth(suffix)
 		local targetWidth = width - sufWidth
 		local curWidth = 0
+
 		for _, chunk in ipairs(virtText) do
 			local chunkText = chunk[1]
 			local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+
 			if targetWidth > curWidth + chunkWidth then
 				table.insert(newVirtText, chunk)
 			else
@@ -86,9 +88,12 @@ require("ufo").setup({
 				end
 				break
 			end
+
 			curWidth = curWidth + chunkWidth
 		end
+
 		table.insert(newVirtText, { suffix, "MoreMsg" })
+
 		return newVirtText
 	end,
 })

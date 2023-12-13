@@ -51,6 +51,7 @@ in {
 
         native_lsp = {
           enabled = true;
+          inlay_hints.background = true;
 
           virtual_text = {
             errors = ["italic"];
@@ -64,10 +65,6 @@ in {
             hints = ["underline"];
             warnings = ["underline"];
             information = ["underline"];
-          };
-
-          inlay_hints = {
-            background = true;
           };
         };
       };
@@ -206,13 +203,13 @@ in {
 
         servers = {
           eslint.enable = true;
+          gleam.enable = true;
           gopls.enable = true;
           hls.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
-          typst-lsp.enable = true;
           vls.enable = true;
           volar.enable = true;
         };
@@ -262,19 +259,17 @@ in {
         enable = true;
 
         experimental.ghost_text.hlgroup = "Comment";
-
-        sources = [
-          {name = "codeium";}
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "buffer";}
-        ];
-
-        window.completion.border = "rounded";
-
         mapping = {"<CR>" = "cmp.mapping.confirm()";};
         mappingPresets = ["insert"];
+        window.completion.border = "rounded";
+
+        sources = [
+          {name = "buffer";}
+          {name = "codeium";}
+          {name = "luasnip";}
+          {name = "nvim_lsp";}
+          {name = "path";}
+        ];
 
         formatting.format = lib.mkForce ''
           require('lspkind').cmp_format({
@@ -294,22 +289,15 @@ in {
       telescope = {
         enable = true;
 
-        extraOptions = {
-          pickers = {
-            buffers = {
-              show_all_buffers = true;
-              sort_lastused = true;
-              theme = "dropdown";
-              previewer = false;
-              mappings = {
-                i = {
-                  "<c-d>" = "delete_buffer";
-                };
-                n = {
-                  "d" = "delete_buffer";
-                };
-              };
-            };
+        extraOptions.pickers.buffers = {
+          previewer = false;
+          show_all_buffers = true;
+          sort_lastused = true;
+          theme = "dropdown";
+
+          mappings = {
+            i = {"<c-d>" = "delete_buffer";};
+            n = {"d" = "delete_buffer";};
           };
         };
       };
