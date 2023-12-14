@@ -289,6 +289,11 @@ in {
         '';
       };
 
+      nvim-jdtls = {
+        enable = true;
+        data = ".jdtls/workspace";
+      };
+
       rust-tools = {
         enable = true;
         server.check.command = "clippy";
