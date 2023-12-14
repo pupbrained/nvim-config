@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  jdtls-path,
   ...
 }:
 with pkgs; let
@@ -291,7 +292,7 @@ in {
 
       nvim-jdtls = {
         enable = true;
-        data = ".jdtls/workspace";
+        data = jdtls-path;
       };
 
       rust-tools = {
