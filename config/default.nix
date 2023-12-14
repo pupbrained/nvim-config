@@ -291,7 +291,10 @@ in {
 
       nvim-jdtls = {
         enable = true;
-        data = ".jdtls/workspace";
+        data =
+          if pkgs.stdenv.isDarwin
+          then "/Users/marshall/.jdtls/workspaces"
+          else "/home/marshall/.jdtls/workspaces";
       };
 
       rust-tools = {
