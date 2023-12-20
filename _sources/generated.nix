@@ -25,18 +25,6 @@
     };
     date = "2023-11-02";
   };
-  codeium-nvim = {
-    pname = "codeium-nvim";
-    version = "fd9c9030d402baf2a01cc9db08c39772c0a60324";
-    src = fetchFromGitHub {
-      owner = "Exafunction";
-      repo = "codeium.nvim";
-      rev = "fd9c9030d402baf2a01cc9db08c39772c0a60324";
-      fetchSubmodules = false;
-      sha256 = "sha256-xZ1S+8NgxOurbYqh7n3wR3cw+FTP8DyCdb5lg7X+8kw=";
-    };
-    date = "2023-11-28";
-  };
   conceal-nvim = {
     pname = "conceal-nvim";
     version = "1aff9fc5d1157aef1c7c88b6df6d6db21268d00a";
@@ -49,29 +37,17 @@
     };
     date = "2023-12-05";
   };
-  diagflow-nvim = {
-    pname = "diagflow-nvim";
-    version = "880aed23e3d7d4da76b56fdc7633e5069296d6cd";
-    src = fetchFromGitHub {
-      owner = "dgagn";
-      repo = "diagflow.nvim";
-      rev = "880aed23e3d7d4da76b56fdc7633e5069296d6cd";
-      fetchSubmodules = false;
-      sha256 = "sha256-ih54re8ZHMl4yJiwFBYCjhf47kqvubBnKDlLvmGOmo8=";
-    };
-    date = "2023-11-23";
-  };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
-    version = "a17b86f7c9640410c168f2421bd3753124d40603";
+    version = "882d1bc86d459fa8884398223c841fd09ea61b6b";
     src = fetchFromGitHub {
       owner = "shellRaining";
       repo = "hlchunk.nvim";
-      rev = "a17b86f7c9640410c168f2421bd3753124d40603";
+      rev = "882d1bc86d459fa8884398223c841fd09ea61b6b";
       fetchSubmodules = false;
-      sha256 = "sha256-7OCA/6xyoRKybfMDQ3G4fWu+lxarpbZPC6+dJYQaBuY=";
+      sha256 = "sha256-fvFvV7KAOo7xtOCjhGS5bDUzwd10DndAKs3++dunED8=";
     };
-    date = "2023-11-26";
+    date = "2023-12-11";
   };
   hoverhints-nvim = {
     pname = "hoverhints-nvim";
@@ -123,14 +99,14 @@
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
-    version = "41d8b52183df39096d5a2918467cd6266282f64b";
+    version = "b9f40cfba7909a5dbff21fb041b878b102465db9";
     src = fetchFromGitHub {
       owner = "altermo";
       repo = "ultimate-autopair.nvim";
-      rev = "41d8b52183df39096d5a2918467cd6266282f64b";
+      rev = "b9f40cfba7909a5dbff21fb041b878b102465db9";
       fetchSubmodules = false;
-      sha256 = "sha256-V2pFjC5GmyJGOEY00xN2svCbJjF3fjl7zA6mvUpNvs4=";
+      sha256 = "sha256-BTBcct3g90rdyuE2UeLtPQyAf4J2qxvd0TyQBTOimwE=";
     };
-    date = "2023-12-10";
+    date = "2023-12-15";
   };
 }
