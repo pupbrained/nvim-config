@@ -216,6 +216,7 @@ in {
           hls.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
+          ocamllsp.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
           vls.enable = true;
