@@ -2,10 +2,10 @@
   description = "A nixvim configuration";
 
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs";
     nixvim.url = "github:pupbrained/nixvim-ocamllsp";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    codeium.url = "github:jcdickinson/codeium.nvim";
   };
 
   outputs = {
@@ -19,8 +19,11 @@
   in
     flake-utils.lib.eachDefaultSystem (system: let
       nixvimLib = nixvim.lib.${system};
-      overlays = with inputs; [neovim-nightly-overlay.overlay codeium.overlays.${system}.default];
-      pkgs = import nixpkgs {inherit system overlays;};
+      overlays = with inputs; [neovim-nightly-overlay.overlay];
+      pkgs = import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
       nixvim' = nixvim.legacyPackages.${system};
       nvim = nixvim'.makeNixvimWithModule {
         inherit pkgs;

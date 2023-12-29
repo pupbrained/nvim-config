@@ -17,7 +17,9 @@ require("hlchunk").setup({
 		style = "#a6e3a1",
 	},
 	indent = {
-		style = "#a6e3a1",
+		style = {
+			{ fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") }
+		},
 	},
 	blank = {
 		enable = false,
@@ -102,3 +104,5 @@ vim.api.nvim_create_autocmd("User", {
 	once = true,
 	callback = vim.lsp.codelens.refresh,
 })
+
+vim.ui.select = require('dropbar.utils.menu').select

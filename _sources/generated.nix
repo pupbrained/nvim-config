@@ -75,15 +75,15 @@
   };
   satellite-nvim = {
     pname = "satellite-nvim";
-    version = "7911fa8137c77258ba509ba875ea52c6d59737e8";
+    version = "acb185e1475a19e2538ee517fb540b82db629887";
     src = fetchFromGitHub {
       owner = "lewis6991";
       repo = "satellite.nvim";
-      rev = "7911fa8137c77258ba509ba875ea52c6d59737e8";
+      rev = "acb185e1475a19e2538ee517fb540b82db629887";
       fetchSubmodules = false;
-      sha256 = "sha256-k+S1yGHewdXKj/LkiDddkAiEGcGRSyY54HFcNCqhgr8=";
+      sha256 = "sha256-ouxwJP1phzC2JVOWsC7zslkrb1rmBetMvr6fVfMo284=";
     };
-    date = "2023-10-06";
+    date = "2023-12-28";
   };
   statusline-lua = {
     pname = "statusline-lua";
@@ -99,14 +99,14 @@
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
-    version = "b9f40cfba7909a5dbff21fb041b878b102465db9";
+    version = "4f01418547c7e27c3aa779da8cc30c9998dc6843";
     src = fetchFromGitHub {
       owner = "altermo";
       repo = "ultimate-autopair.nvim";
-      rev = "b9f40cfba7909a5dbff21fb041b878b102465db9";
+      rev = "4f01418547c7e27c3aa779da8cc30c9998dc6843";
       fetchSubmodules = false;
-      sha256 = "sha256-BTBcct3g90rdyuE2UeLtPQyAf4J2qxvd0TyQBTOimwE=";
+      sha256 = "sha256-LQWKn122+aAflzrGzMhuUxHjkY6L5VzcfMfi3HQ7KSU=";
     };
-    date = "2023-12-15";
+    date = "2023-12-28";
   };
 }

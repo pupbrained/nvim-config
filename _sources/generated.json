@@ -121,7 +121,7 @@
     },
     "satellite-nvim": {
         "cargoLocks": null,
-        "date": "2023-10-06",
+        "date": "2023-12-28",
         "extract": null,
         "name": "satellite-nvim",
         "passthru": null,
@@ -133,11 +133,11 @@
             "name": null,
             "owner": "lewis6991",
             "repo": "satellite.nvim",
-            "rev": "7911fa8137c77258ba509ba875ea52c6d59737e8",
-            "sha256": "sha256-k+S1yGHewdXKj/LkiDddkAiEGcGRSyY54HFcNCqhgr8=",
+            "rev": "acb185e1475a19e2538ee517fb540b82db629887",
+            "sha256": "sha256-ouxwJP1phzC2JVOWsC7zslkrb1rmBetMvr6fVfMo284=",
             "type": "github"
         },
-        "version": "7911fa8137c77258ba509ba875ea52c6d59737e8"
+        "version": "acb185e1475a19e2538ee517fb540b82db629887"
     },
     "statusline-lua": {
         "cargoLocks": null,
@@ -161,7 +161,7 @@
     },
     "ultimate-autopair-nvim": {
         "cargoLocks": null,
-        "date": "2023-12-15",
+        "date": "2023-12-28",
         "extract": null,
         "name": "ultimate-autopair-nvim",
         "passthru": null,
@@ -173,10 +173,10 @@
             "name": null,
             "owner": "altermo",
             "repo": "ultimate-autopair.nvim",
-            "rev": "b9f40cfba7909a5dbff21fb041b878b102465db9",
-            "sha256": "sha256-BTBcct3g90rdyuE2UeLtPQyAf4J2qxvd0TyQBTOimwE=",
+            "rev": "4f01418547c7e27c3aa779da8cc30c9998dc6843",
+            "sha256": "sha256-LQWKn122+aAflzrGzMhuUxHjkY6L5VzcfMfi3HQ7KSU=",
             "type": "github"
         },
-        "version": "b9f40cfba7909a5dbff21fb041b878b102465db9"
+        "version": "4f01418547c7e27c3aa779da8cc30c9998dc6843"
     }
 }

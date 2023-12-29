@@ -177,6 +177,7 @@ in {
           rust = ["rustfmt"];
           typescript = ["eslint_d"];
           vue = ["eslint_d"];
+          ocaml = ["ocamlformat"];
         };
 
         extraOptions.format_on_save = {
