@@ -13,7 +13,9 @@ with pkgs; let
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   hoverhints-nvim = mkVimPlugin sources.hoverhints-nvim;
+  modes-nvim = mkVimPlugin sources.modes-nvim;
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
+  surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
 in {
   config = {
@@ -336,9 +338,11 @@ in {
       hover-nvim
       hoverhints-nvim
       lsp-lens-nvim
+      modes-nvim
       nerdcommenter
       nvim-ufo
       satellite-nvim
+      surround-ui-nvim
       tabout-nvim
       ultimate-autopair-nvim
       vim-closetag

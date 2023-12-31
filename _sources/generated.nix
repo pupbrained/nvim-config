@@ -73,6 +73,18 @@
     };
     date = "2023-12-07";
   };
+  modes-nvim = {
+    pname = "modes-nvim";
+    version = "4035a46aaabe43faf1b54740575af9dd5bb03809";
+    src = fetchFromGitHub {
+      owner = "mvllow";
+      repo = "modes.nvim";
+      rev = "4035a46aaabe43faf1b54740575af9dd5bb03809";
+      fetchSubmodules = false;
+      sha256 = "sha256-Kd2hf5obrPvCVLtRcFjLd75byyrB2o3uYCSEMW6IeCc=";
+    };
+    date = "2023-12-10";
+  };
   satellite-nvim = {
     pname = "satellite-nvim";
     version = "acb185e1475a19e2538ee517fb540b82db629887";
@@ -96,6 +108,18 @@
       sha256 = "sha256-F6VurC1Ukd3CwSdnTZX/9zjIL2VqojnqCnEDAJWn+os=";
     };
     date = "2023-10-31";
+  };
+  surround-ui-nvim = {
+    pname = "surround-ui-nvim";
+    version = "65c25088e8dbd1e098245de007498b93c694afb0";
+    src = fetchFromGitHub {
+      owner = "roobert";
+      repo = "surround-ui.nvim";
+      rev = "65c25088e8dbd1e098245de007498b93c694afb0";
+      fetchSubmodules = false;
+      sha256 = "sha256-7RrfLC1pEXstizHb1e0xy9WZS+YkcGnnEIQmh2TFZgk=";
+    };
+    date = "2023-09-09";
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";

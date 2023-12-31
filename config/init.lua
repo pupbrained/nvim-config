@@ -6,6 +6,12 @@ require("ultimate-autopair").setup()
 require("guess-indent").setup()
 require("satellite").setup()
 
+require("surround-ui").setup({
+	root_key = "ys"
+})
+
+require("modes").setup()
+
 require("hlchunk").setup({
 	chunk = {
 		style = {

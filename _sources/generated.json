@@ -119,6 +119,26 @@
         },
         "version": "48bb1a7e271424c15f3d588d54adc9b7c319d977"
     },
+    "modes-nvim": {
+        "cargoLocks": null,
+        "date": "2023-12-10",
+        "extract": null,
+        "name": "modes-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mvllow",
+            "repo": "modes.nvim",
+            "rev": "4035a46aaabe43faf1b54740575af9dd5bb03809",
+            "sha256": "sha256-Kd2hf5obrPvCVLtRcFjLd75byyrB2o3uYCSEMW6IeCc=",
+            "type": "github"
+        },
+        "version": "4035a46aaabe43faf1b54740575af9dd5bb03809"
+    },
     "satellite-nvim": {
         "cargoLocks": null,
         "date": "2023-12-28",
@@ -158,6 +178,26 @@
             "type": "github"
         },
         "version": "398881da0a6dad3a5fe0f0d3fbafe1280cb1ec43"
+    },
+    "surround-ui-nvim": {
+        "cargoLocks": null,
+        "date": "2023-09-09",
+        "extract": null,
+        "name": "surround-ui-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "roobert",
+            "repo": "surround-ui.nvim",
+            "rev": "65c25088e8dbd1e098245de007498b93c694afb0",
+            "sha256": "sha256-7RrfLC1pEXstizHb1e0xy9WZS+YkcGnnEIQmh2TFZgk=",
+            "type": "github"
+        },
+        "version": "65c25088e8dbd1e098245de007498b93c694afb0"
     },
     "ultimate-autopair-nvim": {
         "cargoLocks": null,

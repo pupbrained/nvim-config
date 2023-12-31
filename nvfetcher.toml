@@ -22,10 +22,6 @@ fetch.github = "j-morano/buffer_manager.nvim"
 src.git = "https://github.com/Jxstxs/conceal.nvim"
 fetch.github = "Jxstxs/conceal.nvim"
 
-#[diagflow-nvim]
-#src.git = "https://github.com/dgagn/diagflow.nvim"
-#fetch.github = "dgagn/diagflow.nvim"
-
 [hlchunk-nvim]
 src.git="https://github.com/shellRaining/hlchunk.nvim"
 fetch.github="shellRaining/hlchunk.nvim"
@@ -37,3 +33,11 @@ fetch.github="soulis-1256/hoverhints.nvim"
 [ultimate-autopair-nvim]
 src.git="https://github.com/altermo/ultimate-autopair.nvim"
 fetch.github="altermo/ultimate-autopair.nvim"
+
+[surround-ui-nvim]
+src.git = "https://github.com/roobert/surround-ui.nvim"
+fetch.github = "roobert/surround-ui.nvim"
+
+[modes-nvim]
+src.git = "https://github.com/mvllow/modes.nvim"
+fetch.github = "mvllow/modes.nvim"

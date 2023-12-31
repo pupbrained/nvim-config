@@ -6,6 +6,7 @@
     nixvim.url = "github:pupbrained/nixvim-ocamllsp";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = {
@@ -30,7 +31,14 @@
         module = config;
       };
     in {
-      formatter = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter.${system} = inputs.treefmt-nix.lib.mkWrapper pkgs {
+        projectRootFile = "flake.nix";
+        programs = {
+          alejandra.enable = true;
+          deadnix.enable = true;
+          stylua.enable = true;
+        };
+      };
 
       checks.default = nixvimLib.check.mkTestDerivationFromNvim {
         inherit nvim;
