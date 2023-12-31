@@ -6,6 +6,7 @@ require('ultimate-autopair').setup()
 require('guess-indent').setup()
 require('satellite').setup()
 require('savior').setup()
+require('tint').setup()
 
 require('toggleterm').setup({
   direction = 'float',

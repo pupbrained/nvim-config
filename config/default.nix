@@ -346,6 +346,7 @@ in {
       savior-nvim
       surround-ui-nvim
       tabout-nvim
+      tint-nvim
       ultimate-autopair-nvim
       veil-nvim
       vim-closetag
