@@ -41,3 +41,11 @@ fetch.github = "roobert/surround-ui.nvim"
 [modes-nvim]
 src.git = "https://github.com/mvllow/modes.nvim"
 fetch.github = "mvllow/modes.nvim"
+
+[savior-nvim]
+src.git = "https://github.com/willothy/savior.nvim"
+fetch.github = "willothy/savior.nvim"
+
+[veil-nvim]
+src.git = "https://github.com/willothy/veil.nvim"
+fetch.github = "willothy/veil.nvim"

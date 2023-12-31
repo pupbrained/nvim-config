@@ -159,6 +159,26 @@
         },
         "version": "acb185e1475a19e2538ee517fb540b82db629887"
     },
+    "savior-nvim": {
+        "cargoLocks": null,
+        "date": "2023-12-21",
+        "extract": null,
+        "name": "savior-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "willothy",
+            "repo": "savior.nvim",
+            "rev": "9c7df9cf02a6dd54d0ec300c0a9a7152740400b2",
+            "sha256": "sha256-ZUJrjHDvN4Mde4D6437kjXNx4YhdXWCda+nxkwPEpr8=",
+            "type": "github"
+        },
+        "version": "9c7df9cf02a6dd54d0ec300c0a9a7152740400b2"
+    },
     "statusline-lua": {
         "cargoLocks": null,
         "date": "2023-10-31",
@@ -218,5 +238,25 @@
             "type": "github"
         },
         "version": "4f01418547c7e27c3aa779da8cc30c9998dc6843"
+    },
+    "veil-nvim": {
+        "cargoLocks": null,
+        "date": "2023-12-25",
+        "extract": null,
+        "name": "veil-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "willothy",
+            "repo": "veil.nvim",
+            "rev": "88d5fd48e178a9996985e534cdeded0b2a421881",
+            "sha256": "sha256-nvYU6CWt9O45yQvDxqcXpwVVK4AsRiG/iu7U4twhEMY=",
+            "type": "github"
+        },
+        "version": "88d5fd48e178a9996985e534cdeded0b2a421881"
     }
 }

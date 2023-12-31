@@ -10,7 +10,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixvim,
     flake-utils,
@@ -31,7 +30,7 @@
         module = config;
       };
     in {
-      formatter.${system} = inputs.treefmt-nix.lib.mkWrapper pkgs {
+      formatter = inputs.treefmt-nix.lib.mkWrapper pkgs {
         projectRootFile = "flake.nix";
         programs = {
           alejandra.enable = true;
@@ -50,6 +49,7 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           nvfetcher
+          stylua
         ];
       };
     });

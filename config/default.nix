@@ -9,14 +9,15 @@ with pkgs; let
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
-  diagflow-nvim = mkVimPlugin sources.diagflow-nvim;
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   hoverhints-nvim = mkVimPlugin sources.hoverhints-nvim;
   modes-nvim = mkVimPlugin sources.modes-nvim;
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
+  savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
+  veil-nvim = mkVimPlugin sources.veil-nvim;
 in {
   config = {
     enableMan = false;
@@ -95,7 +96,6 @@ in {
       list = true;
       number = true;
       relativenumber = true;
-      shell = "bash";
       shiftwidth = 0;
       showmode = false;
       smarttab = true;
@@ -131,8 +131,6 @@ in {
       (mkNormalLeader "n" "Lspsaga diagnostic_jump_next" "Next Diagnostic")
       (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
       (mkNormalLeader "k" "lua require('hover').hover()" "Hover")
-      (mkMap "<C-t>" "<CMD>Lspsaga term_toggle<CR>" "n" "Toggle Terminal")
-      (mkMap "<C-t>" "<C-\\><C-n><CMD>Lspsaga term_toggle<CR>" "t" "Toggle Terminal")
       (mkMap "<Leader>f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "gK" "<CMD>lua require('hover').hover_select()<CR>" "n" "Hover (Select)")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
@@ -147,6 +145,7 @@ in {
       lspkind.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
+      toggleterm.enable = true;
       which-key.enable = true;
 
       bufferline = {
@@ -308,6 +307,7 @@ in {
 
       telescope = {
         enable = true;
+        extensions.file_browser.enable = true;
 
         extraOptions.pickers.buffers = {
           previewer = false;
@@ -333,6 +333,7 @@ in {
       codeium-nvim
       dressing-nvim
       dropbar-nvim
+      flatten-nvim
       guess-indent-nvim
       hlchunk-nvim
       hover-nvim
@@ -342,9 +343,11 @@ in {
       nerdcommenter
       nvim-ufo
       satellite-nvim
+      savior-nvim
       surround-ui-nvim
       tabout-nvim
       ultimate-autopair-nvim
+      veil-nvim
       vim-closetag
       vim-cool
       vim-haskellConcealPlus

@@ -97,6 +97,18 @@
     };
     date = "2023-12-28";
   };
+  savior-nvim = {
+    pname = "savior-nvim";
+    version = "9c7df9cf02a6dd54d0ec300c0a9a7152740400b2";
+    src = fetchFromGitHub {
+      owner = "willothy";
+      repo = "savior.nvim";
+      rev = "9c7df9cf02a6dd54d0ec300c0a9a7152740400b2";
+      fetchSubmodules = false;
+      sha256 = "sha256-ZUJrjHDvN4Mde4D6437kjXNx4YhdXWCda+nxkwPEpr8=";
+    };
+    date = "2023-12-21";
+  };
   statusline-lua = {
     pname = "statusline-lua";
     version = "398881da0a6dad3a5fe0f0d3fbafe1280cb1ec43";
@@ -132,5 +144,17 @@
       sha256 = "sha256-LQWKn122+aAflzrGzMhuUxHjkY6L5VzcfMfi3HQ7KSU=";
     };
     date = "2023-12-28";
+  };
+  veil-nvim = {
+    pname = "veil-nvim";
+    version = "88d5fd48e178a9996985e534cdeded0b2a421881";
+    src = fetchFromGitHub {
+      owner = "willothy";
+      repo = "veil.nvim";
+      rev = "88d5fd48e178a9996985e534cdeded0b2a421881";
+      fetchSubmodules = false;
+      sha256 = "sha256-nvYU6CWt9O45yQvDxqcXpwVVK4AsRiG/iu7U4twhEMY=";
+    };
+    date = "2023-12-25";
   };
 }
