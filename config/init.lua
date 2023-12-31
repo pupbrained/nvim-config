@@ -13,7 +13,7 @@ require('toggleterm').setup({
   float_opts = {
     border = 'curved',
   },
-  open_mapping = [[<c-t>]],
+  open_mapping = [[<C-t>]],
 })
 
 local saved_terminal
@@ -100,7 +100,14 @@ require('surround-ui').setup({
   root_key = 'ys',
 })
 
-require('modes').setup()
+require('modes').setup({
+  colors = {
+    copy = '#fab387',
+    delete = '#f38ba8',
+    insert = '#94e2d5',
+    visual = '#cba6f7',
+  },
+})
 
 require('hlchunk').setup({
   chunk = {
@@ -111,11 +118,6 @@ require('hlchunk').setup({
   },
   line_num = {
     style = '#a6e3a1',
-  },
-  indent = {
-    style = {
-      { fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID('Whitespace')), 'fg', 'gui') },
-    },
   },
   blank = {
     enable = false,
