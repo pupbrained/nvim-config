@@ -163,6 +163,17 @@ for _, ls in ipairs(language_servers) do
   })
 end
 
+local statuscol_builtin = require('statuscol.builtin')
+
+require('statuscol').setup({
+  relculright = true,
+  segments = {
+    { text = { statuscol_builtin.foldfunc }, click = 'v:lua.ScFa' },
+    { text = { '%s' }, click = 'v:lua.ScSa' },
+    { text = { statuscol_builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
+  },
+})
+
 require('ufo').setup({
   fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
     local newVirtText = {}

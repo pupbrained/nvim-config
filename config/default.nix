@@ -92,6 +92,7 @@ in {
       foldcolumn = "1";
       foldenable = true;
       foldlevel = 99;
+      foldlevelstart = 99;
       laststatus = 3;
       list = true;
       number = true;
@@ -344,6 +345,7 @@ in {
       nvim-ufo
       satellite-nvim
       savior-nvim
+      statuscol-nvim
       surround-ui-nvim
       tabout-nvim
       tint-nvim
