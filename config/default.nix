@@ -173,6 +173,7 @@ in {
         };
 
         formattersByFt = {
+          json = ["jq"];
           haskell = ["fourmolu"];
           lua = ["stylua"];
           nix = ["alejandra"];
