@@ -258,5 +258,25 @@
             "type": "github"
         },
         "version": "88d5fd48e178a9996985e534cdeded0b2a421881"
+    },
+    "vim-reason-plus": {
+        "cargoLocks": null,
+        "date": "2020-02-19",
+        "extract": null,
+        "name": "vim-reason-plus",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "reasonml-editor",
+            "repo": "vim-reason-plus",
+            "rev": "c11a2940f8f3e3915e472c366fe460b0fe008bac",
+            "sha256": "sha256-JDeWsuFNcAuN6HG41OT3LE3cFCBAccYZFsEZ+Ttnp+8=",
+            "type": "github"
+        },
+        "version": "c11a2940f8f3e3915e472c366fe460b0fe008bac"
     }
 }

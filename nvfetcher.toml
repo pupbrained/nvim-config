@@ -49,3 +49,7 @@ fetch.github = "willothy/savior.nvim"
 [veil-nvim]
 src.git = "https://github.com/willothy/veil.nvim"
 fetch.github = "willothy/veil.nvim"
+
+[vim-reason-plus]
+src.git = "https://github.com/reasonml-editor/vim-reason-plus"
+fetch.github = "reasonml-editor/vim-reason-plus"

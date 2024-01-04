@@ -18,6 +18,7 @@ with pkgs; let
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
+  vim-reason-plus = mkVimPlugin sources.vim-reason-plus;
 in {
   config = {
     enableMan = false;
@@ -166,6 +167,11 @@ in {
             "$FILENAME"
           ];
 
+          pretty-php.args = [
+            "-s2"
+            "$FILENAME"
+          ];
+
           rustfmt.args = [
             "--config"
             "unstable_features=true,tab_spaces=2,reorder_impl_items=true,indent_style=Block,normalize_comments=true,imports_granularity=Crate,imports_layout=HorizontalVertical,group_imports=StdExternalCrate"
@@ -181,6 +187,7 @@ in {
           typescript = ["eslint_d"];
           vue = ["eslint_d"];
           ocaml = ["ocamlformat"];
+          php = ["pretty-php"];
         };
 
         extraOptions.format_on_save = {
@@ -218,6 +225,7 @@ in {
           gleam.enable = true;
           gopls.enable = true;
           hls.enable = true;
+          intelephense.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           ocamllsp.enable = true;
@@ -355,6 +363,7 @@ in {
       vim-closetag
       vim-cool
       vim-haskellConcealPlus
+      vim-reason-plus
     ];
   };
 }

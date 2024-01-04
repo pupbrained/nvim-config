@@ -157,4 +157,16 @@
     };
     date = "2023-12-25";
   };
+  vim-reason-plus = {
+    pname = "vim-reason-plus";
+    version = "c11a2940f8f3e3915e472c366fe460b0fe008bac";
+    src = fetchFromGitHub {
+      owner = "reasonml-editor";
+      repo = "vim-reason-plus";
+      rev = "c11a2940f8f3e3915e472c366fe460b0fe008bac";
+      fetchSubmodules = false;
+      sha256 = "sha256-JDeWsuFNcAuN6HG41OT3LE3cFCBAccYZFsEZ+Ttnp+8=";
+    };
+    date = "2020-02-19";
+  };
 }
