@@ -24,6 +24,11 @@ in {
     enableMan = false;
     package = neovim-nightly;
 
+    viAlias = true;
+    vimAlias = true;
+
+    luaLoader.enable = true;
+
     extraConfigLua = builtins.readFile ./init.lua;
 
     colorschemes.catppuccin = {
