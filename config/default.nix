@@ -201,6 +201,11 @@ in {
         };
       };
 
+      instant = {
+        enable = true;
+        username = "mars";
+      };
+
       lsp = {
         enable = true;
 
