@@ -233,7 +233,6 @@ in {
           intelephense.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
-          ocamllsp.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
           vls.enable = true;
@@ -315,9 +314,9 @@ in {
           else "/home/marshall/.jdtls/workspaces";
       };
 
-      rust-tools = {
+      rustaceanvim = {
         enable = true;
-        server.check.command = "clippy";
+        server.settings.check.command = "clippy";
       };
 
       telescope = {

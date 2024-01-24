@@ -4,7 +4,7 @@
   inputs = {
     codeium.url = "github:jcdickinson/codeium.nvim";
     nixpkgs.url = "github:NixOS/nixpkgs";
-    nixvim.url = "github:pupbrained/nixvim-ocamllsp";
+    nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     treefmt-nix.url = "github:numtide/treefmt-nix";
