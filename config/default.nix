@@ -93,6 +93,7 @@ in {
       autoindent = true;
       cindent = true;
       completeopt = "menuone,menuone,noselect";
+      conceallevel = 2;
       expandtab = true;
       fillchars = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:";
       foldcolumn = "1";
@@ -317,6 +318,11 @@ in {
           if pkgs.stdenv.isDarwin
           then "/Users/marshall/.jdtls/workspaces"
           else "/home/marshall/.jdtls/workspaces";
+      };
+
+      obsidian = {
+        enable = true;
+        dir = "~/Documents/Obsidian\\ Vault";
       };
 
       rustaceanvim = {
