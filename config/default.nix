@@ -320,11 +320,6 @@ in {
           else "/home/marshall/.jdtls/workspaces";
       };
 
-      obsidian = {
-        enable = true;
-        dir = "~/Documents/Obsidian\\ Vault";
-      };
-
       rustaceanvim = {
         enable = true;
         server.settings.check.command = "clippy";
