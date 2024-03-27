@@ -1,4 +1,4 @@
-require('hoverhints').setup()
+require('eagle').setup()
 require('lsp-lens').setup()
 require('tabout').setup()
 require('codeium').setup()

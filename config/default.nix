@@ -9,9 +9,10 @@ with pkgs; let
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
+  boo-nvim = mkVimPlugin sources.boo-nvim;
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
-  hoverhints-nvim = mkVimPlugin sources.hoverhints-nvim;
+  eagle-nvim = mkVimPlugin sources.eagle-nvim;
   modes-nvim = mkVimPlugin sources.modes-nvim;
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
@@ -102,6 +103,7 @@ in {
       foldlevelstart = 99;
       laststatus = 3;
       list = true;
+      mousemoveevent = true;
       number = true;
       relativenumber = true;
       shiftwidth = 0;
@@ -138,9 +140,9 @@ in {
       (mkNormalLeader "d" "Lspsaga show_cursor_diagnostics" "Show Cursor Diagnostics")
       (mkNormalLeader "n" "Lspsaga diagnostic_jump_next" "Next Diagnostic")
       (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
-      (mkNormalLeader "k" "lua require('hover').hover()" "Hover")
+      (mkNormalLeader "k" "lua require('boo').boo()" "LSP Hover")
       (mkMap "<Leader>f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
-      (mkMap "gK" "<CMD>lua require('hover').hover_select()<CR>" "n" "Hover (Select)")
+      #(mkMap "gK" "<CMD>lua require('hover').hover_select()<CR>" "n" "Hover (Select)")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
     ];
 
@@ -289,11 +291,26 @@ in {
       cmp = {
         enable = true;
 
-        #experimental.ghost_text.hlgroup = "Comment";
-
         settings = {
+          experimental.ghost_text.hlgroup = "Comment";
           window.completion.border = "rounded";
-          mapping = {"<CR>" = "cmp.mapping.confirm()";};
+
+          mapping = {
+            __raw = ''
+              cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+              })
+            '';
+          };
+
+          snippet = {
+            expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+          };
+
           sources = [
             {name = "buffer";}
             {name = "codeium";}
@@ -301,6 +318,7 @@ in {
             {name = "nvim_lsp";}
             {name = "path";}
           ];
+
           formatting.format = lib.mkForce ''
             require('lspkind').cmp_format({
               mode = "symbol",
@@ -350,14 +368,15 @@ in {
 
     extraPlugins = with vimPlugins; [
       alternate-toggler-nvim
+      boo-nvim
       codeium-nvim
       dressing-nvim
       dropbar-nvim
       flatten-nvim
       guess-indent-nvim
       hlchunk-nvim
-      hover-nvim
-      hoverhints-nvim
+      #hover-nvim
+      eagle-nvim
       lsp-lens-nvim
       modes-nvim
       nerdcommenter

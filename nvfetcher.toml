@@ -26,9 +26,9 @@ fetch.github = "Jxstxs/conceal.nvim"
 src.git="https://github.com/shellRaining/hlchunk.nvim"
 fetch.github="shellRaining/hlchunk.nvim"
 
-[hoverhints-nvim]
-src.git="https://github.com/soulis-1256/hoverhints.nvim"
-fetch.github="soulis-1256/hoverhints.nvim"
+[eagle-nvim]
+src.git="https://github.com/soulis-1256/eagle.nvim"
+fetch.github="soulis-1256/eagle.nvim"
 
 [ultimate-autopair-nvim]
 src.git="https://github.com/altermo/ultimate-autopair.nvim"
@@ -53,3 +53,7 @@ fetch.github = "willothy/veil.nvim"
 [vim-reason-plus]
 src.git = "https://github.com/reasonml-editor/vim-reason-plus"
 fetch.github = "reasonml-editor/vim-reason-plus"
+
+[boo-nvim]
+src.git = "https://github.com/LukasPietzschmann/boo.nvim"
+fetch.github = "LukasPietzschmann/boo.nvim"
