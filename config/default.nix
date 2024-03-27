@@ -286,14 +286,14 @@ in {
         };
       };
 
-      nvim-cmp = {
+      cmp = {
         enable = true;
 
-        experimental.ghost_text.hlgroup = "Comment";
-        mapping = {"<CR>" = "cmp.mapping.confirm()";};
-        window.completion.border = "rounded";
+        #experimental.ghost_text.hlgroup = "Comment";
 
         settings = {
+          window.completion.border = "rounded";
+          mapping = {"<CR>" = "cmp.mapping.confirm()";};
           sources = [
             {name = "buffer";}
             {name = "codeium";}
@@ -301,16 +301,15 @@ in {
             {name = "nvim_lsp";}
             {name = "path";}
           ];
+          formatting.format = lib.mkForce ''
+            require('lspkind').cmp_format({
+              mode = "symbol",
+              maxwidth = 50,
+              ellipsis_char = '...',
+              symbol_map = { Codeium = "", }
+            })
+          '';
         };
-
-        formatting.format = lib.mkForce ''
-          require('lspkind').cmp_format({
-            mode = "symbol",
-            maxwidth = 50,
-            ellipsis_char = '...',
-            symbol_map = { Codeium = "", }
-          })
-        '';
       };
 
       nvim-jdtls = {
