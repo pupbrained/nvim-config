@@ -291,16 +291,17 @@ in {
 
         experimental.ghost_text.hlgroup = "Comment";
         mapping = {"<CR>" = "cmp.mapping.confirm()";};
-        mappingPresets = ["insert"];
         window.completion.border = "rounded";
 
-        sources = [
-          {name = "buffer";}
-          {name = "codeium";}
-          {name = "luasnip";}
-          {name = "nvim_lsp";}
-          {name = "path";}
-        ];
+        settings = {
+          sources = [
+            {name = "buffer";}
+            {name = "codeium";}
+            {name = "luasnip";}
+            {name = "nvim_lsp";}
+            {name = "path";}
+          ];
+        };
 
         formatting.format = lib.mkForce ''
           require('lspkind').cmp_format({
