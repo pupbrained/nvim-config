@@ -124,29 +124,29 @@ require('hlchunk').setup({
   },
 })
 
-require('hover').setup({
-  init = function()
-    require('hover.providers.lsp')
-    require('hover.providers.gh')
-    require('hover.providers.gh_user')
-    require('hover.providers.man')
-    require('hover.providers.dictionary')
-  end,
+--require('hover').setup({
+--  init = function()
+--    require('hover.providers.lsp')
+--    require('hover.providers.gh')
+--    require('hover.providers.gh_user')
+--    require('hover.providers.man')
+--    require('hover.providers.dictionary')
+--  end,
 
-  preview_opts = {
-    border = 'rounded',
-  },
+--  preview_opts = {
+--    border = 'rounded',
+--  },
 
-  preview_window = false,
+--  preview_window = false,
 
-  title = true,
+--  title = true,
 
-  mouse_providers = {
-    'LSP',
-  },
+--  mouse_providers = {
+--    'LSP',
+--  },
 
-  mouse_delay = 1000,
-})
+--  mouse_delay = 1000,
+--})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
