@@ -18,6 +18,7 @@ with pkgs; let
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
+  triptych-nvim = mkVimPlugin sources.triptych-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
   vim-reason-plus = mkVimPlugin sources.vim-reason-plus;
 in {
@@ -44,7 +45,6 @@ in {
         leap = true;
         mini.enabled = true;
         navic.enabled = true;
-        neotree = true;
         telescope.enabled = true;
         treesitter = true;
         treesitter_context = true;
@@ -134,7 +134,7 @@ in {
         options.desc = desc;
       };
     in [
-      (mkNormalLeader "e" "Neotree toggle" "Toggle NeoTree")
+      (mkNormalLeader "e" "Triptych" "Toggle File Explorer")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "a" "Lspsaga code_action" "Code Action")
       (mkNormalLeader "d" "Lspsaga show_cursor_diagnostics" "Show Cursor Diagnostics")
@@ -153,7 +153,6 @@ in {
       leap.enable = true;
       lsp-lines.enable = true;
       lspkind.enable = true;
-      neo-tree.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
       which-key.enable = true;
@@ -242,6 +241,7 @@ in {
           lua-ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
+          taplo.enable = true;
           tsserver.enable = true;
           vls.enable = true;
           volar.enable = true;
@@ -387,6 +387,7 @@ in {
       surround-ui-nvim
       tabout-nvim
       tint-nvim
+      triptych-nvim
       ultimate-autopair-nvim
       veil-nvim
       vim-closetag

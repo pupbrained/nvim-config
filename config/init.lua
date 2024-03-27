@@ -7,6 +7,7 @@ require('guess-indent').setup()
 require('satellite').setup()
 require('savior').setup()
 require('tint').setup()
+require('triptych').setup()
 
 require('toggleterm').setup({
   direction = 'float',

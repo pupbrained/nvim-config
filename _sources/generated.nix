@@ -145,6 +145,18 @@
     };
     date = "2023-09-09";
   };
+  triptych-nvim = {
+    pname = "triptych-nvim";
+    version = "57d144d9f516fbc118675695fc0f07edf1cbe58b";
+    src = fetchFromGitHub {
+      owner = "simonmclean";
+      repo = "triptych.nvim";
+      rev = "57d144d9f516fbc118675695fc0f07edf1cbe58b";
+      fetchSubmodules = false;
+      sha256 = "sha256-Vbi0Hg1McwaTW4YZRSCJm5N1SnWjAHFsSDlxkQKmsN8=";
+    };
+    date = "2024-02-28";
+  };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
     version = "6ecf7461d44513af89f8257f057fcc99e9297612";

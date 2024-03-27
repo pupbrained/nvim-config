@@ -23,16 +23,16 @@ src.git = "https://github.com/Jxstxs/conceal.nvim"
 fetch.github = "Jxstxs/conceal.nvim"
 
 [hlchunk-nvim]
-src.git="https://github.com/shellRaining/hlchunk.nvim"
-fetch.github="shellRaining/hlchunk.nvim"
+src.git = "https://github.com/shellRaining/hlchunk.nvim"
+fetch.github = "shellRaining/hlchunk.nvim"
 
 [eagle-nvim]
-src.git="https://github.com/soulis-1256/eagle.nvim"
-fetch.github="soulis-1256/eagle.nvim"
+src.git = "https://github.com/soulis-1256/eagle.nvim"
+fetch.github = "soulis-1256/eagle.nvim"
 
 [ultimate-autopair-nvim]
-src.git="https://github.com/altermo/ultimate-autopair.nvim"
-fetch.github="altermo/ultimate-autopair.nvim"
+src.git = "https://github.com/altermo/ultimate-autopair.nvim"
+fetch.github = "altermo/ultimate-autopair.nvim"
 
 [surround-ui-nvim]
 src.git = "https://github.com/roobert/surround-ui.nvim"
@@ -57,3 +57,7 @@ fetch.github = "reasonml-editor/vim-reason-plus"
 [boo-nvim]
 src.git = "https://github.com/LukasPietzschmann/boo.nvim"
 fetch.github = "LukasPietzschmann/boo.nvim"
+
+[triptych-nvim]
+src.git = "https://github.com/simonmclean/triptych.nvim"
+fetch.github = "simonmclean/triptych.nvim"

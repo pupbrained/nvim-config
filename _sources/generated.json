@@ -239,6 +239,26 @@
         },
         "version": "65c25088e8dbd1e098245de007498b93c694afb0"
     },
+    "triptych-nvim": {
+        "cargoLocks": null,
+        "date": "2024-02-28",
+        "extract": null,
+        "name": "triptych-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "simonmclean",
+            "repo": "triptych.nvim",
+            "rev": "57d144d9f516fbc118675695fc0f07edf1cbe58b",
+            "sha256": "sha256-Vbi0Hg1McwaTW4YZRSCJm5N1SnWjAHFsSDlxkQKmsN8=",
+            "type": "github"
+        },
+        "version": "57d144d9f516fbc118675695fc0f07edf1cbe58b"
+    },
     "ultimate-autopair-nvim": {
         "cargoLocks": null,
         "date": "2024-02-22",
