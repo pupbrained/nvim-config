@@ -190,8 +190,8 @@ in {
           lua = ["stylua"];
           nix = ["alejandra"];
           rust = ["rustfmt"];
-          typescript = ["eslint_d"];
-          vue = ["eslint_d"];
+          typescript = ["eslint"];
+          vue = ["eslint"];
           ocaml = ["ocamlformat"];
           php = ["pretty-php"];
         };
@@ -204,7 +204,7 @@ in {
 
       instant = {
         enable = true;
-        username = "mars";
+        settings.username = "mars";
       };
 
       lsp = {
