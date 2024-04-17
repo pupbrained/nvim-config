@@ -18,7 +18,6 @@ with pkgs; let
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
-  triptych-nvim = mkVimPlugin sources.triptych-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
   vim-reason-plus = mkVimPlugin sources.vim-reason-plus;
 in {
@@ -45,6 +44,7 @@ in {
         leap = true;
         mini.enabled = true;
         navic.enabled = true;
+        neotree = true;
         telescope.enabled = true;
         treesitter = true;
         treesitter_context = true;
@@ -90,7 +90,7 @@ in {
       };
     };
 
-    options = {
+    opts = {
       autoindent = true;
       cindent = true;
       completeopt = "menuone,menuone,noselect";
@@ -134,15 +134,15 @@ in {
         options.desc = desc;
       };
     in [
-      (mkNormalLeader "e" "Triptych" "Toggle File Explorer")
+      (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "a" "Lspsaga code_action" "Code Action")
       (mkNormalLeader "d" "Lspsaga show_cursor_diagnostics" "Show Cursor Diagnostics")
       (mkNormalLeader "n" "Lspsaga diagnostic_jump_next" "Next Diagnostic")
       (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
       (mkNormalLeader "k" "lua require('boo').boo()" "LSP Hover")
+      (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
       (mkMap "<Leader>f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
-      #(mkMap "gK" "<CMD>lua require('hover').hover_select()<CR>" "n" "Hover (Select)")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
     ];
 
@@ -153,6 +153,7 @@ in {
       leap.enable = true;
       lsp-lines.enable = true;
       lspkind.enable = true;
+      neo-tree.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
       which-key.enable = true;
@@ -236,7 +237,6 @@ in {
           eslint.enable = true;
           gleam.enable = true;
           gopls.enable = true;
-          hls.enable = true;
           intelephense.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
@@ -374,8 +374,8 @@ in {
       dropbar-nvim
       flatten-nvim
       guess-indent-nvim
+      haskell-tools-nvim
       hlchunk-nvim
-      #hover-nvim
       eagle-nvim
       lsp-lens-nvim
       modes-nvim
@@ -383,11 +383,11 @@ in {
       nvim-ufo
       satellite-nvim
       savior-nvim
+      ssr-nvim
       statuscol-nvim
       surround-ui-nvim
       tabout-nvim
       tint-nvim
-      triptych-nvim
       ultimate-autopair-nvim
       veil-nvim
       vim-closetag
