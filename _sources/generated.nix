@@ -51,15 +51,15 @@
   };
   eagle-nvim = {
     pname = "eagle-nvim";
-    version = "177957f60f6ca9c38b92328c8a51453f88a9d098";
+    version = "dd535a24930e75795569a211d442a49b7d401082";
     src = fetchFromGitHub {
       owner = "soulis-1256";
       repo = "eagle.nvim";
-      rev = "177957f60f6ca9c38b92328c8a51453f88a9d098";
+      rev = "dd535a24930e75795569a211d442a49b7d401082";
       fetchSubmodules = false;
-      sha256 = "sha256-fIcvYEzpERqZH5Xh8NQxrY3px4sAQO3V9De5jNTl3bQ=";
+      sha256 = "sha256-5ioY75O6stBLvv/5Xrwcfubhk0x1K4NiHTvUhIJS6HE=";
     };
-    date = "2024-02-25";
+    date = "2024-04-17";
   };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
@@ -144,18 +144,6 @@
       sha256 = "sha256-7RrfLC1pEXstizHb1e0xy9WZS+YkcGnnEIQmh2TFZgk=";
     };
     date = "2023-09-09";
-  };
-  triptych-nvim = {
-    pname = "triptych-nvim";
-    version = "57d144d9f516fbc118675695fc0f07edf1cbe58b";
-    src = fetchFromGitHub {
-      owner = "simonmclean";
-      repo = "triptych.nvim";
-      rev = "57d144d9f516fbc118675695fc0f07edf1cbe58b";
-      fetchSubmodules = false;
-      sha256 = "sha256-Vbi0Hg1McwaTW4YZRSCJm5N1SnWjAHFsSDlxkQKmsN8=";
-    };
-    date = "2024-02-28";
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";

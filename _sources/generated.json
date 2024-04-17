@@ -81,7 +81,7 @@
     },
     "eagle-nvim": {
         "cargoLocks": null,
-        "date": "2024-02-25",
+        "date": "2024-04-17",
         "extract": null,
         "name": "eagle-nvim",
         "passthru": null,
@@ -93,11 +93,11 @@
             "name": null,
             "owner": "soulis-1256",
             "repo": "eagle.nvim",
-            "rev": "177957f60f6ca9c38b92328c8a51453f88a9d098",
-            "sha256": "sha256-fIcvYEzpERqZH5Xh8NQxrY3px4sAQO3V9De5jNTl3bQ=",
+            "rev": "dd535a24930e75795569a211d442a49b7d401082",
+            "sha256": "sha256-5ioY75O6stBLvv/5Xrwcfubhk0x1K4NiHTvUhIJS6HE=",
             "type": "github"
         },
-        "version": "177957f60f6ca9c38b92328c8a51453f88a9d098"
+        "version": "dd535a24930e75795569a211d442a49b7d401082"
     },
     "hlchunk-nvim": {
         "cargoLocks": null,
@@ -238,26 +238,6 @@
             "type": "github"
         },
         "version": "65c25088e8dbd1e098245de007498b93c694afb0"
-    },
-    "triptych-nvim": {
-        "cargoLocks": null,
-        "date": "2024-02-28",
-        "extract": null,
-        "name": "triptych-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "simonmclean",
-            "repo": "triptych.nvim",
-            "rev": "57d144d9f516fbc118675695fc0f07edf1cbe58b",
-            "sha256": "sha256-Vbi0Hg1McwaTW4YZRSCJm5N1SnWjAHFsSDlxkQKmsN8=",
-            "type": "github"
-        },
-        "version": "57d144d9f516fbc118675695fc0f07edf1cbe58b"
     },
     "ultimate-autopair-nvim": {
         "cargoLocks": null,
