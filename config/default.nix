@@ -34,59 +34,62 @@ in {
 
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
-      terminalColors = true;
 
-      integrations = {
-        fidget = true;
-        gitsigns = true;
-        illuminate.enabled = true;
-        leap = true;
-        mini.enabled = true;
-        navic.enabled = true;
-        neotree = true;
-        telescope.enabled = true;
-        treesitter = true;
-        treesitter_context = true;
+      settings = {
+        flavour = "mocha";
+        terminalColors = true;
 
-        dap = {
-          enabled = true;
-          enable_ui = true;
-        };
+        integrations = {
+          fidget = true;
+          gitsigns = true;
+          illuminate.enabled = true;
+          leap = true;
+          mini.enabled = true;
+          navic.enabled = true;
+          neotree = true;
+          telescope.enabled = true;
+          treesitter = true;
+          treesitter_context = true;
 
-        indent_blankline = {
-          enabled = true;
-          colored_indent_levels = true;
-        };
-
-        native_lsp = {
-          enabled = true;
-          inlay_hints.background = true;
-
-          virtual_text = {
-            errors = ["italic"];
-            hints = ["italic"];
-            warnings = ["italic"];
-            information = ["italic"];
+          dap = {
+            enabled = true;
+            enable_ui = true;
           };
 
-          underlines = {
-            errors = ["underline"];
-            hints = ["underline"];
-            warnings = ["underline"];
-            information = ["underline"];
+          indent_blankline = {
+            enabled = true;
+            colored_indent_levels = true;
+          };
+
+          native_lsp = {
+            enabled = true;
+            inlay_hints.background = true;
+
+            virtual_text = {
+              errors = ["italic"];
+              hints = ["italic"];
+              warnings = ["italic"];
+              information = ["italic"];
+            };
+
+            underlines = {
+              errors = ["underline"];
+              hints = ["underline"];
+              warnings = ["underline"];
+              information = ["underline"];
+            };
           };
         };
-      };
 
-      styles = {
-        booleans = ["bold" "italic"];
-        conditionals = ["bold"];
-        functions = ["bold"];
-        keywords = ["italic"];
-        loops = ["bold"];
-        operators = ["bold"];
-        properties = ["italic"];
+        styles = {
+          booleans = ["bold" "italic"];
+          conditionals = ["bold"];
+          functions = ["bold"];
+          keywords = ["italic"];
+          loops = ["bold"];
+          operators = ["bold"];
+          properties = ["italic"];
+        };
       };
     };
 
@@ -345,9 +348,9 @@ in {
 
       telescope = {
         enable = true;
-        extensions.file_browser.enable = true;
+        extensions.file-browser.enable = true;
 
-        extraOptions.pickers.buffers = {
+        settings.pickers.buffers = {
           previewer = false;
           show_all_buffers = true;
           sort_lastused = true;
