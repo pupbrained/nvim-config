@@ -145,7 +145,7 @@ in {
       (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
       (mkNormalLeader "k" "lua require('boo').boo()" "LSP Hover")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
-      (mkMap "<Leader>f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
+      (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
     ];
 
