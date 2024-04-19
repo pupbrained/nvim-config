@@ -144,6 +144,8 @@ in {
         options.desc = desc;
       };
     in [
+      (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
+      (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
@@ -151,8 +153,6 @@ in {
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
-      (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
-      (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
     ];
 
     plugins = {
@@ -160,8 +160,8 @@ in {
       dap.enable = true;
       fidget.enable = true;
       leap.enable = true;
-      lsp-lines.enable = true;
       lspkind.enable = true;
+      lsp-lines.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
@@ -281,10 +281,7 @@ in {
       notify = {
         enable = true;
         maxWidth = 100;
-
-        extraOptions = {
-          render = "compact";
-        };
+        extraOptions.render = "compact";
       };
 
       cmp = {
