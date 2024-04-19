@@ -354,6 +354,7 @@ in {
           previewer = false;
           show_all_buffers = true;
           sort_lastused = true;
+          ignore_current_buffer = true;
           theme = "dropdown";
 
           mappings = {
