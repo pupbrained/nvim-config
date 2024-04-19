@@ -4,6 +4,13 @@
   ...
 }:
 with pkgs; let
+  username = "marshall";
+
+  homeDir =
+    if pkgs.stdenv.isDarwin
+    then "/Users/${username}"
+    else "/home/${username}";
+
   sources = callPackage ../_sources/generated.nix {};
 
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
@@ -333,12 +340,18 @@ in {
         };
       };
 
-      nvim-jdtls = {
-        enable = true;
-        data =
-          if pkgs.stdenv.isDarwin
-          then "/Users/marshall/.jdtls/workspaces"
-          else "/home/marshall/.jdtls/workspaces";
+      obsidian = let
+        dir = "${homeDir}/Documents/Obsidian\\ Vault";
+      in {
+        inherit dir;
+        enable = builtins.pathExists dir;
+      };
+
+      nvim-jdtls = let
+        data = "${homeDir}/.jdtls/workspaces";
+      in {
+        inherit data;
+        enable = builtins.pathExists data;
       };
 
       rustaceanvim = {
