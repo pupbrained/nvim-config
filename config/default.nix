@@ -337,7 +337,9 @@ in {
       obsidian = let
         dir = "${homeDir}/Documents/Obsidian\\ Vault";
       in {
-        inherit dir;
+        settings = {
+          inherit dir;
+        };
         enable = builtins.pathExists dir;
       };
 
