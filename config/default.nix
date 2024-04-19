@@ -144,13 +144,12 @@ in {
         options.desc = desc;
       };
     in [
-      (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
+      (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
-      (mkNormalLeader "a" "Lspsaga code_action" "Code Action")
-      (mkNormalLeader "d" "Lspsaga show_cursor_diagnostics" "Show Cursor Diagnostics")
-      (mkNormalLeader "n" "Lspsaga diagnostic_jump_next" "Next Diagnostic")
-      (mkNormalLeader "N" "Lspsaga diagnostic_jump_prev" "Previous Diagnostic")
+      (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "k" "lua require('boo').boo()" "LSP Hover")
+      (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
+      (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
@@ -256,11 +255,6 @@ in {
           vls.enable = true;
           volar.enable = true;
         };
-      };
-
-      lspsaga = {
-        enable = true;
-        lightbulb.sign = false;
       };
 
       lualine = {
