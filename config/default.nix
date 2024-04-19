@@ -183,10 +183,10 @@ in {
             "$FILENAME"
           ];
 
-          rustfmt.args = [
-            "--config"
-            "unstable_features=true,tab_spaces=2,reorder_impl_items=true,indent_style=Block,normalize_comments=true,imports_granularity=Crate,imports_layout=HorizontalVertical,group_imports=StdExternalCrate"
-          ];
+          #rustfmt.args = [
+          #  "--config"
+          #  "unstable_features=true,tab_spaces=2,reorder_impl_items=true,indent_style=Block,normalize_comments=true,imports_granularity=Crate,imports_layout=HorizontalVertical,group_imports=StdExternalCrate"
+          #];
         };
 
         formattersByFt = {
