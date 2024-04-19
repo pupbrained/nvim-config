@@ -373,6 +373,7 @@ in {
     };
 
     extraPlugins = with vimPlugins; [
+      actions-preview-nvim
       alternate-toggler-nvim
       boo-nvim
       codeium-nvim
