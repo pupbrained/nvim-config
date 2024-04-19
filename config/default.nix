@@ -139,6 +139,12 @@ in {
         options.desc = desc;
       };
 
+      mkNormal = key: action: desc: {
+        inherit key;
+        action = concatStrings ["<CMD>" action "<CR>"];
+        options.desc = desc;
+      };
+
       mkMap = key: action: mode: desc: {
         inherit key action mode;
         options.desc = desc;
@@ -146,6 +152,10 @@ in {
     in [
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
+      (mkNormal "gp" "Gitsigns preview_hunk" "Preview hunk")
+      (mkNormal "gr" "Gitsigns reset_hunk" "Reset hunk")
+      (mkNormal "gs" "Gitsigns stage_hunk" "Stage hunk")
+      (mkNormal "gu" "Gitsigns undo_stage_hunk" "Undo stage hunk")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
@@ -205,6 +215,14 @@ in {
         extraOptions.format_on_save = {
           timeout_ms = 1000;
           lsp_fallback = true;
+        };
+      };
+
+      gitsigns = {
+        enable = true;
+        settings = {
+          signcolumn = false;
+          numhl = true;
         };
       };
 

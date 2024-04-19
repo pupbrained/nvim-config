@@ -133,7 +133,7 @@ require('hlchunk').setup({
     },
   },
   line_num = {
-    style = '#a6e3a1',
+    enable = false,
   },
   blank = {
     enable = false,
