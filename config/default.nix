@@ -401,7 +401,6 @@ in {
       veil-nvim
       vim-closetag
       vim-cool
-      vim-haskellConcealPlus
       vim-reason-plus
     ];
   };
