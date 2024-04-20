@@ -156,6 +156,7 @@ in {
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
       (mkNormal "gs" "Gitsigns stage_hunk" "Stage Hunk")
       (mkNormal "gu" "Gitsigns undo_stage_hunk" "Undo Stage Hunk")
+      (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
@@ -430,6 +431,8 @@ in {
       hlchunk-nvim
       # LSP info on mouse-over
       hover-nvim
+      # Git integration
+      lazygit-nvim
       # Codelens
       lsp-lens-nvim
       # Line decorations
