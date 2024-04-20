@@ -163,7 +163,6 @@ in {
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "hs" "lua require('haskell-tools').hoogle.hoogle_signature()" "Hoogle Signature")
-      (mkNormalLeader "ea" "lua require('haskell-tools').lsp.buf_eval_all()" "Eval All")
       (mkNormalLeader "rr" "lua require('haskell-tools').repl.toggle()" "Toggle Repl for Package")
       (mkNormalLeader "rq" "lua require('haskell-tools').repl.quit()" "Quit Repl")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
