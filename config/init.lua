@@ -1,12 +1,25 @@
-require('eagle').setup()
 require('lsp-lens').setup()
 require('tabout').setup()
-require('codeium').setup()
 require('ultimate-autopair').setup()
 require('guess-indent').setup()
 require('satellite').setup()
 require('savior').setup()
 require('tint').setup()
+
+require('hover').setup({
+  init = function()
+    require('hover.providers.lsp')
+  end,
+  preview_opts = {
+    border = 'rounded',
+  },
+  preview_window = true,
+  title = false,
+  mouse_providers = {
+    'LSP',
+  },
+  mouse_delay = 500,
+})
 
 require('actions-preview').setup({
   telescope = {
@@ -166,37 +179,13 @@ require('statuscol').setup({
   },
 })
 
-require('ufo').setup({
-  fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
-    local newVirtText = {}
-    local suffix = (' 󰁂 %d '):format(endLnum - lnum)
-    local sufWidth = vim.fn.strdisplaywidth(suffix)
-    local targetWidth = width - sufWidth
-    local curWidth = 0
-
-    for _, chunk in ipairs(virtText) do
-      local chunkText = chunk[1]
-      local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-
-      if targetWidth > curWidth + chunkWidth then
-        table.insert(newVirtText, chunk)
-      else
-        chunkText = truncate(chunkText, targetWidth - curWidth)
-        local hlGroup = chunk[2]
-        table.insert(newVirtText, { chunkText, hlGroup })
-        chunkWidth = vim.fn.strdisplaywidth(chunkText)
-        if curWidth + chunkWidth < targetWidth then
-          suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
-        end
-        break
-      end
-
-      curWidth = curWidth + chunkWidth
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+      vim.lsp.inlay_hint.enable(ev.buf, true)
     end
-
-    table.insert(newVirtText, { suffix, 'MoreMsg' })
-
-    return newVirtText
   end,
 })
 
@@ -208,20 +197,4 @@ vim.api.nvim_create_autocmd('User', {
 
 vim.ui.select = require('dropbar.utils.menu').select
 
-local ht = require('haskell-tools')
-local bufnr = vim.api.nvim_get_current_buf()
-local opts = { noremap = true, silent = true, buffer = bufnr }
--- haskell-language-server relies heavily on codeLenses,
--- so auto-refresh (see advanced configuration) is enabled by default
-vim.keymap.set('n', '<space>cl', vim.lsp.codelens.run, opts)
--- Hoogle search for the type signature of the definition under the cursor
-vim.keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
--- Evaluate all code snippets
-vim.keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
--- Toggle a GHCi repl for the current package
-vim.keymap.set('n', '<leader>rr', ht.repl.toggle, opts)
--- Toggle a GHCi repl for the current buffer
-vim.keymap.set('n', '<leader>rf', function()
-  ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-end, opts)
-vim.keymap.set('n', '<leader>rq', ht.repl.quit, opts)
+vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = 'hover.nvim (mouse)' })

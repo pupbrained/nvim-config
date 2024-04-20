@@ -49,18 +49,6 @@
     };
     date = "2023-12-05";
   };
-  eagle-nvim = {
-    pname = "eagle-nvim";
-    version = "dd535a24930e75795569a211d442a49b7d401082";
-    src = fetchFromGitHub {
-      owner = "soulis-1256";
-      repo = "eagle.nvim";
-      rev = "dd535a24930e75795569a211d442a49b7d401082";
-      fetchSubmodules = false;
-      sha256 = "sha256-5ioY75O6stBLvv/5Xrwcfubhk0x1K4NiHTvUhIJS6HE=";
-    };
-    date = "2024-04-17";
-  };
   hlchunk-nvim = {
     pname = "hlchunk-nvim";
     version = "882d1bc86d459fa8884398223c841fd09ea61b6b";
@@ -72,6 +60,18 @@
       sha256 = "sha256-fvFvV7KAOo7xtOCjhGS5bDUzwd10DndAKs3++dunED8=";
     };
     date = "2023-12-11";
+  };
+  hover-nvim = {
+    pname = "hover-nvim";
+    version = "1084aa544477cf878d466cacaec0d8d4692c7360";
+    src = fetchFromGitHub {
+      owner = "lewis6991";
+      repo = "hover.nvim";
+      rev = "1084aa544477cf878d466cacaec0d8d4692c7360";
+      fetchSubmodules = false;
+      sha256 = "sha256-y+QNpt1yqmh12NwmAbl4vO73EDmHE2XgtUY5aiq0ADk=";
+    };
+    date = "2024-03-07";
   };
   lsp-lens-nvim = {
     pname = "lsp-lens-nvim";

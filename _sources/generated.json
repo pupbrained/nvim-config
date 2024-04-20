@@ -79,26 +79,6 @@
         },
         "version": "1aff9fc5d1157aef1c7c88b6df6d6db21268d00a"
     },
-    "eagle-nvim": {
-        "cargoLocks": null,
-        "date": "2024-04-17",
-        "extract": null,
-        "name": "eagle-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "soulis-1256",
-            "repo": "eagle.nvim",
-            "rev": "dd535a24930e75795569a211d442a49b7d401082",
-            "sha256": "sha256-5ioY75O6stBLvv/5Xrwcfubhk0x1K4NiHTvUhIJS6HE=",
-            "type": "github"
-        },
-        "version": "dd535a24930e75795569a211d442a49b7d401082"
-    },
     "hlchunk-nvim": {
         "cargoLocks": null,
         "date": "2023-12-11",
@@ -118,6 +98,26 @@
             "type": "github"
         },
         "version": "882d1bc86d459fa8884398223c841fd09ea61b6b"
+    },
+    "hover-nvim": {
+        "cargoLocks": null,
+        "date": "2024-03-07",
+        "extract": null,
+        "name": "hover-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lewis6991",
+            "repo": "hover.nvim",
+            "rev": "1084aa544477cf878d466cacaec0d8d4692c7360",
+            "sha256": "sha256-y+QNpt1yqmh12NwmAbl4vO73EDmHE2XgtUY5aiq0ADk=",
+            "type": "github"
+        },
+        "version": "1084aa544477cf878d466cacaec0d8d4692c7360"
     },
     "lsp-lens-nvim": {
         "cargoLocks": null,

@@ -16,17 +16,15 @@ with pkgs; let
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
-  boo-nvim = mkVimPlugin sources.boo-nvim;
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
-  eagle-nvim = mkVimPlugin sources.eagle-nvim;
+  hover-nvim = mkVimPlugin sources.hover-nvim;
   modes-nvim = mkVimPlugin sources.modes-nvim;
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
-  vim-reason-plus = mkVimPlugin sources.vim-reason-plus;
 in {
   config = {
     enableMan = false;
@@ -36,7 +34,6 @@ in {
     vimAlias = true;
 
     luaLoader.enable = true;
-
     extraConfigLua = builtins.readFile ./init.lua;
 
     colorschemes.catppuccin = {
@@ -70,7 +67,7 @@ in {
 
           native_lsp = {
             enabled = true;
-            inlay_hints.background = true;
+            inlay_hints.background = false;
 
             virtual_text = {
               errors = ["italic"];
@@ -124,7 +121,6 @@ in {
     };
 
     globals = {
-      NERDDefaultAlign = "left";
       closetag_filetypes = "html,xhtml,phtml,vue";
       mapleader = " ";
       neovide_cursor_animation_length = 2.5e-2;
@@ -152,26 +148,37 @@ in {
     in [
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
-      (mkNormal "gp" "Gitsigns preview_hunk" "Preview hunk")
-      (mkNormal "gr" "Gitsigns reset_hunk" "Reset hunk")
-      (mkNormal "gs" "Gitsigns stage_hunk" "Stage hunk")
-      (mkNormal "gu" "Gitsigns undo_stage_hunk" "Undo stage hunk")
-      (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
+      (mkMap "<C-_>" "<Plug>NERDCommenterToggle" ["n" "v"] "Comment Selected Lines")
+      (mkNormal "<leader><space>" "lua require('alternate-toggler').toggleAlternate()" "Toggle Boolean")
+      (mkNormal "<C-l>" "BufferLineCycleNext" "Next Buffer")
+      (mkNormal "<C-h>" "BufferLineCyclePrev" "Previous Buffer")
+      (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
+      (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
+      (mkNormal "gs" "Gitsigns stage_hunk" "Stage Hunk")
+      (mkNormal "gu" "Gitsigns undo_stage_hunk" "Undo Stage Hunk")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
-      (mkNormalLeader "k" "lua require('boo').boo()" "LSP Hover")
+      (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
+      (mkNormalLeader "hs" "lua require('haskell-tools').hoogle.hoogle_signature()" "Hoogle Signature")
+      (mkNormalLeader "ea" "lua require('haskell-tools').lsp.buf_eval_all()" "Eval All")
+      (mkNormalLeader "rr" "lua require('haskell-tools').repl.toggle()" "Toggle Repl for Package")
+      (mkNormalLeader "rq" "lua require('haskell-tools').repl.quit()" "Quit Repl")
+      (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
+      (mkNormalLeader "k" "lua require('hover').hover()" "LSP Hover")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
     ];
 
     plugins = {
       cmp-cmdline.enable = true;
+      codeium-nvim.enable = true;
       dap.enable = true;
       fidget.enable = true;
       leap.enable = true;
       lspkind.enable = true;
       lsp-lines.enable = true;
+      lualine.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
@@ -182,23 +189,54 @@ in {
         separatorStyle = "slope";
       };
 
+      cmp = {
+        enable = true;
+
+        settings = {
+          experimental.ghost_text.hlgroup = "Comment";
+          window.completion.border = "rounded";
+
+          mapping.__raw = ''
+            cmp.mapping.preset.insert({
+              ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+              ['<C-f>'] = cmp.mapping.scroll_docs(4),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.abort(),
+              ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            })
+          '';
+
+          snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+
+          sources = [
+            {name = "codeium";}
+            {name = "buffer";}
+            {name = "luasnip";}
+            {name = "nvim_lsp";}
+            {name = "path";}
+          ];
+
+          formatting.format = lib.mkForce ''
+            require('lspkind').cmp_format({
+              mode = "symbol",
+              maxwidth = 50,
+              ellipsis_char = '...',
+              symbol_map = { Codeium = "", }
+            })
+          '';
+        };
+      };
+
       conform-nvim = {
         enable = true;
 
-        formatters = {
-          fourmolu.args = [
-            "--indentation=2"
-            "--ghc-opt"
-            "-XImportQualifiedPost"
-            "--stdin-input-file"
-            "$FILENAME"
-          ];
-
-          pretty-php.args = [
-            "-s2"
-            "$FILENAME"
-          ];
-        };
+        formatters.fourmolu.args = [
+          "--indentation=2"
+          "--ghc-opt"
+          "-XImportQualifiedPost"
+          "--stdin-input-file"
+          "$FILENAME"
+        ];
 
         formattersByFt = {
           json = ["jq"];
@@ -208,8 +246,6 @@ in {
           rust = ["rustfmt"];
           typescript = ["eslint"];
           vue = ["eslint"];
-          ocaml = ["ocamlformat"];
-          php = ["pretty-php"];
         };
 
         extraOptions.format_on_save = {
@@ -257,21 +293,13 @@ in {
 
         servers = {
           eslint.enable = true;
-          gleam.enable = true;
-          gopls.enable = true;
-          intelephense.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
-          vls.enable = true;
           volar.enable = true;
         };
-      };
-
-      lualine = {
-        enable = true;
       };
 
       mini = {
@@ -302,55 +330,42 @@ in {
         extraOptions.render = "compact";
       };
 
-      cmp = {
+      nvim-ufo = {
         enable = true;
+        enableGetFoldVirtText = true;
+        foldVirtTextHandler = ''
+          function(virtText, lnum, endLnum, width, truncate)
+            local newVirtText = {}
+            local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+            local sufWidth = vim.fn.strdisplaywidth(suffix)
+            local targetWidth = width - sufWidth
+            local curWidth = 0
 
-        settings = {
-          experimental.ghost_text.hlgroup = "Comment";
-          window.completion.border = "rounded";
+            for _, chunk in ipairs(virtText) do
+              local chunkText = chunk[1]
+              local chunkWidth = vim.fn.strdisplaywidth(chunkText)
 
-          mapping = {
-            __raw = ''
-              cmp.mapping.preset.insert({
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-              })
-            '';
-          };
+              if targetWidth > curWidth + chunkWidth then
+                table.insert(newVirtText, chunk)
+              else
+                chunkText = truncate(chunkText, targetWidth - curWidth)
+                local hlGroup = chunk[2]
+                table.insert(newVirtText, { chunkText, hlGroup })
+                chunkWidth = vim.fn.strdisplaywidth(chunkText)
+                if curWidth + chunkWidth < targetWidth then
+                  suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+                end
+                break
+              end
 
-          snippet = {
-            expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-          };
+              curWidth = curWidth + chunkWidth
+            end
 
-          sources = [
-            {name = "buffer";}
-            {name = "codeium";}
-            {name = "luasnip";}
-            {name = "nvim_lsp";}
-            {name = "path";}
-          ];
+            table.insert(newVirtText, { suffix, 'MoreMsg' })
 
-          formatting.format = lib.mkForce ''
-            require('lspkind').cmp_format({
-              mode = "symbol",
-              maxwidth = 50,
-              ellipsis_char = '...',
-              symbol_map = { Codeium = "", }
-            })
-          '';
-        };
-      };
-
-      obsidian = let
-        dir = "${homeDir}/Documents/Obsidian\\ Vault";
-      in {
-        settings = {
-          inherit dir;
-        };
-        enable = builtins.pathExists dir;
+            return newVirtText
+          end
+        '';
       };
 
       nvim-jdtls = let
@@ -360,9 +375,15 @@ in {
         enable = builtins.pathExists data;
       };
 
+      obsidian = let
+        dir = "${homeDir}/Documents/Obsidian\\ Vault";
+      in {
+        settings = {inherit dir;};
+        enable = builtins.pathExists dir;
+      };
+
       rustaceanvim = {
         enable = true;
-        rustAnalyzerPackage = null;
         server.settings.check.command = "clippy";
       };
 
@@ -391,33 +412,52 @@ in {
     };
 
     extraPlugins = with vimPlugins; [
+      # Preview code actions
       actions-preview-nvim
+      # Toggle boolean values
       alternate-toggler-nvim
-      boo-nvim
-      codeium-nvim
+      # UI improvements
       dressing-nvim
+      # Breadcrumbs
       dropbar-nvim
+      # Open files from your terminal
       flatten-nvim
+      # Guess indentation
       guess-indent-nvim
+      # Haskell LSP improvements
       haskell-tools-nvim
+      # Highlight code blocks
       hlchunk-nvim
-      eagle-nvim
+      # LSP info on mouse-over
+      hover-nvim
+      # Codelens
       lsp-lens-nvim
+      # Line decorations
       modes-nvim
+      # Commenting
       nerdcommenter
-      nvim-ufo
+      # Scrollbar decorations
       satellite-nvim
+      # Autosave
       savior-nvim
+      # Structural search and replace
       ssr-nvim
+      # Status column
       statuscol-nvim
+      # Which-key integration for surround
       surround-ui-nvim
+      # Tab out of various enclosings
       tabout-nvim
+      # Dim inactive windows
       tint-nvim
+      # Auto-close pairs
       ultimate-autopair-nvim
+      # Dashboard
       veil-nvim
+      # Auto-close tags
       vim-closetag
+      # Better hlsearch
       vim-cool
-      vim-reason-plus
     ];
   };
 }
