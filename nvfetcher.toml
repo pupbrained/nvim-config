@@ -57,3 +57,7 @@ fetch.github = "reasonml-editor/vim-reason-plus"
 [boo-nvim]
 src.git = "https://github.com/LukasPietzschmann/boo.nvim"
 fetch.github = "LukasPietzschmann/boo.nvim"
+
+[rustaceanvim]
+src.git = "https://github.com/mrcjkb/rustaceanvim"
+fetch.github = "mrcjkb/rustaceanvim"

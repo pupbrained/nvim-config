@@ -97,6 +97,18 @@
     };
     date = "2023-12-10";
   };
+  rustaceanvim = {
+    pname = "rustaceanvim";
+    version = "d5a64d3a61f76bfeccc31a82235948a34044fd19";
+    src = fetchFromGitHub {
+      owner = "mrcjkb";
+      repo = "rustaceanvim";
+      rev = "d5a64d3a61f76bfeccc31a82235948a34044fd19";
+      fetchSubmodules = false;
+      sha256 = "sha256-kZVbOQK7b53FoeQz8mT5AMVKqML/va9oFMesD6KVYaM=";
+    };
+    date = "2024-04-20";
+  };
   satellite-nvim = {
     pname = "satellite-nvim";
     version = "40eb89743e3439c66192abfc31eb3280622a5d3c";

@@ -20,6 +20,7 @@ with pkgs; let
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   hover-nvim = mkVimPlugin sources.hover-nvim;
   modes-nvim = mkVimPlugin sources.modes-nvim;
+  rustaceanvim = mkVimPlugin sources.rustaceanvim;
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
@@ -384,6 +385,7 @@ in {
 
       rustaceanvim = {
         enable = true;
+        package = rustaceanvim;
         server.settings.check.command = "clippy";
       };
 

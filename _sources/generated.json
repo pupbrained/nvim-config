@@ -159,6 +159,26 @@
         },
         "version": "4035a46aaabe43faf1b54740575af9dd5bb03809"
     },
+    "rustaceanvim": {
+        "cargoLocks": null,
+        "date": "2024-04-20",
+        "extract": null,
+        "name": "rustaceanvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mrcjkb",
+            "repo": "rustaceanvim",
+            "rev": "d5a64d3a61f76bfeccc31a82235948a34044fd19",
+            "sha256": "sha256-kZVbOQK7b53FoeQz8mT5AMVKqML/va9oFMesD6KVYaM=",
+            "type": "github"
+        },
+        "version": "d5a64d3a61f76bfeccc31a82235948a34044fd19"
+    },
     "satellite-nvim": {
         "cargoLocks": null,
         "date": "2024-02-16",
