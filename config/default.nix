@@ -176,6 +176,7 @@ in {
     plugins = {
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
+      crates-nvim.enable = true;
       dap.enable = true;
       fidget.enable = true;
       leap.enable = true;
