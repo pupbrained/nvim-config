@@ -163,6 +163,7 @@ in {
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
+      (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "hs" "lua require('haskell-tools').hoogle.hoogle_signature()" "Hoogle Signature")
@@ -177,6 +178,23 @@ in {
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
       crates-nvim.enable = true;
+      crates-nvim.extraOptions = {
+        text = {
+          loading = " Loading";
+          version = " %s";
+          prerelease = " %s";
+          yanked = " %s";
+          nomatch = " No match";
+          upgrade = " %s";
+          error = " Error fetching crate";
+        };
+        popup = {
+          border = "rounded";
+        };
+        null_ls = {
+          enabled = true;
+        };
+      };
       dap.enable = true;
       fidget.enable = true;
       leap.enable = true;
@@ -218,6 +236,7 @@ in {
             {name = "luasnip";}
             {name = "nvim_lsp";}
             {name = "path";}
+            {name = "crates";}
           ];
 
           formatting.format = lib.mkForce ''
