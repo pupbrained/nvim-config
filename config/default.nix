@@ -160,6 +160,7 @@ in {
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "b" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
+      (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
