@@ -99,15 +99,15 @@
   };
   rustaceanvim = {
     pname = "rustaceanvim";
-    version = "d5a64d3a61f76bfeccc31a82235948a34044fd19";
+    version = "f7dbec708ad07a85abf0543e58fa2ec99cea7f95";
     src = fetchFromGitHub {
       owner = "mrcjkb";
       repo = "rustaceanvim";
-      rev = "d5a64d3a61f76bfeccc31a82235948a34044fd19";
+      rev = "f7dbec708ad07a85abf0543e58fa2ec99cea7f95";
       fetchSubmodules = false;
-      sha256 = "sha256-kZVbOQK7b53FoeQz8mT5AMVKqML/va9oFMesD6KVYaM=";
+      sha256 = "sha256-ctECmikTGj7BO+eyQvw7kyx/MtAwMRhmN4W+rJKo1A0=";
     };
-    date = "2024-04-20";
+    date = "2024-04-22";
   };
   satellite-nvim = {
     pname = "satellite-nvim";
@@ -156,6 +156,18 @@
       sha256 = "sha256-7RrfLC1pEXstizHb1e0xy9WZS+YkcGnnEIQmh2TFZgk=";
     };
     date = "2023-09-09";
+  };
+  trouble-nvim = {
+    pname = "trouble-nvim";
+    version = "b4b9a11b3578d510963f6f681fecb4631ae992c3";
+    src = fetchFromGitHub {
+      owner = "folke";
+      repo = "trouble.nvim";
+      rev = "b4b9a11b3578d510963f6f681fecb4631ae992c3";
+      fetchSubmodules = false;
+      sha256 = "sha256-TjQ8UiV1BqmAddhu9iu+X1HbmCS6SQoIOyXbe8gZRqo=";
+    };
+    date = "2024-04-22";
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";

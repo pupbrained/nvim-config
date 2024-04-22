@@ -24,6 +24,7 @@ with pkgs; let
   satellite-nvim = mkVimPlugin sources.satellite-nvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
+  trouble-nvim = mkVimPlugin sources.trouble-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
 in {
@@ -162,6 +163,7 @@ in {
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
+      (mkNormalLeader "ld" "Trouble diagnostics toggle" "Diagnostics")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
@@ -199,7 +201,6 @@ in {
       fidget.enable = true;
       leap.enable = true;
       lspkind.enable = true;
-      lsp-lines.enable = true;
       lualine.enable = true;
       luasnip.enable = true;
       neo-tree.enable = true;
@@ -433,6 +434,11 @@ in {
       treesitter = {
         enable = true;
         nixGrammars = true;
+      };
+
+      trouble = {
+        enable = true;
+        package = trouble-nvim;
       };
     };
 
