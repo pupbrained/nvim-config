@@ -201,6 +201,7 @@ in {
       lspkind.enable = true;
       lsp-lines.enable = true;
       lualine.enable = true;
+      luasnip.enable = true;
       neo-tree.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
