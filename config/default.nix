@@ -159,13 +159,24 @@ in {
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkMap "<C-_>" "<Plug>NERDCommenterToggle" ["n" "v"] "Comment Selected Lines")
-      (mkNormal "<leader><space>" "lua require('alternate-toggler').toggleAlternate()" "Toggle Boolean")
-      (mkNormal "<C-l>" "BufferLineCycleNext" "Next Buffer")
-      (mkNormal "<C-h>" "BufferLineCyclePrev" "Previous Buffer")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
       (mkNormal "gs" "Gitsigns stage_hunk" "Stage Hunk")
       (mkNormal "gu" "Gitsigns undo_stage_hunk" "Undo Stage Hunk")
+      (mkNormal "<C-h>" "lua require('smart-splits').resize_left()" "Resize Left")
+      (mkNormal "<C-j>" "lua require('smart-splits').resize_down()" "Resize Down")
+      (mkNormal "<C-k>" "lua require('smart-splits').resize_up()" "Resize Up")
+      (mkNormal "<C-l>" "lua require('smart-splits').resize_right()" "Resize Right")
+      (mkNormal "<A-h>" "lua require('smart-splits').move_cursor_left()" "Move Left")
+      (mkNormal "<A-j>" "lua require('smart-splits').move_cursor_down()" "Move Down")
+      (mkNormal "<A-k>" "lua require('smart-splits').move_cursor_up()" "Move Up")
+      (mkNormal "<A-l>" "lua require('smart-splits').move_cursor_right()" "Move Right")
+      (mkNormal "<A-\\>" "lua require('smart-splits').move_cursor_previous()" "Move To Previous")
+      (mkNormalLeader "<leader>h" "lua require('smart-splits').swap_buf_left()" "Move Left")
+      (mkNormalLeader "<leader>j" "lua require('smart-splits').swap_buf_down()" "Move Down")
+      (mkNormalLeader "<leader>k" "lua require('smart-splits').swap_buf_up()" "Move Up")
+      (mkNormalLeader "<leader>l" "lua require('smart-splits').swap_buf_right()" "Move Right")
+      (mkNormalLeader "t" "lua require('alternate-toggler').toggleAlternate()" "Toggle Alternate")
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "bb" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
@@ -206,12 +217,14 @@ in {
         };
       };
       dap.enable = true;
+      direnv.enable = true;
       fidget.enable = true;
       leap.enable = true;
       lspkind.enable = true;
       lualine.enable = true;
       luasnip.enable = true;
       neo-tree.enable = true;
+      smart-splits.enable = true;
       surround.enable = true;
       toggleterm.enable = true;
       which-key.enable = true;
@@ -339,7 +352,6 @@ in {
       mini = {
         enable = true;
         modules = {
-          move = {};
           trailspace = {};
         };
       };
