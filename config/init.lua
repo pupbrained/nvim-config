@@ -168,17 +168,6 @@ for _, ls in ipairs(language_servers) do
   })
 end
 
-local statuscol_builtin = require('statuscol.builtin')
-
-require('statuscol').setup({
-  relculright = true,
-  segments = {
-    { text = { statuscol_builtin.foldfunc }, click = 'v:lua.ScFa' },
-    { text = { '%s' }, click = 'v:lua.ScSa' },
-    { text = { statuscol_builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
-  },
-})
-
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -193,6 +182,33 @@ vim.api.nvim_create_autocmd('User', {
   pattern = 'LspAttached',
   once = true,
   callback = vim.lsp.codelens.refresh,
+})
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+    },
+  },
+  float = {
+    border = 'rounded',
+  },
+  virtual_text = {
+    prefix = function(diagnostic)
+      if diagnostic.severity == vim.diagnostic.severity.ERROR then
+        return ' '
+      elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+        return ' '
+      elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+        return ' '
+      else
+        return ' '
+      end
+    end,
+  },
 })
 
 vim.ui.select = require('dropbar.utils.menu').select

@@ -33,6 +33,11 @@ in {
     enableMan = false;
     package = neovim-nightly;
 
+    clipboard.providers = {
+      wl-copy.enable = true;
+      xclip.enable = true;
+    };
+
     viAlias = true;
     vimAlias = true;
 
@@ -80,10 +85,10 @@ in {
             };
 
             underlines = {
-              errors = ["underline"];
-              hints = ["underline"];
-              warnings = ["underline"];
-              information = ["underline"];
+              errors = ["undercurl"];
+              hints = ["undercurl"];
+              warnings = ["undercurl"];
+              information = ["undercurl"];
             };
           };
         };
@@ -118,9 +123,11 @@ in {
       relativenumber = true;
       shiftwidth = 0;
       showmode = false;
+      signcolumn = "no";
       smarttab = true;
       tabstop = 2;
       undofile = true;
+      wrap = true;
     };
 
     globals = {
@@ -164,7 +171,7 @@ in {
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
-      (mkNormalLeader "ld" "Trouble diagnostics toggle" "Diagnostics")
+      (mkNormalLeader "ld" "Trouble diagnostics focus" "Diagnostics")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
@@ -441,6 +448,27 @@ in {
       trouble = {
         enable = true;
         package = trouble-nvim;
+        settings = {
+          use_diagnostic_signs = true;
+          win = {
+            border = "rounded";
+            position = "right";
+            size = 0.3;
+          };
+          modes = {
+            diagnostics = {
+              title = "Diagnostics";
+              mode = "diagnostics";
+              focus = true;
+              preview = {
+                type = "split";
+                relative = "win";
+                position = "bottom";
+                size = 0.2;
+              };
+            };
+          };
+        };
       };
     };
 
@@ -477,8 +505,6 @@ in {
       savior-nvim
       # Structural search and replace
       ssr-nvim
-      # Status column
-      statuscol-nvim
       # Which-key integration for surround
       surround-ui-nvim
       # Tab out of various enclosings
