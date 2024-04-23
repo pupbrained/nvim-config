@@ -37,6 +37,18 @@
     };
     date = "2024-01-18";
   };
+  bufferline-nvim = {
+    pname = "bufferline-nvim";
+    version = "73540cb95f8d95aa1af3ed57713c6720c78af915";
+    src = fetchFromGitHub {
+      owner = "akinsho";
+      repo = "bufferline.nvim";
+      rev = "73540cb95f8d95aa1af3ed57713c6720c78af915";
+      fetchSubmodules = false;
+      sha256 = "sha256-bHlmaNXfZTlTm/8v48FwCde9ljZFLv25efYF5355bnw=";
+    };
+    date = "2024-04-22";
+  };
   conceal-nvim = {
     pname = "conceal-nvim";
     version = "1aff9fc5d1157aef1c7c88b6df6d6db21268d00a";

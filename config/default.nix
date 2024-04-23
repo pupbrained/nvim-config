@@ -16,6 +16,7 @@ with pkgs; let
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
+  bufferline-nvim = mkVimPlugin sources.bufferline-nvim;
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
   lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   hover-nvim = mkVimPlugin sources.hover-nvim;
@@ -210,6 +211,7 @@ in {
 
       bufferline = {
         enable = true;
+        package = bufferline-nvim;
         separatorStyle = "slope";
       };
 

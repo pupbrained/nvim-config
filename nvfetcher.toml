@@ -66,3 +66,9 @@ fetch.github = "mrcjkb/rustaceanvim"
 src.git = "https://github.com/folke/trouble.nvim"
 src.branch = "dev"
 fetch.github = "folke/trouble.nvim"
+
+[bufferline-nvim]
+src.git = "https://github.com/akinsho/bufferline.nvim"
+src.branch = "main"
+#src.rev = "f6f00d9ac1a51483ac78418f9e63126119a70709"
+fetch.github = "akinsho/bufferline.nvim"
