@@ -172,6 +172,7 @@ in {
       (mkNormal "<A-k>" "lua require('smart-splits').move_cursor_up()" "Move Up")
       (mkNormal "<A-l>" "lua require('smart-splits').move_cursor_right()" "Move Right")
       (mkNormal "<A-\\>" "lua require('smart-splits').move_cursor_previous()" "Move To Previous")
+      (mkNormal "<S-Tab>" "BufferLineCycleNext" "Next Buffer")
       (mkNormalLeader "<leader>h" "lua require('smart-splits').swap_buf_left()" "Move Left")
       (mkNormalLeader "<leader>j" "lua require('smart-splits').swap_buf_down()" "Move Down")
       (mkNormalLeader "<leader>k" "lua require('smart-splits').swap_buf_up()" "Move Up")
