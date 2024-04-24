@@ -541,11 +541,19 @@ in {
           on_open = ''
             function(win)
               vim.cmd('DisableHL')
+
+              if vim.g.neovide then
+                vim.o.guifont = "Maple Mono NF:h16"
+              end
             end
           '';
           on_close = ''
             function()
               vim.cmd('EnableHL')
+
+              if vim.g.neovide then
+                vim.o.guifont = "Maple Mono NF:h11"
+              end
             end
           '';
           plugins = {
