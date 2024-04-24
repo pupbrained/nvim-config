@@ -184,6 +184,7 @@ in {
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
       (mkNormalLeader "ld" "Trouble diagnostics focus" "Diagnostics")
+      (mkNormalLeader "ld" "Trouble lsp_references focus" "Diagnostics")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
@@ -431,7 +432,7 @@ in {
 
       rustaceanvim = {
         enable = true;
-        package = rustaceanvim;
+        #package = rustaceanvim;
         server.settings.check.command = "clippy";
       };
 

@@ -75,15 +75,15 @@
   };
   hover-nvim = {
     pname = "hover-nvim";
-    version = "1084aa544477cf878d466cacaec0d8d4692c7360";
+    version = "ebdc4c0f967bb36b70bb27763397dd71064c2067";
     src = fetchFromGitHub {
       owner = "lewis6991";
       repo = "hover.nvim";
-      rev = "1084aa544477cf878d466cacaec0d8d4692c7360";
+      rev = "ebdc4c0f967bb36b70bb27763397dd71064c2067";
       fetchSubmodules = false;
-      sha256 = "sha256-y+QNpt1yqmh12NwmAbl4vO73EDmHE2XgtUY5aiq0ADk=";
+      sha256 = "sha256-5yqELR7AUDdPQSnUZpODN0K+SODAmFm3KtFZMW2d8yE=";
     };
-    date = "2024-03-07";
+    date = "2024-04-23";
   };
   lsp-lens-nvim = {
     pname = "lsp-lens-nvim";
