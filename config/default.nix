@@ -23,10 +23,9 @@ with pkgs; let
   modes-nvim = mkVimPlugin sources.modes-nvim;
   rustaceanvim = mkVimPlugin sources.rustaceanvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
-  surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   trouble-nvim = mkVimPlugin sources.trouble-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
-  wtf = mkVimPlugin sources.wtf-nvim;
+  wtf-nvim = mkVimPlugin sources.wtf-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
 in {
   config = {
@@ -187,10 +186,11 @@ in {
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
       (mkNormalLeader "d" "lua vim.diagnostic.open_float()" "Show Line Diagnostics")
-      (mkNormalLeader "lf" "Trouble diagnostics" "Show File Diagnostics")
-      (mkNormalLeader "ld" "Trouble lsp_definitions" "LSP Definitions")
+      (mkNormalLeader "ld" "Trouble diagnostics" "Show File Diagnostics")
+      (mkNormalLeader "lf" "Trouble lsp_definitions" "LSP Definitions")
       (mkNormalLeader "ls" "Trouble lsp_document_symbols" "Symbols")
       (mkNormalLeader "lr" "Trouble lsp_references" "References")
+      (mkNormalLeader "lt" "Trouble todo" "Todos")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "r" "lua vim.lsp.buf.rename()" "Rename")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
@@ -213,7 +213,9 @@ in {
       neo-tree.enable = true;
       smart-splits.enable = true;
       surround.enable = true;
+      todo-comments.enable = true;
       toggleterm.enable = true;
+      twilight.enable = true;
       which-key.enable = true;
 
       bufferline = {
@@ -440,6 +442,47 @@ in {
         package = rustaceanvim;
       };
 
+      statuscol = {
+        enable = true;
+        settings = {
+          relculright = true;
+
+          segments = [
+            {
+              text = ["%s"];
+              click = "v:lua.ScSa";
+            }
+            {
+              text = [
+                {
+                  __raw = "require('statuscol.builtin').lnumfunc";
+                }
+              ];
+              click = "v:lua.ScLa";
+            }
+            {
+              text = [
+                " "
+                {
+                  __raw = "require('statuscol.builtin').foldfunc";
+                }
+                " "
+              ];
+              condition = [
+                {
+                  __raw = "require('statuscol.builtin').not_empty";
+                }
+                true
+                {
+                  __raw = "require('statuscol.builtin').not_empty";
+                }
+              ];
+              click = "v:lua.ScFa";
+            }
+          ];
+        };
+      };
+
       telescope = {
         enable = true;
         extensions.file-browser.enable = true;
@@ -471,7 +514,6 @@ in {
           focus = true;
           win = {
             border = "rounded";
-            position = "right";
             size = 0.2;
           };
           modes = {
@@ -481,10 +523,34 @@ in {
               preview = {
                 type = "split";
                 relative = "win";
-                position = "bottom";
-                size = 0.2;
+                position = "right";
+                size = 0.4;
               };
             };
+          };
+        };
+      };
+
+      zen-mode = {
+        enable = true;
+        settings = {
+          window = {
+            width = 0.7;
+            options.foldcolumn = "0";
+          };
+          on_open = ''
+            function(win)
+              vim.cmd('DisableHL')
+            end
+          '';
+          on_close = ''
+            function()
+              vim.cmd('EnableHL')
+            end
+          '';
+          plugins = {
+            gitsigns.enabled = true;
+            wezterm.enabled = true;
           };
         };
       };
@@ -521,8 +587,6 @@ in {
       savior-nvim
       # Structural search and replace
       ssr-nvim
-      # Which-key integration for surround
-      surround-ui-nvim
       # Tab out of various enclosings
       tabout-nvim
       # Dim inactive windows
@@ -536,7 +600,7 @@ in {
       # Better hlsearch
       vim-cool
       # Diagnostic Debugging
-      wtf
+      wtf-nvim
     ];
   };
 }

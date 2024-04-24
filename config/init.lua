@@ -137,10 +137,6 @@ require('veil').setup({
   },
 })
 
-require('surround-ui').setup({
-  root_key = 'ys',
-})
-
 require('modes').setup({
   colors = {
     copy = '#fab387',

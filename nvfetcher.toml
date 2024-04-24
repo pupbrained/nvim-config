@@ -22,10 +22,6 @@ fetch.github = "lewis6991/hover.nvim"
 src.git = "https://github.com/altermo/ultimate-autopair.nvim"
 fetch.github = "altermo/ultimate-autopair.nvim"
 
-[surround-ui-nvim]
-src.git = "https://github.com/roobert/surround-ui.nvim"
-fetch.github = "roobert/surround-ui.nvim"
-
 [modes-nvim]
 src.git = "https://github.com/mvllow/modes.nvim"
 fetch.github = "mvllow/modes.nvim"
