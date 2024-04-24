@@ -133,6 +133,8 @@ in {
     globals = {
       closetag_filetypes = "html,xhtml,phtml,vue";
       mapleader = " ";
+      neovide_refresh_rate = 165;
+      neovide_floating_blur = false;
       neovide_cursor_animation_length = 2.5e-2;
       neovide_cursor_vfx_mode = "railgun";
       rust_recommended_style = false;
@@ -159,6 +161,7 @@ in {
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkMap "<C-_>" "<Plug>NERDCommenterToggle" ["n" "v"] "Comment Selected Lines")
+      (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
       (mkNormal "gs" "Gitsigns stage_hunk" "Stage Hunk")
@@ -184,7 +187,7 @@ in {
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
       (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
       (mkNormalLeader "ld" "Trouble diagnostics focus" "Diagnostics")
-      (mkNormalLeader "ld" "Trouble lsp_references focus" "Diagnostics")
+      (mkNormalLeader "lr" "Trouble lsp_references focus" "Diagnostics")
       (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
@@ -464,6 +467,7 @@ in {
         package = trouble-nvim;
         settings = {
           use_diagnostic_signs = true;
+          focus = true;
           win = {
             border = "rounded";
             position = "right";
@@ -473,7 +477,6 @@ in {
             diagnostics = {
               title = "Diagnostics";
               mode = "diagnostics";
-              focus = true;
               preview = {
                 type = "split";
                 relative = "win";
