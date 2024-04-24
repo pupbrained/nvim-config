@@ -49,6 +49,7 @@
 
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          nvim
           nvfetcher
           stylua
         ];

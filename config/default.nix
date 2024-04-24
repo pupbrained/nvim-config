@@ -49,7 +49,7 @@ in {
 
       settings = {
         flavour = "mocha";
-        terminalColors = true;
+        term_colors = true;
 
         integrations = {
           fidget = true;
@@ -135,6 +135,7 @@ in {
       mapleader = " ";
       neovide_refresh_rate = 165;
       neovide_floating_blur = false;
+      neovide_floating_shadow = false;
       neovide_cursor_animation_length = 2.5e-2;
       neovide_cursor_vfx_mode = "railgun";
       rust_recommended_style = false;
@@ -185,8 +186,8 @@ in {
       (mkNormalLeader "bb" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
-      (mkNormalLeader "d" "Trouble lsp_definitions" "Go to Definition")
-      (mkNormalLeader "ld" "Trouble diagnostics" "Diagnostics")
+      (mkNormalLeader "d" "lua vim.diagnostic.open_float()" "Show Diagnostics")
+      (mkNormalLeader "ld" "Trouble lsp_definitions" "LSP Definitions")
       (mkNormalLeader "ls" "Trouble lsp_document_symbols" "Symbols")
       (mkNormalLeader "lr" "Trouble lsp_references" "References")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
@@ -436,7 +437,6 @@ in {
       rustaceanvim = {
         enable = true;
         package = rustaceanvim;
-        server.settings.check.command = "clippy";
       };
 
       telescope = {
