@@ -543,7 +543,7 @@ in {
               vim.cmd('DisableHL')
 
               if vim.g.neovide then
-                vim.o.guifont = "Maple Mono NF:h16"
+                vim.g.neovide_scale_factor = 1.5
               end
             end
           '';
@@ -552,7 +552,7 @@ in {
               vim.cmd('EnableHL')
 
               if vim.g.neovide then
-                vim.o.guifont = "Maple Mono NF:h11"
+                vim.g.neovide_scale_factor = 1
               end
             end
           '';
