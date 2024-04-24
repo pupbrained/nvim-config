@@ -2,9 +2,23 @@ require('lsp-lens').setup()
 require('tabout').setup()
 require('ultimate-autopair').setup()
 require('guess-indent').setup()
---require('satellite').setup()
 require('savior').setup()
-require('tint').setup()
+
+require('wtf').setup({
+  openai_api_key = 'awawa',
+  base_url = 'http://localhost:3040/v1',
+  search_engine = 'kagi',
+})
+
+require('tint').setup({
+  window_ignore_function = function(winid)
+    local bufid = vim.api.nvim_win_get_buf(winid)
+    local buftype = vim.api.nvim_buf_get_option(bufid, 'buftype')
+    local floating = vim.api.nvim_win_get_config(winid).relative ~= ''
+
+    return buftype == 'nofile' or floating
+  end,
+})
 
 require('hover').setup({
   init = function()
@@ -39,9 +53,7 @@ require('actions-preview').setup({
 
 require('toggleterm').setup({
   direction = 'float',
-  float_opts = {
-    border = 'curved',
-  },
+  float_opts = { border = 'curved' },
   open_mapping = [[<C-t>]],
 })
 
@@ -140,6 +152,11 @@ require('modes').setup({
 
 require('hlchunk').setup({
   chunk = {
+    exclude_filetypes = {
+      ['neo-tree'] = true,
+      trouble = true,
+      toml = true,
+    },
     style = {
       { fg = '#a6e3a1' },
       { fg = '#313244' },

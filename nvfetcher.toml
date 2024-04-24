@@ -6,18 +6,6 @@ fetch.github = "rmagatti/alternate-toggler"
 src.git = "https://github.com/VidocqH/lsp-lens.nvim"
 fetch.github = "VidocqH/lsp-lens.nvim"
 
-[statusline-lua]
-src.git = "https://github.com/pupbrained/statusline.lua"
-fetch.github = "pupbrained/statusline.lua"
-
-[satellite-nvim]
-src.git = "https://github.com/lewis6991/satellite.nvim"
-fetch.github = "lewis6991/satellite.nvim"
-
-[buffer-manager-nvim]
-src.git = "https://github.com/j-morano/buffer_manager.nvim"
-fetch.github = "j-morano/buffer_manager.nvim"
-
 [conceal-nvim]
 src.git = "https://github.com/Jxstxs/conceal.nvim"
 fetch.github = "Jxstxs/conceal.nvim"
@@ -50,14 +38,6 @@ fetch.github = "willothy/savior.nvim"
 src.git = "https://github.com/willothy/veil.nvim"
 fetch.github = "willothy/veil.nvim"
 
-[vim-reason-plus]
-src.git = "https://github.com/reasonml-editor/vim-reason-plus"
-fetch.github = "reasonml-editor/vim-reason-plus"
-
-[boo-nvim]
-src.git = "https://github.com/LukasPietzschmann/boo.nvim"
-fetch.github = "LukasPietzschmann/boo.nvim"
-
 [rustaceanvim]
 src.git = "https://github.com/mrcjkb/rustaceanvim"
 fetch.github = "mrcjkb/rustaceanvim"
@@ -70,5 +50,8 @@ fetch.github = "folke/trouble.nvim"
 [bufferline-nvim]
 src.git = "https://github.com/akinsho/bufferline.nvim"
 src.branch = "main"
-#src.rev = "f6f00d9ac1a51483ac78418f9e63126119a70709"
 fetch.github = "akinsho/bufferline.nvim"
+
+[wtf-nvim]
+src.git = "https://github.com/pupbrained/wtf.nvim"
+fetch.github = "pupbrained/wtf.nvim"

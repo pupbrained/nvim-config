@@ -13,30 +13,6 @@
     };
     date = "2023-08-17";
   };
-  boo-nvim = {
-    pname = "boo-nvim";
-    version = "8384bc02d92896781c6d6c79af1b0ffadc23c728";
-    src = fetchFromGitHub {
-      owner = "LukasPietzschmann";
-      repo = "boo.nvim";
-      rev = "8384bc02d92896781c6d6c79af1b0ffadc23c728";
-      fetchSubmodules = false;
-      sha256 = "sha256-FSPJHWpvkw8wY1h+h4pdpS9ChyZOO+/XQqmPvm0iKSI=";
-    };
-    date = "2024-03-10";
-  };
-  buffer-manager-nvim = {
-    pname = "buffer-manager-nvim";
-    version = "9cd0e34522d96d08817828f1e9fd3379f27efb73";
-    src = fetchFromGitHub {
-      owner = "j-morano";
-      repo = "buffer_manager.nvim";
-      rev = "9cd0e34522d96d08817828f1e9fd3379f27efb73";
-      fetchSubmodules = false;
-      sha256 = "sha256-YL+ypkQAkEbhbOZedD+9frr+5nMBXjEnLCYroeLGNYM=";
-    };
-    date = "2024-01-18";
-  };
   bufferline-nvim = {
     pname = "bufferline-nvim";
     version = "73540cb95f8d95aa1af3ed57713c6720c78af915";
@@ -121,41 +97,17 @@
     };
     date = "2024-04-22";
   };
-  satellite-nvim = {
-    pname = "satellite-nvim";
-    version = "40eb89743e3439c66192abfc31eb3280622a5d3c";
-    src = fetchFromGitHub {
-      owner = "lewis6991";
-      repo = "satellite.nvim";
-      rev = "40eb89743e3439c66192abfc31eb3280622a5d3c";
-      fetchSubmodules = false;
-      sha256 = "sha256-Ml4TjuothhuWaYPcupKWUG1HUw/oJ1zfUzZRCf+pI/4=";
-    };
-    date = "2024-02-16";
-  };
   savior-nvim = {
     pname = "savior-nvim";
-    version = "1df5afb930a3a97aec87bbb99b5063e165adc4b0";
+    version = "658dd8f169a5c0ed05d2c270d36fcaa87b685a3d";
     src = fetchFromGitHub {
       owner = "willothy";
       repo = "savior.nvim";
-      rev = "1df5afb930a3a97aec87bbb99b5063e165adc4b0";
+      rev = "658dd8f169a5c0ed05d2c270d36fcaa87b685a3d";
       fetchSubmodules = false;
-      sha256 = "sha256-Qs7SXfm0kS0Tlmp3uSQYZMSUp0vsYiUhdqzbPC1Srvg=";
+      sha256 = "sha256-iVTVEAIgZW0LZl00nzJPjvctECI3QVSk/ju+5YfHiks=";
     };
-    date = "2024-02-02";
-  };
-  statusline-lua = {
-    pname = "statusline-lua";
-    version = "398881da0a6dad3a5fe0f0d3fbafe1280cb1ec43";
-    src = fetchFromGitHub {
-      owner = "pupbrained";
-      repo = "statusline.lua";
-      rev = "398881da0a6dad3a5fe0f0d3fbafe1280cb1ec43";
-      fetchSubmodules = false;
-      sha256 = "sha256-F6VurC1Ukd3CwSdnTZX/9zjIL2VqojnqCnEDAJWn+os=";
-    };
-    date = "2023-10-31";
+    date = "2024-04-23";
   };
   surround-ui-nvim = {
     pname = "surround-ui-nvim";
@@ -205,16 +157,16 @@
     };
     date = "2023-12-25";
   };
-  vim-reason-plus = {
-    pname = "vim-reason-plus";
-    version = "c11a2940f8f3e3915e472c366fe460b0fe008bac";
+  wtf-nvim = {
+    pname = "wtf-nvim";
+    version = "51c6bc3fa0d60434bae610c969400e656ce2faaa";
     src = fetchFromGitHub {
-      owner = "reasonml-editor";
-      repo = "vim-reason-plus";
-      rev = "c11a2940f8f3e3915e472c366fe460b0fe008bac";
+      owner = "pupbrained";
+      repo = "wtf.nvim";
+      rev = "51c6bc3fa0d60434bae610c969400e656ce2faaa";
       fetchSubmodules = false;
-      sha256 = "sha256-JDeWsuFNcAuN6HG41OT3LE3cFCBAccYZFsEZ+Ttnp+8=";
+      sha256 = "sha256-3icb5uhA7tyZgtSGljEPROQ373LRYz9KJHXXmYrjtfI=";
     };
-    date = "2020-02-19";
+    date = "2024-04-24";
   };
 }

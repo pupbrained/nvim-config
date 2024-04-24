@@ -18,15 +18,15 @@ with pkgs; let
   alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
   bufferline-nvim = mkVimPlugin sources.bufferline-nvim;
   hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
-  lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   hover-nvim = mkVimPlugin sources.hover-nvim;
+  lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
   modes-nvim = mkVimPlugin sources.modes-nvim;
   rustaceanvim = mkVimPlugin sources.rustaceanvim;
-  satellite-nvim = mkVimPlugin sources.satellite-nvim;
   savior-nvim = mkVimPlugin sources.savior-nvim;
   surround-ui-nvim = mkVimPlugin sources.surround-ui-nvim;
   trouble-nvim = mkVimPlugin sources.trouble-nvim;
   ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
+  wtf = mkVimPlugin sources.wtf-nvim;
   veil-nvim = mkVimPlugin sources.veil-nvim;
 in {
   config = {
@@ -184,17 +184,15 @@ in {
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "bb" "Telescope buffers" "Manage Buffers")
       (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
-      (mkNormalLeader "e" "Neotree toggle" "Toggle File Explorer")
-      (mkNormalLeader "d" "lua vim.lsp.buf.definition()" "Go to Definition")
-      (mkNormalLeader "ld" "Trouble diagnostics focus" "Diagnostics")
-      (mkNormalLeader "lr" "Trouble lsp_references focus" "Diagnostics")
-      (mkNormalLeader "cl" "lua vim.lsp.codelens.run()" "Code Lens")
+      (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
+      (mkNormalLeader "d" "Trouble lsp_definitions" "Go to Definition")
+      (mkNormalLeader "ld" "Trouble diagnostics" "Diagnostics")
+      (mkNormalLeader "ls" "Trouble lsp_document_symbols" "Symbols")
+      (mkNormalLeader "lr" "Trouble lsp_references" "References")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
+      (mkNormalLeader "r" "lua vim.lsp.buf.rename()" "Rename")
       (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
-      (mkNormalLeader "hs" "lua require('haskell-tools').hoogle.hoogle_signature()" "Hoogle Signature")
-      (mkNormalLeader "rr" "lua require('haskell-tools').repl.toggle()" "Toggle Repl for Package")
-      (mkNormalLeader "rq" "lua require('haskell-tools').repl.quit()" "Quit Repl")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
       (mkNormalLeader "k" "lua require('hover').hover()" "LSP Hover")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
@@ -203,24 +201,6 @@ in {
     plugins = {
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
-      crates-nvim.enable = true;
-      crates-nvim.extraOptions = {
-        text = {
-          loading = " Loading";
-          version = " %s";
-          prerelease = " %s";
-          yanked = " %s";
-          nomatch = " No match";
-          upgrade = " %s";
-          error = " Error fetching crate";
-        };
-        popup = {
-          border = "rounded";
-        };
-        null_ls = {
-          enabled = true;
-        };
-      };
       dap.enable = true;
       direnv.enable = true;
       fidget.enable = true;
@@ -306,8 +286,28 @@ in {
         };
       };
 
+      crates-nvim = {
+        enable = true;
+
+        extraOptions = {
+          popup.border = "rounded";
+          null_ls.enabled = true;
+
+          text = {
+            loading = " Loading";
+            version = " %s";
+            prerelease = " %s";
+            yanked = " %s";
+            nomatch = " No match";
+            upgrade = " %s";
+            error = " Error fetching crate";
+          };
+        };
+      };
+
       gitsigns = {
         enable = true;
+
         settings = {
           signcolumn = false;
           numhl = true;
@@ -435,7 +435,7 @@ in {
 
       rustaceanvim = {
         enable = true;
-        #package = rustaceanvim;
+        package = rustaceanvim;
         server.settings.check.command = "clippy";
       };
 
@@ -471,7 +471,7 @@ in {
           win = {
             border = "rounded";
             position = "right";
-            size = 0.3;
+            size = 0.2;
           };
           modes = {
             diagnostics = {
@@ -516,8 +516,6 @@ in {
       modes-nvim
       # Commenting
       nerdcommenter
-      # Scrollbar decorations
-      #satellite-nvim
       # Autosave
       savior-nvim
       # Structural search and replace
@@ -536,6 +534,8 @@ in {
       vim-closetag
       # Better hlsearch
       vim-cool
+      # Diagnostic Debugging
+      wtf
     ];
   };
 }
