@@ -2,7 +2,7 @@ require('lsp-lens').setup()
 require('tabout').setup()
 require('ultimate-autopair').setup()
 require('guess-indent').setup()
-require('satellite').setup()
+--require('satellite').setup()
 require('savior').setup()
 require('tint').setup()
 

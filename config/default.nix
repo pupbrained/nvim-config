@@ -513,7 +513,7 @@ in {
       # Commenting
       nerdcommenter
       # Scrollbar decorations
-      satellite-nvim
+      #satellite-nvim
       # Autosave
       savior-nvim
       # Structural search and replace
