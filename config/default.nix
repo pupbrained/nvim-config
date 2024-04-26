@@ -275,13 +275,16 @@ in {
         ];
 
         formattersByFt = {
-          json = ["jq"];
+          css = ["prettier"];
           haskell = ["fourmolu"];
+          html = ["prettier"];
+          json = ["jq"];
           lua = ["stylua"];
           nix = ["alejandra"];
           rust = ["rustfmt"];
           typescript = ["eslint"];
           vue = ["eslint"];
+          "*" = ["trim_whitespace"];
         };
 
         extraOptions.format_on_save = {
@@ -295,7 +298,6 @@ in {
 
         extraOptions = {
           popup.border = "rounded";
-          null_ls.enabled = true;
 
           text = {
             loading = " Loading";
