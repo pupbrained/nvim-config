@@ -220,8 +220,12 @@ in {
 
       bufferline = {
         enable = true;
+        separatorStyle = "slant";
         package = bufferline-nvim;
-        separatorStyle = "slope";
+        bufferCloseIcon = "󰅖";
+        hover.enabled = true;
+        hover.reveal = ["close"];
+        indicator.style = "underline";
       };
 
       cmp = {
@@ -352,7 +356,7 @@ in {
         servers = {
           eslint.enable = true;
           lua-ls.enable = true;
-          nixd.enable = true;
+          nil_ls.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
@@ -595,6 +599,7 @@ in {
       nerdcommenter
       # Autosave
       savior-nvim
+      scope-nvim
       # Structural search and replace
       ssr-nvim
       # Tab out of various enclosings

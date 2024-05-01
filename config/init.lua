@@ -3,6 +3,7 @@ require('tabout').setup()
 require('ultimate-autopair').setup()
 require('guess-indent').setup()
 require('savior').setup()
+require('scope').setup()
 
 require('wtf').setup({
   openai_api_key = 'awawa',
