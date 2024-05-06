@@ -11,22 +11,11 @@ with pkgs; let
     then "/Users/${username}"
     else "/home/${username}";
 
-  sources = callPackage ../_sources/generated.nix {};
-
   mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
-  alternate-toggler-nvim = mkVimPlugin sources.alternate-toggler-nvim;
-  bufferline-nvim = mkVimPlugin sources.bufferline-nvim;
-  hlchunk-nvim = mkVimPlugin sources.hlchunk-nvim;
-  hover-nvim = mkVimPlugin sources.hover-nvim;
-  lsp-lens-nvim = mkVimPlugin sources.lsp-lens-nvim;
-  modes-nvim = mkVimPlugin sources.modes-nvim;
-  rustaceanvim = mkVimPlugin sources.rustaceanvim;
-  savior-nvim = mkVimPlugin sources.savior-nvim;
-  trouble-nvim = mkVimPlugin sources.trouble-nvim;
-  ultimate-autopair-nvim = mkVimPlugin sources.ultimate-autopair-nvim;
-  wtf-nvim = mkVimPlugin sources.wtf-nvim;
-  veil-nvim = mkVimPlugin sources.veil-nvim;
+  sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
+
+  extraPlugins = lib.attrsets.mapAttrsToList (name: value: mkVimPlugin value) sources;
 in {
   config = {
     enableMan = false;
@@ -221,10 +210,8 @@ in {
       bufferline = {
         enable = true;
         separatorStyle = "slant";
-        package = bufferline-nvim;
+        package = mkVimPlugin sources.bufferline-nvim;
         bufferCloseIcon = "󰅖";
-        hover.enabled = true;
-        hover.reveal = ["close"];
         indicator.style = "underline";
       };
 
@@ -445,7 +432,7 @@ in {
 
       rustaceanvim = {
         enable = true;
-        package = rustaceanvim;
+        package = mkVimPlugin sources.rustaceanvim;
       };
 
       statuscol = {
@@ -514,7 +501,7 @@ in {
 
       trouble = {
         enable = true;
-        package = trouble-nvim;
+        package = mkVimPlugin sources.trouble-nvim;
         settings = {
           use_diagnostic_signs = true;
           focus = true;
@@ -573,8 +560,6 @@ in {
     extraPlugins = with vimPlugins; [
       # Preview code actions
       actions-preview-nvim
-      # Toggle boolean values
-      alternate-toggler-nvim
       # UI improvements
       dressing-nvim
       # Breadcrumbs
@@ -585,20 +570,10 @@ in {
       guess-indent-nvim
       # Haskell LSP improvements
       haskell-tools-nvim
-      # Highlight code blocks
-      hlchunk-nvim
-      # LSP info on mouse-over
-      hover-nvim
       # Git integration
       lazygit-nvim
-      # Codelens
-      lsp-lens-nvim
-      # Line decorations
-      modes-nvim
       # Commenting
       nerdcommenter
-      # Autosave
-      savior-nvim
       scope-nvim
       # Structural search and replace
       ssr-nvim
@@ -606,16 +581,10 @@ in {
       tabout-nvim
       # Dim inactive windows
       tint-nvim
-      # Auto-close pairs
-      ultimate-autopair-nvim
-      # Dashboard
-      veil-nvim
       # Auto-close tags
       vim-closetag
       # Better hlsearch
       vim-cool
-      # Diagnostic Debugging
-      wtf-nvim
-    ];
+    ] ++ extraPlugins;
   };
 }

@@ -48,6 +48,10 @@ src.git = "https://github.com/akinsho/bufferline.nvim"
 src.branch = "main"
 fetch.github = "akinsho/bufferline.nvim"
 
+[wezterm-nvim]
+src.git = "https://github.com/willothy/wezterm.nvim"
+fetch.github = "willothy/wezterm.nvim"
+
 [wtf-nvim]
 src.git = "https://github.com/pupbrained/wtf.nvim"
 fetch.github = "pupbrained/wtf.nvim"
