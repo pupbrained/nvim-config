@@ -164,8 +164,10 @@ in {
       (mkNormal "<A-j>" "lua require('smart-splits').move_cursor_down()" "Move Down")
       (mkNormal "<A-k>" "lua require('smart-splits').move_cursor_up()" "Move Up")
       (mkNormal "<A-l>" "lua require('smart-splits').move_cursor_right()" "Move Right")
-      (mkNormal "<A-\\>" "lua require('smart-splits').move_cursor_previous()" "Move To Previous")
-      (mkNormal "<S-Tab>" "BufferLineCycleNext" "Next Buffer")
+      (mkNormal "<A-\\>" "lua require('smart-splits').move_cursor_previous()" "Move to Previous")
+      (mkNormal "<S-h>" "bp" "Switch to Previous Buffer")
+      (mkNormal "<S-l>" "bn" "Switch to Next Buffer")
+      (mkNormal "<S-Tab>" "tabn" "Next Tab")
       (mkNormalLeader "<leader>h" "lua require('smart-splits').swap_buf_left()" "Move Left")
       (mkNormalLeader "<leader>j" "lua require('smart-splits').swap_buf_down()" "Move Down")
       (mkNormalLeader "<leader>k" "lua require('smart-splits').swap_buf_up()" "Move Up")
@@ -198,7 +200,6 @@ in {
       fidget.enable = true;
       leap.enable = true;
       lspkind.enable = true;
-      lualine.enable = true;
       luasnip.enable = true;
       neo-tree.enable = true;
       smart-splits.enable = true;
@@ -208,7 +209,7 @@ in {
       which-key.enable = true;
 
       bufferline = {
-        enable = true;
+        enable = false;
         separatorStyle = "slant";
         package = mkVimPlugin sources.bufferline-nvim;
         bufferCloseIcon = "󰅖";
@@ -348,6 +349,66 @@ in {
           taplo.enable = true;
           tsserver.enable = true;
           volar.enable = true;
+        };
+      };
+
+      lualine = {
+        enable = true;
+        componentSeparators = {
+          left = "";
+          right = "";
+        };
+        sectionSeparators = {
+          left = "";
+          right = "";
+        };
+        inactiveSections = {
+          lualine_a = ["filename"];
+          lualine_b = [];
+          lualine_c = [];
+          lualine_x = ["filetype"];
+          lualine_y = [];
+          lualine_z = ["location"];
+        };
+        tabline = {};
+        extensions = [];
+        sections = {
+          lualine_a = [
+            {
+              name = "mode";
+              separator.left = "";
+              padding.left = 1;
+              padding.right = 2;
+            }
+          ];
+          lualine_b = [
+            "filename"
+            "branch"
+          ];
+          lualine_c = [
+            "%="
+            {
+              name = "buffers";
+              extraConfig.symbols.alternate_file = "";
+            }
+          ];
+          lualine_x = [
+            "encoding"
+            {
+              name = "fileformat";
+              padding.left = 1;
+              padding.right = 2;
+            }
+          ];
+          lualine_y = ["filetype" "progress"];
+          lualine_z = [
+            {
+              name = "location";
+              separator.right = "";
+              padding.left = 2;
+              padding.right = 1;
+            }
+          ];
         };
       };
 
@@ -594,6 +655,8 @@ in {
         nvim-surround
         # Tab out of various enclosings
         tabout-nvim
+        # Tabs
+        tabby-nvim
         # Dim inactive windows
         tint-nvim
         # Auto-close tags

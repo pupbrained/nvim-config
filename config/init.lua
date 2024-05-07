@@ -1,3 +1,4 @@
+-- Random things
 require('lsp-lens').setup()
 require('tabout').setup()
 require('ultimate-autopair').setup()
@@ -5,6 +6,52 @@ require('guess-indent').setup()
 require('savior').setup()
 require('scope').setup()
 
+-- Tabby
+local util = require('tabby.util')
+
+local hl_tabline_fill = util.extract_nvim_hl('lualine_c_normal')
+local hl_tabline = util.extract_nvim_hl('lualine_b_normal')
+local hl_tabline_sel = util.extract_nvim_hl('lualine_a_normal')
+
+local function tab_label(tabid, active)
+  local icon = active and ' ' or ' '
+  local number = vim.api.nvim_tabpage_get_number(tabid)
+  local name = util.get_tab_name(tabid)
+  return string.format(' %s %d: %s ', icon, number, name)
+end
+
+local presets = {
+  hl = 'lualine_c_normal',
+  layout = 'tab_only',
+  head = {
+    { '  ', hl = { fg = hl_tabline.fg, bg = hl_tabline.bg } },
+    { '', hl = { fg = hl_tabline.bg, bg = hl_tabline_fill.bg } },
+  },
+  active_tab = {
+    label = function(tabid)
+      return {
+        tab_label(tabid, true),
+        hl = { fg = '#1e1e2e', bg = hl_tabline_sel.bg },
+      }
+    end,
+    left_sep = { '', hl = { fg = hl_tabline_sel.bg, bg = hl_tabline_fill.bg } },
+    right_sep = { '', hl = { fg = hl_tabline_sel.bg, bg = hl_tabline_fill.bg } },
+  },
+  inactive_tab = {
+    label = function(tabid)
+      return {
+        tab_label(tabid, false),
+        hl = { fg = hl_tabline.fg, bg = hl_tabline_fill.bg },
+      }
+    end,
+    left_sep = { ' ', hl = { fg = hl_tabline.bg, bg = hl_tabline_fill.bg } },
+    right_sep = { ' ', hl = { fg = hl_tabline.bg, bg = hl_tabline_fill.bg } },
+  },
+}
+
+require('tabby').setup({ tabline = presets })
+
+-- Surround
 local surround_config = require('nvim-surround.config')
 
 require('nvim-surround').setup({
@@ -61,12 +108,14 @@ require('nvim-surround').setup({
   },
 })
 
+-- WTF
 require('wtf').setup({
   openai_api_key = 'awawa',
   base_url = 'http://localhost:3040/v1',
   search_engine = 'kagi',
 })
 
+-- Tint
 require('tint').setup({
   window_ignore_function = function(winid)
     local bufid = vim.api.nvim_win_get_buf(winid)
@@ -77,6 +126,7 @@ require('tint').setup({
   end,
 })
 
+-- Hover
 require('hover').setup({
   init = function()
     require('hover.providers.lsp')
@@ -92,6 +142,7 @@ require('hover').setup({
   mouse_delay = 500,
 })
 
+-- Actions Preview
 require('actions-preview').setup({
   telescope = {
     sorting_strategy = 'ascending',
@@ -108,12 +159,14 @@ require('actions-preview').setup({
   },
 })
 
+-- Terminal
 require('toggleterm').setup({
   direction = 'float',
   float_opts = { border = 'curved' },
   open_mapping = [[<C-t>]],
 })
 
+-- Flatten
 local saved_terminal
 
 require('flatten').setup({
@@ -157,6 +210,7 @@ require('flatten').setup({
   },
 })
 
+-- Veil
 local builtin = require('veil.builtin')
 
 require('veil').setup({
@@ -194,6 +248,7 @@ require('veil').setup({
   },
 })
 
+-- Modes
 require('modes').setup({
   colors = {
     copy = '#fab387',
@@ -203,6 +258,7 @@ require('modes').setup({
   },
 })
 
+-- HLChunk
 require('hlchunk').setup({
   chunk = {
     exclude_filetypes = {
@@ -223,6 +279,7 @@ require('hlchunk').setup({
   },
 })
 
+-- LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.foldingRange = {
@@ -281,6 +338,8 @@ vim.diagnostic.config({
   },
 })
 
+-- Dropbar
 vim.ui.select = require('dropbar.utils.menu').select
 
+-- Hover (Mouse Bind)
 vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = 'hover.nvim (mouse)' })
