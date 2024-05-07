@@ -147,6 +147,7 @@ in {
         options.desc = desc;
       };
     in [
+      (mkMap "a" "2i" "v" "Select Around")
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkMap "<C-_>" "<Plug>NERDCommenterToggle" ["n" "v"] "Comment Selected Lines")
@@ -201,7 +202,6 @@ in {
       luasnip.enable = true;
       neo-tree.enable = true;
       smart-splits.enable = true;
-      surround.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
       twilight.enable = true;
@@ -435,6 +435,17 @@ in {
         package = mkVimPlugin sources.rustaceanvim;
       };
 
+      spider = {
+        enable = true;
+
+        keymaps.motions = {
+          b = "b";
+          e = "e";
+          ge = "ge";
+          w = "w";
+        };
+      };
+
       statuscol = {
         enable = true;
         settings = {
@@ -557,34 +568,39 @@ in {
       };
     };
 
-    extraPlugins = with vimPlugins; [
-      # Preview code actions
-      actions-preview-nvim
-      # UI improvements
-      dressing-nvim
-      # Breadcrumbs
-      dropbar-nvim
-      # Open files from your terminal
-      flatten-nvim
-      # Guess indentation
-      guess-indent-nvim
-      # Haskell LSP improvements
-      haskell-tools-nvim
-      # Git integration
-      lazygit-nvim
-      # Commenting
-      nerdcommenter
-      scope-nvim
-      # Structural search and replace
-      ssr-nvim
-      # Tab out of various enclosings
-      tabout-nvim
-      # Dim inactive windows
-      tint-nvim
-      # Auto-close tags
-      vim-closetag
-      # Better hlsearch
-      vim-cool
-    ] ++ extraPlugins;
+    extraPlugins = with vimPlugins;
+      [
+        # Preview code actions
+        actions-preview-nvim
+        # UI improvements
+        dressing-nvim
+        # Breadcrumbs
+        dropbar-nvim
+        # Open files from your terminal
+        flatten-nvim
+        # Guess indentation
+        guess-indent-nvim
+        # Haskell LSP improvements
+        haskell-tools-nvim
+        # Git integration
+        lazygit-nvim
+        # Commenting
+        nerdcommenter
+        # Tab scopes
+        scope-nvim
+        # Structural search and replace
+        ssr-nvim
+        # Surround
+        nvim-surround
+        # Tab out of various enclosings
+        tabout-nvim
+        # Dim inactive windows
+        tint-nvim
+        # Auto-close tags
+        vim-closetag
+        # Better hlsearch
+        vim-cool
+      ]
+      ++ extraPlugins;
   };
 }

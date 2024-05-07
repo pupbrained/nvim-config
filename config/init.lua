@@ -5,6 +5,62 @@ require('guess-indent').setup()
 require('savior').setup()
 require('scope').setup()
 
+local surround_config = require('nvim-surround.config')
+
+require('nvim-surround').setup({
+  surrounds = {
+    ['('] = {
+      add = { '(', ')' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i(' })
+      end,
+      delete = '^(. ?)().-( ?.)()$',
+    },
+    ['{'] = {
+      add = { '{', '}' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i{' })
+      end,
+      delete = '^(. ?)().-( ?.)()$',
+    },
+    ['<'] = {
+      add = { '<', '>' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i<' })
+      end,
+      delete = '^(. ?)().-( ?.)()$',
+    },
+    ['['] = {
+      add = { '[', ']' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i[' })
+      end,
+      delete = '^(. ?)().-( ?.)()$',
+    },
+    ["'"] = {
+      add = { "'", "'" },
+      find = function()
+        return surround_config.get_selection({ motion = "2i'" })
+      end,
+      delete = '^(.)().-(.)()$',
+    },
+    ['"'] = {
+      add = { '"', '"' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i"' })
+      end,
+      delete = '^(.)().-(.)()$',
+    },
+    ['`'] = {
+      add = { '`', '`' },
+      find = function()
+        return surround_config.get_selection({ motion = '2i`' })
+      end,
+      delete = '^(.)().-(.)()$',
+    },
+  },
+})
+
 require('wtf').setup({
   openai_api_key = 'awawa',
   base_url = 'http://localhost:3040/v1',
