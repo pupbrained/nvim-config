@@ -345,6 +345,7 @@ in {
           eslint.enable = true;
           lua-ls.enable = true;
           nil_ls.enable = true;
+          ocamllsp.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
