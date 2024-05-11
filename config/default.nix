@@ -160,10 +160,10 @@ in {
       (mkNormal "<C-j>" "lua require('smart-splits').resize_down()" "Resize Down")
       (mkNormal "<C-k>" "lua require('smart-splits').resize_up()" "Resize Up")
       (mkNormal "<C-l>" "lua require('smart-splits').resize_right()" "Resize Right")
-      (mkNormal "<A-h>" "lua require('smart-splits').move_cursor_left()" "Move Left")
-      (mkNormal "<A-j>" "lua require('smart-splits').move_cursor_down()" "Move Down")
-      (mkNormal "<A-k>" "lua require('smart-splits').move_cursor_up()" "Move Up")
-      (mkNormal "<A-l>" "lua require('smart-splits').move_cursor_right()" "Move Right")
+      (mkNormal "<A-H>" "lua require('smart-splits').move_cursor_left()" "Move Left")
+      (mkNormal "<A-J>" "lua require('smart-splits').move_cursor_down()" "Move Down")
+      (mkNormal "<A-K>" "lua require('smart-splits').move_cursor_up()" "Move Up")
+      (mkNormal "<A-L>" "lua require('smart-splits').move_cursor_right()" "Move Right")
       (mkNormal "<A-\\>" "lua require('smart-splits').move_cursor_previous()" "Move to Previous")
       (mkNormal "<S-h>" "bp" "Switch to Previous Buffer")
       (mkNormal "<S-l>" "bn" "Switch to Next Buffer")
@@ -201,6 +201,9 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
+      navic.enable = true;
+      navic.highlight = true;
+      navic.lsp.autoAttach = true;
       neo-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
@@ -499,6 +502,7 @@ in {
 
       spider = {
         enable = true;
+        skipInsignificantPunctuation = false;
 
         keymaps.motions = {
           b = "b";
@@ -636,8 +640,6 @@ in {
         actions-preview-nvim
         # UI improvements
         dressing-nvim
-        # Breadcrumbs
-        dropbar-nvim
         # Open files from your terminal
         flatten-nvim
         # Guess indentation
@@ -648,6 +650,8 @@ in {
         lazygit-nvim
         # Commenting
         nerdcommenter
+        # Breadcrumbs
+        nvim-navic
         # Tab scopes
         scope-nvim
         # Structural search and replace

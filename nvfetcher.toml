@@ -18,6 +18,10 @@ fetch.github = "shellRaining/hlchunk.nvim"
 src.git = "https://github.com/lewis6991/hover.nvim"
 fetch.github = "lewis6991/hover.nvim"
 
+[incline-nvim]
+src.git = "https://github.com/b0o/incline.nvim"
+fetch.github = "b0o/incline.nvim"
+
 [ultimate-autopair-nvim]
 src.git = "https://github.com/altermo/ultimate-autopair.nvim"
 fetch.github = "altermo/ultimate-autopair.nvim"
