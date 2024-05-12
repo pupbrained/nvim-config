@@ -16,10 +16,28 @@ with pkgs; let
   sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
 
   extraPlugins = lib.attrsets.mapAttrsToList (name: value: mkVimPlugin value) sources;
+
+  nu-grammar = pkgs.tree-sitter.buildGrammar {
+    language = "nu";
+    version = "0.0.0+rev=a585132";
+    src = pkgs.fetchFromGitHub {
+      owner = "nushell";
+      repo = "tree-sitter-nu";
+      rev = "a58513279e98dc3ff9ed149e3b4310cbb7e11068";
+      hash = "sha256-LCY/DM0GqWpJJgwjZEPOadEElrFc+nsKX2eSqBTidwM=";
+    };
+  };
 in {
   config = {
     enableMan = false;
     package = neovim-nightly;
+
+    filetype.extension.nu = "nu";
+
+    extraFiles = {
+      "/queries/nu/highlights.scm" = builtins.readFile "${nu-grammar}/queries/nu/highlights.scm";
+      "/queries/nu/injections.scm" = builtins.readFile "${nu-grammar}/queries/nu/injections.scm";
+    };
 
     clipboard.providers = {
       wl-copy.enable = true;
@@ -258,14 +276,6 @@ in {
       conform-nvim = {
         enable = true;
 
-        formatters.fourmolu.args = [
-          "--indentation=2"
-          "--ghc-opt"
-          "-XImportQualifiedPost"
-          "--stdin-input-file"
-          "$FILENAME"
-        ];
-
         formattersByFt = {
           css = ["prettier"];
           haskell = ["fourmolu"];
@@ -346,6 +356,7 @@ in {
           lua-ls.enable = true;
           nil_ls.enable = true;
           ocamllsp.enable = true;
+          nushell.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
@@ -569,7 +580,9 @@ in {
 
       treesitter = {
         enable = true;
-        nixGrammars = true;
+        nixvimInjections = true;
+        languageRegister.nu = "nu";
+        grammarPackages = [nu-grammar] ++ vimPlugins.nvim-treesitter.allGrammars;
       };
 
       trouble = {

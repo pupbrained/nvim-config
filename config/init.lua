@@ -6,6 +6,12 @@ require('guess-indent').setup()
 require('savior').setup()
 require('scope').setup()
 
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_config.nu = {
+  filetype = 'nu',
+}
+
 -- Tabby
 local util = require('tabby.util')
 
