@@ -39,9 +39,13 @@ in {
       "/queries/nu/injections.scm" = builtins.readFile "${nu-grammar}/queries/nu/injections.scm";
     };
 
-    clipboard.providers = {
-      wl-copy.enable = true;
-      xclip.enable = true;
+    clipboard = {
+      register = "unnamedplus";
+
+      providers = {
+        wl-copy.enable = true;
+        xclip.enable = true;
+      };
     };
 
     viAlias = true;
@@ -193,7 +197,7 @@ in {
       (mkNormalLeader "t" "lua require('alternate-toggler').toggleAlternate()" "Toggle Alternate")
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "bb" "Telescope buffers" "Manage Buffers")
-      (mkNormalLeader "bd" "BufferLinePickClose" "Close Buffers")
+      (mkNormalLeader "bd" "bd" "Close Buffer")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
       (mkNormalLeader "d" "lua vim.diagnostic.open_float()" "Show Line Diagnostics")
       (mkNormalLeader "ld" "Trouble diagnostics" "Show File Diagnostics")
