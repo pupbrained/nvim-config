@@ -126,6 +126,7 @@ in {
       foldenable = true;
       foldlevel = 99;
       foldlevelstart = 99;
+      ignorecase = true;
       laststatus = 3;
       list = true;
       mousemoveevent = true;
