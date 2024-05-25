@@ -238,6 +238,32 @@ in {
         indicator.style = "underline";
       };
 
+      clangd-extensions = {
+        enable = true;
+        inlayHints.inline = "true";
+        enableOffsetEncodingWorkaround = true;
+        ast = {
+          roleIcons = {
+            type = "";
+            declaration = "";
+            expression = "";
+            specifier = "";
+            statement = "";
+            templateArgument = "";
+          };
+
+          kindIcons = {
+            compound = "";
+            recovery = "";
+            translationUnit = "";
+            packExpansion = "";
+            templateTypeParm = "";
+            templateTemplateParm = "";
+            templateParamObject = "";
+          };
+        };
+      };
+
       cmp = {
         enable = true;
 
