@@ -74,7 +74,25 @@ in {
 
           dap = {
             enabled = true;
-            enable_ui = true;
+
+            adapters.executables.lldb = {
+              command = "${pkgs.lldb}/bin/lldb";
+            };
+
+            configurations = {
+              cpp = {
+                default = {
+                  name = "Launch";
+                  type = "lldb";
+                  request = "launch";
+                };
+              };
+            };
+
+            extensions = {
+              dap-ui.enable = true;
+              dap-virtual-text.enable = true;
+            };
           };
 
           indent_blankline = {
