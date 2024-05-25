@@ -30,7 +30,6 @@ with pkgs; let
 in {
   config = {
     enableMan = false;
-    package = neovim-nightly;
 
     filetype.extension.nu = "nu";
 
@@ -282,6 +281,8 @@ in {
         enable = true;
 
         formattersByFt = {
+          cpp = ["clang-format"];
+          cmake = ["cmake_format"];
           css = ["prettier"];
           haskell = ["fourmolu"];
           html = ["prettier"];
@@ -357,6 +358,8 @@ in {
         '';
 
         servers = {
+          clangd.enable = true;
+          cmake.enable = true;
           eslint.enable = true;
           lua-ls.enable = true;
           nil_ls.enable = true;
