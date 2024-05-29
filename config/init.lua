@@ -132,20 +132,11 @@ require('tint').setup({
   end,
 })
 
--- Hover
-require('hover').setup({
-  init = function()
-    require('hover.providers.lsp')
-  end,
-  preview_opts = {
-    border = 'rounded',
-  },
-  preview_window = true,
-  title = false,
-  mouse_providers = {
-    'LSP',
-  },
-  mouse_delay = 500,
+require('glow-hover').setup({
+  max_width = 50,
+  padding = 10,
+  border = 'shadow',
+  glow_path = 'glow',
 })
 
 -- Actions Preview
@@ -346,6 +337,6 @@ vim.diagnostic.config({
 
 -- Dropbar
 vim.ui.select = require('dropbar.utils.menu').select
-
--- Hover (Mouse Bind)
-vim.keymap.set('n', '<MouseMove>', require('hover').hover_mouse, { desc = 'hover.nvim (mouse)' })
+vim.keymap.set('n', '<leader>r', function()
+  return ':IncRename ' .. vim.fn.expand('<cword>')
+end, { expr = true })

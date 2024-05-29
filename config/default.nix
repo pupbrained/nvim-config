@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  helpers,
   ...
 }:
 with pkgs; let
@@ -52,6 +53,8 @@ in {
 
     luaLoader.enable = true;
     extraConfigLua = builtins.readFile ./init.lua;
+    extraConfigLuaPre = ''
+    '';
 
     colorschemes.catppuccin = {
       enable = true;
@@ -74,25 +77,6 @@ in {
 
           dap = {
             enabled = true;
-
-            adapters.executables.lldb = {
-              command = "${pkgs.lldb}/bin/lldb";
-            };
-
-            configurations = {
-              cpp = {
-                default = {
-                  name = "Launch";
-                  type = "lldb";
-                  request = "launch";
-                };
-              };
-            };
-
-            extensions = {
-              dap-ui.enable = true;
-              dap-virtual-text.enable = true;
-            };
           };
 
           indent_blankline = {
@@ -190,7 +174,6 @@ in {
       (mkMap "a" "2i" "v" "Select Around")
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
-      (mkMap "<C-_>" "<Plug>NERDCommenterToggle" ["n" "v"] "Comment Selected Lines")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -224,20 +207,20 @@ in {
       (mkNormalLeader "lr" "Trouble lsp_references" "References")
       (mkNormalLeader "lt" "Trouble todo" "Todos")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
-      (mkNormalLeader "r" "lua vim.lsp.buf.rename()" "Rename")
-      (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
+      (mjNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
-      (mkNormalLeader "k" "lua require('hover').hover()" "LSP Hover")
+      (mkNormalLeader "k" "lua vim.lsp.buf.hover()" "LSP Hover")
       (mkNormalLeader "s" "lua require('ssr').open()" "Structural Search and Replace")
     ];
 
     plugins = {
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
-      dap.enable = true;
+      comment.enable = true;
       direnv.enable = true;
       fidget.enable = true;
+      inc-rename.enable = true;
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
@@ -288,6 +271,7 @@ in {
         settings = {
           experimental.ghost_text.hlgroup = "Comment";
           window.completion.border = "rounded";
+          window.documentation.border = "rounded";
 
           mapping.__raw = ''
             cmp.mapping.preset.insert({
@@ -363,6 +347,63 @@ in {
         };
       };
 
+      dap = {
+        enable = true;
+        adapters.executables.lldb.command = "lldb-vscode";
+        configurations = let
+          lldb = ["cpp"];
+        in
+          builtins.listToAttrs (map (language: {
+              name = language;
+              value = [
+                {
+                  name = "Launch";
+                  request = "launch";
+                  type = "lldb";
+                  cwd = "\${workspaceFolder}";
+                  program = helpers.mkRaw ''
+                    function()
+                      return vim.fn.input('Executable path: ', vim.fn.getcwd() .. '/', 'file')
+                    end
+                  '';
+                  args = helpers.mkRaw ''
+                    function()
+                      local arguments_string = vim.fn.input('Executable arguments: ')
+                      return vim.split(arguments_string, " +")
+                    end
+                  '';
+
+                  initCommands = lib.mkIf (language == "rust") (helpers.mkRaw ''
+                    function()
+                      local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+
+                      local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+                      local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+
+                      local commands = {}
+                      local file = io.open(commands_file, 'r')
+                      if file then
+                        for line in file:lines() do
+                          table.insert(commands, line)
+                        end
+                        file:close()
+                      end
+                      table.insert(commands, 1, script_import)
+
+                      return commands
+                    end
+                  '');
+                }
+              ];
+            })
+            lldb);
+
+        extensions = {
+          dap-ui.enable = true;
+          dap-virtual-text.enable = true;
+        };
+      };
+
       gitsigns = {
         enable = true;
 
@@ -379,6 +420,14 @@ in {
 
       lsp = {
         enable = true;
+
+        preConfig = ''
+          vim.diagnostic.config({
+            float = {
+              border = 'rounded',
+            },
+          })
+        '';
 
         onAttach = ''
           if client.supports_method('textDocument/formatting') then
@@ -485,6 +534,11 @@ in {
 
       noice = {
         enable = true;
+        presets = {
+          inc_rename = true;
+          lsp_doc_border = true;
+        };
+
         routes = [
           {
             filter = {
@@ -711,8 +765,6 @@ in {
         haskell-tools-nvim
         # Git integration
         lazygit-nvim
-        # Commenting
-        nerdcommenter
         # Tab scopes
         scope-nvim
         # Structural search and replace
