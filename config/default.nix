@@ -207,7 +207,7 @@ in {
       (mkNormalLeader "lr" "Trouble lsp_references" "References")
       (mkNormalLeader "lt" "Trouble todo" "Todos")
       (mkNormalLeader "cp" "lua require('crates').show_popup()" "Show Crate Info")
-      (mjNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
+      (mkNormalLeader "n" "lua vim.diagnostic.goto_next()" "Next Diagnostic")
       (mkNormalLeader "N" "lua vim.diagnostic.goto_prev()" "Previous Diagnostic")
       (mkNormalLeader "a" "lua require('actions-preview').code_actions()" "Code Action")
       (mkNormalLeader "k" "lua vim.lsp.buf.hover()" "LSP Hover")
