@@ -451,7 +451,10 @@ in {
         '';
 
         servers = {
-          clangd.enable = true;
+          clangd = {
+            enable = true;
+            package = pkgs.clang-tools_18;
+          };
           cmake.enable = true;
           eslint.enable = true;
           lua-ls.enable = true;
