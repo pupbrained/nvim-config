@@ -35,8 +35,6 @@ in {
 
     luaLoader.enable = true;
     extraConfigLua = builtins.readFile ./init.lua;
-    extraConfigLuaPre = ''
-    '';
 
     colorschemes.catppuccin = {
       enable = true;
@@ -445,7 +443,6 @@ in {
           lua-ls.enable = true;
           nil_ls.enable = true;
           ocamllsp.enable = true;
-          nushell.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
@@ -676,8 +673,6 @@ in {
       treesitter = {
         enable = true;
         nixvimInjections = true;
-        languageRegister.nu = "nu";
-        grammarPackages = [nu-grammar] ++ vimPlugins.nvim-treesitter.allGrammars;
       };
 
       trouble = {
