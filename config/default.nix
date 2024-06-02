@@ -174,6 +174,8 @@ in {
       (mkMap "a" "2i" "v" "Select Around")
       (mkMap "f" "<Esc><CMD>'<,'>fold<CR>" "v" "Fold Selected")
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
+      (mkMap "<C-d>" "<C-d>zz" "n" "Move down half-page")
+      (mkMap "<C-u>" "<C-u>zz" "n" "Move up half-page")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -224,7 +226,6 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
-      neo-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
@@ -535,6 +536,13 @@ in {
         };
       };
 
+      neo-tree = {
+        enable = true;
+        addBlankLineAtTop = true;
+        popupBorderStyle = "rounded";
+        window.position = "float";
+      };
+
       noice = {
         enable = true;
         presets = {
@@ -619,6 +627,7 @@ in {
 
       spider = {
         enable = true;
+        skipInsignificantPunctuation = false;
 
         keymaps.motions = {
           b = "b";
