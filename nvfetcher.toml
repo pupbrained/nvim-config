@@ -2,9 +2,14 @@
 src.git = "https://github.com/rmagatti/alternate-toggler"
 fetch.github = "rmagatti/alternate-toggler"
 
-[lsp-lens-nvim]
-src.git = "https://github.com/VidocqH/lsp-lens.nvim"
-fetch.github = "VidocqH/lsp-lens.nvim"
+[bufferline-nvim]
+src.git = "https://github.com/akinsho/bufferline.nvim"
+src.branch = "main"
+fetch.github = "akinsho/bufferline.nvim"
+
+[comment-box-nvim]
+src.git = "https://github.com/LudoPinelli/comment-box.nvim"
+fetch.github = "LudoPinelli/comment-box.nvim"
 
 [conceal-nvim]
 src.git = "https://github.com/Jxstxs/conceal.nvim"
@@ -22,35 +27,29 @@ fetch.github = "shellRaining/hlchunk.nvim"
 src.git = "https://github.com/lewis6991/hover.nvim"
 fetch.github = "lewis6991/hover.nvim"
 
-[ultimate-autopair-nvim]
-src.git = "https://github.com/altermo/ultimate-autopair.nvim"
-fetch.github = "altermo/ultimate-autopair.nvim"
+[lsp-lens-nvim]
+src.git = "https://github.com/VidocqH/lsp-lens.nvim"
+fetch.github = "VidocqH/lsp-lens.nvim"
 
 [modes-nvim]
 src.git = "https://github.com/mvllow/modes.nvim"
 fetch.github = "mvllow/modes.nvim"
 
-[savior-nvim]
-src.git = "https://github.com/willothy/savior.nvim"
-fetch.github = "willothy/savior.nvim"
-
-[veil-nvim]
-src.git = "https://github.com/willothy/veil.nvim"
-fetch.github = "willothy/veil.nvim"
-
 [rustaceanvim]
 src.git = "https://github.com/mrcjkb/rustaceanvim"
 fetch.github = "mrcjkb/rustaceanvim"
 
-[trouble-nvim]
-src.git = "https://github.com/folke/trouble.nvim"
-src.branch = "dev"
-fetch.github = "folke/trouble.nvim"
+[savior-nvim]
+src.git = "https://github.com/willothy/savior.nvim"
+fetch.github = "willothy/savior.nvim"
 
-[bufferline-nvim]
-src.git = "https://github.com/akinsho/bufferline.nvim"
-src.branch = "main"
-fetch.github = "akinsho/bufferline.nvim"
+[ultimate-autopair-nvim]
+src.git = "https://github.com/altermo/ultimate-autopair.nvim"
+fetch.github = "altermo/ultimate-autopair.nvim"
+
+[veil-nvim]
+src.git = "https://github.com/willothy/veil.nvim"
+fetch.github = "willothy/veil.nvim"
 
 [wezterm-nvim]
 src.git = "https://github.com/willothy/wezterm.nvim"

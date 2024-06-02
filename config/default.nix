@@ -17,27 +17,9 @@ with pkgs; let
   sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
 
   extraPlugins = lib.attrsets.mapAttrsToList (name: value: mkVimPlugin value) sources;
-
-  nu-grammar = pkgs.tree-sitter.buildGrammar {
-    language = "nu";
-    version = "0.0.0+rev=a585132";
-    src = pkgs.fetchFromGitHub {
-      owner = "nushell";
-      repo = "tree-sitter-nu";
-      rev = "a58513279e98dc3ff9ed149e3b4310cbb7e11068";
-      hash = "sha256-LCY/DM0GqWpJJgwjZEPOadEElrFc+nsKX2eSqBTidwM=";
-    };
-  };
 in {
   config = {
     enableMan = false;
-
-    filetype.extension.nu = "nu";
-
-    extraFiles = {
-      "/queries/nu/highlights.scm" = builtins.readFile "${nu-grammar}/queries/nu/highlights.scm";
-      "/queries/nu/injections.scm" = builtins.readFile "${nu-grammar}/queries/nu/injections.scm";
-    };
 
     clipboard = {
       register = "unnamedplus";
@@ -222,6 +204,7 @@ in {
       comment.enable = true;
       direnv.enable = true;
       fidget.enable = true;
+      image.enable = true;
       inc-rename.enable = true;
       leap.enable = true;
       lspkind.enable = true;
@@ -699,7 +682,7 @@ in {
 
       trouble = {
         enable = true;
-        package = mkVimPlugin sources.trouble-nvim;
+
         settings = {
           use_diagnostic_signs = true;
           focus = true;
