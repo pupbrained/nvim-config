@@ -226,6 +226,7 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
+      neo-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
@@ -534,13 +535,6 @@ in {
         modules = {
           trailspace = {};
         };
-      };
-
-      neo-tree = {
-        enable = true;
-        addBlankLineAtTop = true;
-        popupBorderStyle = "rounded";
-        window.position = "float";
       };
 
       noice = {
