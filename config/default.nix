@@ -438,6 +438,12 @@ in {
             enable = true;
             package = pkgs.clang-tools_18;
           };
+
+          zls = {
+            enable = true;
+            package = null;
+          };
+
           cmake.enable = true;
           eslint.enable = true;
           lua-ls.enable = true;
