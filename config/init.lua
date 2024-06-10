@@ -292,16 +292,6 @@ for _, ls in ipairs(language_servers) do
   })
 end
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-      vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
-    end
-  end,
-})
-
 vim.api.nvim_create_autocmd('User', {
   pattern = 'LspAttached',
   once = true,

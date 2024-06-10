@@ -3,34 +3,33 @@
 
   inputs = {
     codeium.url = "github:jcdickinson/codeium.nvim";
+    flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
-    flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = {
+    codeium,
+    flake-utils,
     nixpkgs,
     nixvim,
-    flake-utils,
+    treefmt-nix,
     ...
-  } @ inputs: let
-    config = import ./config;
-  in
+  }:
     flake-utils.lib.eachDefaultSystem (system: let
-      nixvimLib = nixvim.lib.${system};
-      overlays = with inputs; [codeium.overlays.${system}.default];
       pkgs = import nixpkgs {
-        inherit system overlays;
+        inherit system;
         config.allowUnfree = true;
+        overlays = [codeium.overlays.${system}.default];
       };
-      nixvim' = nixvim.legacyPackages.${system};
-      nvim = nixvim'.makeNixvimWithModule {
+
+      nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
         inherit pkgs;
-        module = config;
+        module = import ./config;
       };
     in {
-      formatter = inputs.treefmt-nix.lib.mkWrapper pkgs {
+      formatter = treefmt-nix.lib.mkWrapper pkgs {
         projectRootFile = "flake.nix";
         programs = {
           alejandra.enable = true;
@@ -39,7 +38,7 @@
         };
       };
 
-      checks.default = nixvimLib.check.mkTestDerivationFromNvim {
+      checks.default = nixvim.lib.${system}.check.mkTestDerivationFromNvim {
         inherit nvim;
         name = "My nixvim configuration";
       };
@@ -49,7 +48,6 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           alejandra
-          nvim
           nvfetcher
           stylua
         ];

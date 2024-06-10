@@ -3,8 +3,7 @@
   pkgs,
   helpers,
   ...
-}:
-with pkgs; let
+}: let
   username = "marshall";
 
   homeDir =
@@ -12,7 +11,7 @@ with pkgs; let
     then "/Users/${username}"
     else "/home/${username}";
 
-  mkVimPlugin = sources: vimUtils.buildVimPlugin {inherit (sources) src pname version;};
+  mkVimPlugin = sources: pkgs.vimUtils.buildVimPlugin {inherit (sources) src pname version;};
 
   sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
 
@@ -107,6 +106,7 @@ in {
       foldenable = true;
       foldlevel = 99;
       foldlevelstart = 99;
+      guifont = "Maple Mono NF:h16";
       ignorecase = true;
       laststatus = 3;
       list = true;
@@ -202,7 +202,6 @@ in {
       comment.enable = true;
       direnv.enable = true;
       fidget.enable = true;
-      image.enable = true;
       inc-rename.enable = true;
       leap.enable = true;
       lspkind.enable = true;
@@ -403,6 +402,7 @@ in {
 
       lsp = {
         enable = true;
+        inlayHints = true;
 
         preConfig = ''
           vim.diagnostic.config({
@@ -447,11 +447,12 @@ in {
           cmake.enable = true;
           eslint.enable = true;
           lua-ls.enable = true;
-          nil_ls.enable = true;
+          nixd.enable = true;
           ocamllsp.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           tsserver.enable = true;
+          vls.enable = true;
           volar.enable = true;
         };
       };
@@ -739,39 +740,37 @@ in {
       };
     };
 
-    extraPlugins = with vimPlugins;
-      [
-        # Preview code actions
-        actions-preview-nvim
-        # UI improvements
-        dressing-nvim
-        # Breadcrumbs
-        dropbar-nvim
-        # Open files from your terminal
-        flatten-nvim
-        # Guess indentation
-        guess-indent-nvim
-        # Haskell LSP improvements
-        haskell-tools-nvim
-        # Git integration
-        lazygit-nvim
-        # Tab scopes
-        scope-nvim
-        # Structural search and replace
-        ssr-nvim
-        # Surround
-        nvim-surround
-        # Tab out of various enclosings
-        tabout-nvim
-        # Tabs
-        tabby-nvim
-        # Dim inactive windows
-        tint-nvim
-        # Auto-close tags
-        vim-closetag
-        # Better hlsearch
-        vim-cool
-      ]
-      ++ extraPlugins;
+    extraPlugins = extraPlugins ++ (with pkgs.vimPlugins; [
+      # Preview code actions
+      actions-preview-nvim
+      # UI improvements
+      dressing-nvim
+      # Breadcrumbs
+      dropbar-nvim
+      # Open files from your terminal
+      flatten-nvim
+      # Guess indentation
+      guess-indent-nvim
+      # Haskell LSP improvements
+      haskell-tools-nvim
+      # Git integration
+      lazygit-nvim
+      # Tab scopes
+      scope-nvim
+      # Structural search and replace
+      ssr-nvim
+      # Surround
+      nvim-surround
+      # Tab out of various enclosings
+      tabout-nvim
+      # Tabs
+      tabby-nvim
+      # Dim inactive windows
+      tint-nvim
+      # Auto-close tags
+      vim-closetag
+      # Better hlsearch
+      vim-cool
+    ]);
   };
 }

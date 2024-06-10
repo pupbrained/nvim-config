@@ -51,6 +51,10 @@ fetch.github = "altermo/ultimate-autopair.nvim"
 src.git = "https://github.com/willothy/veil.nvim"
 fetch.github = "willothy/veil.nvim"
 
+[vgit-nvim]
+src.git = "https://github.com/tanvirtin/vgit.nvim"
+fetch.github = "tanvirtin/vgit.nvim"
+
 [wezterm-nvim]
 src.git = "https://github.com/willothy/wezterm.nvim"
 fetch.github = "willothy/wezterm.nvim"
