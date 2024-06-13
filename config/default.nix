@@ -206,7 +206,6 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
-      neo-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
@@ -524,6 +523,11 @@ in {
         };
       };
 
+      neo-tree = {
+        enable = true;
+        filesystem.groupEmptyDirs = true;
+      };
+
       noice = {
         enable = true;
         presets = {
@@ -740,37 +744,39 @@ in {
       };
     };
 
-    extraPlugins = extraPlugins ++ (with pkgs.vimPlugins; [
-      # Preview code actions
-      actions-preview-nvim
-      # UI improvements
-      dressing-nvim
-      # Breadcrumbs
-      dropbar-nvim
-      # Open files from your terminal
-      flatten-nvim
-      # Guess indentation
-      guess-indent-nvim
-      # Haskell LSP improvements
-      haskell-tools-nvim
-      # Git integration
-      lazygit-nvim
-      # Tab scopes
-      scope-nvim
-      # Structural search and replace
-      ssr-nvim
-      # Surround
-      nvim-surround
-      # Tab out of various enclosings
-      tabout-nvim
-      # Tabs
-      tabby-nvim
-      # Dim inactive windows
-      tint-nvim
-      # Auto-close tags
-      vim-closetag
-      # Better hlsearch
-      vim-cool
-    ]);
+    extraPlugins =
+      extraPlugins
+      ++ (with pkgs.vimPlugins; [
+        # Preview code actions
+        actions-preview-nvim
+        # UI improvements
+        dressing-nvim
+        # Breadcrumbs
+        dropbar-nvim
+        # Open files from your terminal
+        flatten-nvim
+        # Guess indentation
+        guess-indent-nvim
+        # Haskell LSP improvements
+        haskell-tools-nvim
+        # Git integration
+        lazygit-nvim
+        # Tab scopes
+        scope-nvim
+        # Structural search and replace
+        ssr-nvim
+        # Surround
+        nvim-surround
+        # Tab out of various enclosings
+        tabout-nvim
+        # Tabs
+        tabby-nvim
+        # Dim inactive windows
+        tint-nvim
+        # Auto-close tags
+        vim-closetag
+        # Better hlsearch
+        vim-cool
+      ]);
   };
 }
