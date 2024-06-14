@@ -692,10 +692,12 @@ in {
         settings = {
           use_diagnostic_signs = true;
           focus = true;
+
           win = {
             border = "rounded";
             size = 0.2;
           };
+
           modes = {
             diagnostics = {
               title = "Diagnostics";
@@ -714,32 +716,31 @@ in {
       zen-mode = {
         enable = true;
         settings = {
+          plugins = {
+            gitsigns.enabled = true;
+            wezterm.enabled = true;
+          };
+
           window = {
             width = 0.7;
             options.foldcolumn = "0";
           };
+
           on_open = ''
             function(win)
-              vim.cmd('DisableHL')
-
               if vim.g.neovide then
                 vim.g.neovide_scale_factor = 1.5
               end
             end
           '';
+
           on_close = ''
             function()
-              vim.cmd('EnableHL')
-
               if vim.g.neovide then
                 vim.g.neovide_scale_factor = 1
               end
             end
           '';
-          plugins = {
-            gitsigns.enabled = true;
-            wezterm.enabled = true;
-          };
         };
       };
     };
