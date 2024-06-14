@@ -179,8 +179,7 @@ in {
       (mkNormalLeader "<leader>l" "lua require('smart-splits').swap_buf_right()" "Move Right")
       (mkNormalLeader "t" "lua require('alternate-toggler').toggleAlternate()" "Toggle Alternate")
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
-      (mkNormalLeader "bb" "Telescope buffers" "Manage Buffers")
-      (mkNormalLeader "bd" "bd" "Close Buffer")
+      (mkNormalLeader "b" "Neotree buffers toggle right" "Manage Buffers")
       (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
       (mkNormalLeader "d" "lua vim.diagnostic.open_float()" "Show Line Diagnostics")
       (mkNormalLeader "ld" "Trouble diagnostics" "Show File Diagnostics")
@@ -206,6 +205,7 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
+      neocord.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
@@ -290,8 +290,9 @@ in {
         enable = true;
 
         formattersByFt = {
-          cpp = ["clang-format"];
+          "*" = ["trim_whitespace"];
           cmake = ["cmake_format"];
+          cpp = ["clang-format"];
           css = ["prettier"];
           haskell = ["fourmolu"];
           html = ["prettier"];
@@ -301,7 +302,6 @@ in {
           rust = ["rustfmt"];
           typescript = ["eslint"];
           vue = ["eslint"];
-          "*" = ["trim_whitespace"];
         };
 
         extraOptions.format_on_save = {
@@ -519,13 +519,29 @@ in {
       mini = {
         enable = true;
         modules = {
+          move = {
+            mappings = {
+              left = "<A-H>";
+              down = "<A-J>";
+              up = "<A-K>";
+              right = "<A-L>";
+
+              line_left = "<A-H>";
+              line_down = "<A-J>";
+              line_up = "<A-K>";
+              line_right = "<A-L>";
+            };
+          };
+
           trailspace = {};
         };
       };
 
       neo-tree = {
         enable = true;
+        closeIfLastWindow = true;
         filesystem.groupEmptyDirs = true;
+        buffers.followCurrentFile.leaveDirsOpen = true;
       };
 
       noice = {
@@ -722,7 +738,7 @@ in {
           };
 
           window = {
-            width = 0.7;
+            width = 0.8;
             options.foldcolumn = "0";
           };
 
@@ -768,6 +784,8 @@ in {
         ssr-nvim
         # Surround
         nvim-surround
+        # Window picker
+        nvim-window-picker
         # Tab out of various enclosings
         tabout-nvim
         # Tabs
