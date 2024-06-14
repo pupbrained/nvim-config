@@ -734,7 +734,10 @@ in {
         settings = {
           plugins = {
             gitsigns.enabled = true;
-            wezterm.enabled = true;
+            wezterm = {
+              enabled = true;
+              font = "+2";
+            };
           };
 
           window = {
