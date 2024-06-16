@@ -49,7 +49,7 @@ in {
           leap = true;
           mini.enabled = true;
           navic.enabled = true;
-          neotree = true;
+          nvimtree = true;
           telescope.enabled = true;
           treesitter = true;
           treesitter_context = true;
@@ -179,8 +179,8 @@ in {
       (mkNormalLeader "<leader>l" "lua require('smart-splits').swap_buf_right()" "Move Right")
       (mkNormalLeader "t" "lua require('alternate-toggler').toggleAlternate()" "Toggle Alternate")
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
-      (mkNormalLeader "b" "Neotree buffers toggle right" "Manage Buffers")
-      (mkNormalLeader "e" "Neotree toggle" "Toggle File Tree")
+      (mkNormalLeader "b" "lua require('buffer_manager.ui').toggle_quick_menu()" "Manage Buffers")
+      (mkNormalLeader "e" "NvimTreeToggle" "Toggle File Tree")
       (mkNormalLeader "d" "lua vim.diagnostic.open_float()" "Show Line Diagnostics")
       (mkNormalLeader "ld" "Trouble diagnostics" "Show File Diagnostics")
       (mkNormalLeader "lf" "Trouble lsp_definitions" "LSP Definitions")
@@ -196,6 +196,7 @@ in {
     ];
 
     plugins = {
+      nvim-tree.enable = true;
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
       comment.enable = true;
@@ -211,14 +212,6 @@ in {
       toggleterm.enable = true;
       twilight.enable = true;
       which-key.enable = true;
-
-      bufferline = {
-        enable = false;
-        separatorStyle = "slant";
-        package = mkVimPlugin sources.bufferline-nvim;
-        bufferCloseIcon = "󰅖";
-        indicator.style = "underline";
-      };
 
       clangd-extensions = {
         enable = true;
@@ -535,13 +528,6 @@ in {
 
           trailspace = {};
         };
-      };
-
-      neo-tree = {
-        enable = true;
-        closeIfLastWindow = true;
-        filesystem.groupEmptyDirs = true;
-        buffers.followCurrentFile.leaveDirsOpen = true;
       };
 
       noice = {

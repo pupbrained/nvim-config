@@ -2,10 +2,9 @@
 src.git = "https://github.com/rmagatti/alternate-toggler"
 fetch.github = "rmagatti/alternate-toggler"
 
-[bufferline-nvim]
-src.git = "https://github.com/akinsho/bufferline.nvim"
-src.branch = "main"
-fetch.github = "akinsho/bufferline.nvim"
+[buffer-manager-nvim]
+src.git = "https://github.com/j-morano/buffer_manager.nvim"
+fetch.github = "j-morano/buffer_manager.nvim"
 
 [comment-box-nvim]
 src.git = "https://github.com/LudoPinelli/comment-box.nvim"
