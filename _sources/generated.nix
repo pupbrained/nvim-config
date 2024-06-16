@@ -99,15 +99,15 @@
   };
   modes-nvim = {
     pname = "modes-nvim";
-    version = "326cff3282419b3bcc745061978c1e592cae055d";
+    version = "8a0d188bcf215f0312a75e04e6d27acbc60bc195";
     src = fetchFromGitHub {
       owner = "mvllow";
       repo = "modes.nvim";
-      rev = "326cff3282419b3bcc745061978c1e592cae055d";
+      rev = "8a0d188bcf215f0312a75e04e6d27acbc60bc195";
       fetchSubmodules = false;
-      sha256 = "sha256-z1XD0O+gG2/+g/skdWGC64Zv4dXvvhWesaK/8DcPF/E=";
+      sha256 = "sha256-DYqt5na7CX98dYTG89LL+YF9Uqj/bCqeWgQXZnxONhk=";
     };
-    date = "2024-06-06";
+    date = "2024-06-11";
   };
   rustaceanvim = {
     pname = "rustaceanvim";

@@ -196,7 +196,7 @@ in {
     ];
 
     plugins = {
-      nvim-tree.enable = true;
+      auto-session.enable = true;
       cmp-cmdline.enable = true;
       codeium-nvim.enable = true;
       comment.enable = true;
@@ -206,7 +206,7 @@ in {
       leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
-      neocord.enable = true;
+      nvim-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       toggleterm.enable = true;
@@ -451,14 +451,20 @@ in {
 
       lualine = {
         enable = true;
+
+        tabline = {};
+        extensions = [];
+
         componentSeparators = {
           left = "";
           right = "";
         };
+
         sectionSeparators = {
           left = "";
           right = "";
         };
+
         inactiveSections = {
           lualine_a = ["filename"];
           lualine_b = [];
@@ -467,8 +473,7 @@ in {
           lualine_y = [];
           lualine_z = ["location"];
         };
-        tabline = {};
-        extensions = [];
+
         sections = {
           lualine_a = [
             {

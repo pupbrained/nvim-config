@@ -32,6 +32,7 @@ fetch.github = "VidocqH/lsp-lens.nvim"
 
 [modes-nvim]
 src.git = "https://github.com/mvllow/modes.nvim"
+src.branch = "canary"
 fetch.github = "mvllow/modes.nvim"
 
 [rustaceanvim]
