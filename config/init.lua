@@ -1,6 +1,5 @@
 -- Random things
 require('lsp-lens').setup()
-require('tabout').setup()
 require('ultimate-autopair').setup()
 require('guess-indent').setup()
 require('savior').setup()

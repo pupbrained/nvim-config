@@ -214,6 +214,7 @@ in {
       todo-comments.enable = true;
       toggleterm.enable = true;
       twilight.enable = true;
+      which-key.enable = true;
 
       clangd-extensions = {
         enable = true;
@@ -782,8 +783,6 @@ in {
         nvim-surround
         # Window picker
         nvim-window-picker
-        # Tab out of various enclosings
-        tabout-nvim
         # Tabs
         tabby-nvim
         # Dim inactive windows
