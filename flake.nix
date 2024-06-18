@@ -50,6 +50,12 @@
           alejandra
           nvfetcher
           stylua
+          (
+            writeScriptBin "up" ''
+              nvfetcher
+              nix flake update
+            ''
+          )
         ];
       };
     });
