@@ -44,9 +44,9 @@ in {
 
         integrations = {
           fidget = true;
+          flash = true;
           gitsigns = true;
           illuminate.enabled = true;
-          leap = true;
           mini.enabled = true;
           navic.enabled = true;
           nvimtree = true;
@@ -137,18 +137,18 @@ in {
       mkNormalLeader = key: action: desc: {
         key = concatStrings ["<Leader>" key];
         action = concatStrings ["<CMD>" action "<CR>"];
-        options.desc = desc;
+        options = {inherit desc;};
       };
 
       mkNormal = key: action: desc: {
         inherit key;
         action = concatStrings ["<CMD>" action "<CR>"];
-        options.desc = desc;
+        options = {inherit desc;};
       };
 
       mkMap = key: action: mode: desc: {
         inherit key action mode;
-        options.desc = desc;
+        options = {inherit desc;};
       };
     in [
       (mkMap "a" "2i" "v" "Select Around")
@@ -156,6 +156,9 @@ in {
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkMap "<C-d>" "<C-d>zz" "n" "Move down half-page")
       (mkMap "<C-u>" "<C-u>zz" "n" "Move up half-page")
+      (mkMap "s" "<CMD>lua require('flash').remote()<CR>" ["n" "x" "o"] "Flash Jump")
+      (mkMap "S" "<CMD>lua require('flash').treesitter()<CR>" ["n" "x" "o"] "Flash Treesitter")
+      (mkMap "<C-s>" "<CMD>lua require('flash').toggle()<CR>" "o" "Flash Toggle")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -202,8 +205,8 @@ in {
       comment.enable = true;
       direnv.enable = true;
       fidget.enable = true;
+      flash.enable = true;
       inc-rename.enable = true;
-      leap.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
       nvim-tree.enable = true;
@@ -211,7 +214,6 @@ in {
       todo-comments.enable = true;
       toggleterm.enable = true;
       twilight.enable = true;
-      which-key.enable = true;
 
       clangd-extensions = {
         enable = true;

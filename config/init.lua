@@ -252,7 +252,6 @@ require('modes').setup({
     delete = '#f38ba8',
     insert = '#94e2d5',
     visual = '#cba6f7',
-    replace = '#f9e2af',
   },
 })
 
