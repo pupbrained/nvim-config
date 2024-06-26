@@ -15,7 +15,7 @@
 
   sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
 
-  extraPlugins = lib.attrsets.mapAttrsToList (name: value: mkVimPlugin value) sources;
+  extraPlugins = lib.attrsets.mapAttrsToList (_: value: mkVimPlugin value) sources;
 in {
   config = {
     enableMan = false;
@@ -159,6 +159,7 @@ in {
       (mkMap "s" "<CMD>lua require('flash').remote()<CR>" ["n" "x" "o"] "Flash Jump")
       (mkMap "S" "<CMD>lua require('flash').treesitter()<CR>" ["n" "x" "o"] "Flash Treesitter")
       (mkMap "<C-s>" "<CMD>lua require('flash').toggle()<CR>" "o" "Flash Toggle")
+      (mkMap "<S-Tab>" "<Esc><CMD>tabn<CR>" "t" "Next Tab")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -212,7 +213,6 @@ in {
       nvim-tree.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
-      toggleterm.enable = true;
       twilight.enable = true;
       which-key.enable = true;
 
@@ -419,11 +419,6 @@ in {
               end,
             })
           end
-
-          vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
-              buffer = bufnr,
-              callback = vim.lsp.codelens.refresh,
-          })
 
           vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
         '';
@@ -688,6 +683,15 @@ in {
             i = {"<c-d>" = "delete_buffer";};
             n = {"d" = "delete_buffer";};
           };
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+        settings = {
+          direction = "tab";
+          open_mapping = "[[<C-t>]]";
+          float_opts.border = "curved";
         };
       };
 

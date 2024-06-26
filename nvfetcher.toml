@@ -18,10 +18,6 @@ fetch.github = "Jxstxs/conceal.nvim"
 src.git = "https://github.com/Arian8j2/glow-hover.nvim"
 fetch.github = "Arian8j2/glow-hover.nvim"
 
-[hlchunk-nvim]
-src.git = "https://github.com/shellRaining/hlchunk.nvim"
-fetch.github = "shellRaining/hlchunk.nvim"
-
 [hover-nvim]
 src.git = "https://github.com/lewis6991/hover.nvim"
 fetch.github = "lewis6991/hover.nvim"
@@ -33,6 +29,10 @@ fetch.github = "VidocqH/lsp-lens.nvim"
 [modes-nvim]
 src.git = "https://github.com/mvllow/modes.nvim"
 fetch.github = "mvllow/modes.nvim"
+
+[neotab-nvim]
+src.git = "https://github.com/kawre/neotab.nvim"
+fetch.github = "kawre/neotab.nvim"
 
 [rustaceanvim]
 src.git = "https://github.com/mrcjkb/rustaceanvim"

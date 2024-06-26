@@ -99,26 +99,6 @@
         },
         "version": "16be926f16e72fe9e3b137d9c261a805e0eec3ca"
     },
-    "hlchunk-nvim": {
-        "cargoLocks": null,
-        "date": "2024-06-17",
-        "extract": null,
-        "name": "hlchunk-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "shellRaining",
-            "repo": "hlchunk.nvim",
-            "rev": "930fe6262f87d66ca0c85dada3bb7c2a8cb6ec3e",
-            "sha256": "sha256-IwxyUwL10pop+Aod7BFM67JFXVY37z2Ly4EnlGPwfls=",
-            "type": "github"
-        },
-        "version": "930fe6262f87d66ca0c85dada3bb7c2a8cb6ec3e"
-    },
     "hover-nvim": {
         "cargoLocks": null,
         "date": "2024-06-12",
@@ -179,9 +159,29 @@
         },
         "version": "326cff3282419b3bcc745061978c1e592cae055d"
     },
+    "neotab-nvim": {
+        "cargoLocks": null,
+        "date": "2024-02-23",
+        "extract": null,
+        "name": "neotab-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "kawre",
+            "repo": "neotab.nvim",
+            "rev": "6c6107dddaa051504e433608f59eca606138269b",
+            "sha256": "sha256-bSFKbjj8fJHdfBzYoQ9l3NU0GAYfdfCbESKbwdbLNSw=",
+            "type": "github"
+        },
+        "version": "6c6107dddaa051504e433608f59eca606138269b"
+    },
     "rustaceanvim": {
         "cargoLocks": null,
-        "date": "2024-06-16",
+        "date": "2024-06-21",
         "extract": null,
         "name": "rustaceanvim",
         "passthru": null,
@@ -193,11 +193,11 @@
             "name": null,
             "owner": "mrcjkb",
             "repo": "rustaceanvim",
-            "rev": "a1d32cd1d460046ae2d7b5657fe15585057bd028",
-            "sha256": "sha256-ZKjnmvFK1j8pscfNTH79nb0f5xZOeK3KZo2V3yDiKKw=",
+            "rev": "54908384f1b7932576a92caa645681026d8b84e1",
+            "sha256": "sha256-dDtdRV9NPb/hf/yhH6X+2KItYAzzJFA0KzvIfnKXIrs=",
             "type": "github"
         },
-        "version": "a1d32cd1d460046ae2d7b5657fe15585057bd028"
+        "version": "54908384f1b7932576a92caa645681026d8b84e1"
     },
     "savior-nvim": {
         "cargoLocks": null,

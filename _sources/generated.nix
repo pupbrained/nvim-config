@@ -61,18 +61,6 @@
     };
     date = "2024-06-04";
   };
-  hlchunk-nvim = {
-    pname = "hlchunk-nvim";
-    version = "930fe6262f87d66ca0c85dada3bb7c2a8cb6ec3e";
-    src = fetchFromGitHub {
-      owner = "shellRaining";
-      repo = "hlchunk.nvim";
-      rev = "930fe6262f87d66ca0c85dada3bb7c2a8cb6ec3e";
-      fetchSubmodules = false;
-      sha256 = "sha256-IwxyUwL10pop+Aod7BFM67JFXVY37z2Ly4EnlGPwfls=";
-    };
-    date = "2024-06-17";
-  };
   hover-nvim = {
     pname = "hover-nvim";
     version = "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918";
@@ -109,17 +97,29 @@
     };
     date = "2024-06-06";
   };
+  neotab-nvim = {
+    pname = "neotab-nvim";
+    version = "6c6107dddaa051504e433608f59eca606138269b";
+    src = fetchFromGitHub {
+      owner = "kawre";
+      repo = "neotab.nvim";
+      rev = "6c6107dddaa051504e433608f59eca606138269b";
+      fetchSubmodules = false;
+      sha256 = "sha256-bSFKbjj8fJHdfBzYoQ9l3NU0GAYfdfCbESKbwdbLNSw=";
+    };
+    date = "2024-02-23";
+  };
   rustaceanvim = {
     pname = "rustaceanvim";
-    version = "a1d32cd1d460046ae2d7b5657fe15585057bd028";
+    version = "54908384f1b7932576a92caa645681026d8b84e1";
     src = fetchFromGitHub {
       owner = "mrcjkb";
       repo = "rustaceanvim";
-      rev = "a1d32cd1d460046ae2d7b5657fe15585057bd028";
+      rev = "54908384f1b7932576a92caa645681026d8b84e1";
       fetchSubmodules = false;
-      sha256 = "sha256-ZKjnmvFK1j8pscfNTH79nb0f5xZOeK3KZo2V3yDiKKw=";
+      sha256 = "sha256-dDtdRV9NPb/hf/yhH6X+2KItYAzzJFA0KzvIfnKXIrs=";
     };
-    date = "2024-06-16";
+    date = "2024-06-21";
   };
   savior-nvim = {
     pname = "savior-nvim";

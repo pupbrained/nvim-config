@@ -11,6 +11,13 @@ parser_config.nu = {
   filetype = 'nu',
 }
 
+require('neotab').setup({
+  smart_punctuators = {
+    enabled = true,
+    semicolon = { enabled = true },
+  },
+})
+
 -- Tabby
 local util = require('tabby.util')
 
@@ -155,13 +162,6 @@ require('actions-preview').setup({
   },
 })
 
--- Terminal
-require('toggleterm').setup({
-  direction = 'float',
-  float_opts = { border = 'curved' },
-  open_mapping = [[<C-t>]],
-})
-
 -- Flatten
 local saved_terminal
 
@@ -251,27 +251,6 @@ require('modes').setup({
     delete = '#f38ba8',
     insert = '#94e2d5',
     visual = '#cba6f7',
-  },
-})
-
--- HLChunk
-require('hlchunk').setup({
-  chunk = {
-    exclude_filetypes = {
-      ['neo-tree'] = true,
-      trouble = true,
-      toml = true,
-    },
-    style = {
-      { fg = '#a6e3a1' },
-      { fg = '#313244' },
-    },
-  },
-  line_num = {
-    enable = false,
-  },
-  blank = {
-    enable = false,
   },
 })
 
