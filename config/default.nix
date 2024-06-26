@@ -159,7 +159,6 @@ in {
       (mkMap "s" "<CMD>lua require('flash').remote()<CR>" ["n" "x" "o"] "Flash Jump")
       (mkMap "S" "<CMD>lua require('flash').treesitter()<CR>" ["n" "x" "o"] "Flash Treesitter")
       (mkMap "<C-s>" "<CMD>lua require('flash').toggle()<CR>" "o" "Flash Toggle")
-      (mkMap "<S-Tab>" "<Esc><CMD>tabn<CR>" "t" "Next Tab")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -689,7 +688,7 @@ in {
       toggleterm = {
         enable = true;
         settings = {
-          direction = "tab";
+          direction = "float";
           open_mapping = "[[<C-t>]]";
           float_opts.border = "curved";
         };
