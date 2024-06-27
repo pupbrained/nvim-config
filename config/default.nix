@@ -106,7 +106,7 @@ in {
       foldenable = true;
       foldlevel = 99;
       foldlevelstart = 99;
-      guifont = "Maple Mono NF:h16";
+      guifont = "Maple Mono NF:h12";
       ignorecase = true;
       laststatus = 3;
       list = true;
@@ -295,8 +295,8 @@ in {
           lua = ["stylua"];
           nix = ["alejandra"];
           rust = ["rustfmt"];
-          typescript = ["eslint"];
-          vue = ["eslint"];
+          typescript = ["eslint_d"];
+          vue = ["eslint_d"];
         };
 
         extraOptions.format_on_save = {
