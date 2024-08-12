@@ -111,15 +111,15 @@
   };
   rustaceanvim = {
     pname = "rustaceanvim";
-    version = "54908384f1b7932576a92caa645681026d8b84e1";
+    version = "b3de2d10dd351756022b77aa8a305ddc1e72a5ba";
     src = fetchFromGitHub {
       owner = "mrcjkb";
       repo = "rustaceanvim";
-      rev = "54908384f1b7932576a92caa645681026d8b84e1";
+      rev = "b3de2d10dd351756022b77aa8a305ddc1e72a5ba";
       fetchSubmodules = false;
-      sha256 = "sha256-dDtdRV9NPb/hf/yhH6X+2KItYAzzJFA0KzvIfnKXIrs=";
+      sha256 = "sha256-UVF+Mb30Q4x4/yvrZxdEx4RAidHy6tgxRzfQgby0mRk=";
     };
-    date = "2024-06-21";
+    date = "2024-08-07";
   };
   savior-nvim = {
     pname = "savior-nvim";
@@ -135,15 +135,15 @@
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
-    version = "035d92eab05ac1390afef7204e3fcad9a50fa443";
+    version = "1420fb9e07b1d80cc6d87e7d90827fb2c1109cb3";
     src = fetchFromGitHub {
       owner = "altermo";
       repo = "ultimate-autopair.nvim";
-      rev = "035d92eab05ac1390afef7204e3fcad9a50fa443";
+      rev = "1420fb9e07b1d80cc6d87e7d90827fb2c1109cb3";
       fetchSubmodules = false;
-      sha256 = "sha256-+gnrKGjmILCwTsZ/RbdB0f2DRKcg6mlY6dRCSrOr1CA=";
+      sha256 = "sha256-KNQcYhRWmpGNG8oafb8p7htT2Q/oG6sbpEDRLue7Nbw=";
     };
-    date = "2024-06-10";
+    date = "2024-08-01";
   };
   veil-nvim = {
     pname = "veil-nvim";
@@ -159,15 +159,15 @@
   };
   vgit-nvim = {
     pname = "vgit-nvim";
-    version = "8caecf06c8fede4857568f64ff4349b6945362f0";
+    version = "9afe79a3ae65594ca483c2e6161690ff9b85123b";
     src = fetchFromGitHub {
       owner = "tanvirtin";
       repo = "vgit.nvim";
-      rev = "8caecf06c8fede4857568f64ff4349b6945362f0";
+      rev = "9afe79a3ae65594ca483c2e6161690ff9b85123b";
       fetchSubmodules = false;
-      sha256 = "sha256-HLKC4tHiRNXq158JV0gArCnGGHdyfApC21p7jLjKhdU=";
+      sha256 = "sha256-Qm3iV4Ciry46ee3liNSL5OM9KkcNta+GOdce/9SncuQ=";
     };
-    date = "2024-06-06";
+    date = "2024-08-03";
   };
   wezterm-nvim = {
     pname = "wezterm-nvim";
