@@ -425,7 +425,6 @@ in {
         servers = {
           clangd = {
             enable = true;
-            package = pkgs.clang-tools_18;
           };
 
           zls = {
