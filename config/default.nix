@@ -20,6 +20,14 @@ in {
   config = {
     enableMan = false;
 
+    autoCmd = [
+      {
+        command = "set guicursor=a:ver1-blinkon0";
+        event = "VimLeave";
+        pattern = "*";
+      }
+    ];
+
     clipboard = {
       register = "unnamedplus";
 
