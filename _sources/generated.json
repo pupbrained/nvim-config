@@ -181,7 +181,7 @@
     },
     "rustaceanvim": {
         "cargoLocks": null,
-        "date": "2024-09-22",
+        "date": "2024-09-29",
         "extract": null,
         "name": "rustaceanvim",
         "passthru": null,
@@ -193,11 +193,11 @@
             "name": null,
             "owner": "mrcjkb",
             "repo": "rustaceanvim",
-            "rev": "1f79f553208172ed9a02435f668b8e0b5c652078",
-            "sha256": "sha256-s5RwAcPYrcCauXFNHCZRQyokWgEjuq2VEXTfEUqr3Bo=",
+            "rev": "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8",
+            "sha256": "sha256-2G0dNim+vrlXs5gaoVl7bjgmHF4TFSaTv/t7RZImlaQ=",
             "type": "github"
         },
-        "version": "1f79f553208172ed9a02435f668b8e0b5c652078"
+        "version": "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8"
     },
     "savior-nvim": {
         "cargoLocks": null,
@@ -281,7 +281,7 @@
     },
     "wezterm-nvim": {
         "cargoLocks": null,
-        "date": "2024-06-01",
+        "date": "2024-09-26",
         "extract": null,
         "name": "wezterm-nvim",
         "passthru": null,
@@ -293,11 +293,11 @@
             "name": null,
             "owner": "willothy",
             "repo": "wezterm.nvim",
-            "rev": "f73bba23ab4becd146fa2d0a3a16a84b987eeaca",
-            "sha256": "sha256-FeM5cep6bKCfAS/zGAkTls4qODtRhipQojy3OWu1hjY=",
+            "rev": "032c33b621b96cc7228955b4352b48141c482098",
+            "sha256": "sha256-q4PZUh4QdppeKGB0hytnZi2WBE6FRTcgieka6AnqQ5k=",
             "type": "github"
         },
-        "version": "f73bba23ab4becd146fa2d0a3a16a84b987eeaca"
+        "version": "032c33b621b96cc7228955b4352b48141c482098"
     },
     "wtf-nvim": {
         "cargoLocks": null,
