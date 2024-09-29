@@ -52,7 +52,6 @@ in {
 
         integrations = {
           fidget = true;
-          flash = true;
           gitsigns = true;
           illuminate.enabled = true;
           mini.enabled = true;
@@ -164,9 +163,6 @@ in {
       (mkMap "s" "<Esc><CMD>'<,'>!sort<CR>" "v" "Sort Selected Lines")
       (mkMap "<C-d>" "<C-d>zz" "n" "Move down half-page")
       (mkMap "<C-u>" "<C-u>zz" "n" "Move up half-page")
-      (mkMap "s" "<CMD>lua require('flash').remote()<CR>" ["n" "x" "o"] "Flash Jump")
-      (mkMap "S" "<CMD>lua require('flash').treesitter()<CR>" ["n" "x" "o"] "Flash Treesitter")
-      (mkMap "<C-s>" "<CMD>lua require('flash').toggle()<CR>" "o" "Flash Toggle")
       (mkNormal "gb" "Gitsigns blame_line" "Show Git Blame")
       (mkNormal "gp" "Gitsigns preview_hunk" "Preview Hunk")
       (mkNormal "gr" "Gitsigns reset_hunk" "Reset Hunk")
@@ -213,14 +209,15 @@ in {
       comment.enable = true;
       direnv.enable = true;
       fidget.enable = true;
-      flash.enable = true;
       inc-rename.enable = true;
       lspkind.enable = true;
       luasnip.enable = true;
       nvim-tree.enable = true;
+      presence-nvim.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
       twilight.enable = true;
+      web-devicons.enable = true;
       which-key.enable = true;
 
       avante = {
@@ -301,24 +298,26 @@ in {
       conform-nvim = {
         enable = true;
 
-        formattersByFt = {
-          "*" = ["trim_whitespace"];
-          cmake = ["cmake_format"];
-          cpp = ["clang-format"];
-          css = ["prettier"];
-          haskell = ["fourmolu"];
-          html = ["prettier"];
-          json = ["jq"];
-          lua = ["stylua"];
-          nix = ["alejandra"];
-          rust = ["rustfmt"];
-          typescript = ["eslint_d"];
-          vue = ["eslint_d"];
-        };
+        settings = {
+          formattersByFt = {
+            "*" = ["trim_whitespace"];
+            cmake = ["cmake_format"];
+            cpp = ["clang-format"];
+            css = ["prettier"];
+            haskell = ["fourmolu"];
+            html = ["prettier"];
+            json = ["jq"];
+            lua = ["stylua"];
+            nix = ["alejandra"];
+            rust = ["rustfmt"];
+            typescript = ["eslint_d"];
+            vue = ["eslint_d"];
+          };
 
-        extraOptions.format_on_save = {
-          timeout_ms = 1000;
-          lsp_fallback = true;
+          extraOptions.format_on_save = {
+            timeout_ms = 1000;
+            lsp_fallback = true;
+          };
         };
       };
 
@@ -457,7 +456,7 @@ in {
           ocamllsp.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
-          tsserver.enable = true;
+          ts-ls.enable = true;
           vls.enable = true;
           volar.enable = true;
         };
@@ -466,65 +465,79 @@ in {
       lualine = {
         enable = true;
 
-        tabline = {};
-        extensions = [];
+        settings = {
+          options = {
+            component_separators = {
+              left = "";
+              right = "";
+            };
 
-        componentSeparators = {
-          left = "";
-          right = "";
-        };
+            section_separators = {
+              left = "";
+              right = "";
+            };
+          };
 
-        sectionSeparators = {
-          left = "";
-          right = "";
-        };
+          inactive_sections = {
+            lualine_a = ["filename"];
+            lualine_b = [];
+            lualine_c = [];
+            lualine_x = ["filetype"];
+            lualine_y = [];
+            lualine_z = ["location"];
+          };
 
-        inactiveSections = {
-          lualine_a = ["filename"];
-          lualine_b = [];
-          lualine_c = [];
-          lualine_x = ["filetype"];
-          lualine_y = [];
-          lualine_z = ["location"];
-        };
-
-        sections = {
-          lualine_a = [
-            {
-              name = "mode";
-              separator.left = "";
-              padding.left = 1;
-              padding.right = 2;
-            }
-          ];
-          lualine_b = [
-            "filename"
-            "branch"
-          ];
-          lualine_c = [
-            "%="
-            {
-              name = "buffers";
-              extraConfig.symbols.alternate_file = "";
-            }
-          ];
-          lualine_x = [
-            "encoding"
-            {
-              name = "fileformat";
-              padding.left = 1;
-              padding.right = 2;
-            }
-          ];
-          lualine_y = ["filetype" "progress"];
-          lualine_z = [
-            {
-              name = "location";
-              separator.right = "";
-              padding.left = 2;
-              padding.right = 1;
-            }
-          ];
+          sections = {
+            lualine_a = [
+              {
+                __unkeyed-1 = "mode";
+                separator = {
+                  left = "";
+                };
+                padding = {
+                  left = 1;
+                  right = 2;
+                };
+              }
+            ];
+            lualine_b = [
+              "filename"
+              "branch"
+            ];
+            lualine_c = [
+              "%="
+              {
+                __unkeyed-1 = "buffers";
+                symbols.alternate_file = "";
+              }
+            ];
+            lualine_x = [
+              "encoding"
+              {
+                __unkeyed-1 = "fileformat";
+                padding = {
+                  left = 1;
+                  right = 2;
+                };
+              }
+            ];
+            lualine_y = [
+              "filetype"
+              "progress"
+            ];
+            lualine_z = [
+              {
+                __unkeyed-1 = "location";
+                separator = {
+                  right = "";
+                };
+                padding = {
+                  left = 2;
+                  right = 1;
+                };
+              }
+            ];
+          };
         };
       };
 
