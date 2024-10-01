@@ -299,7 +299,7 @@ in {
         enable = true;
 
         settings = {
-          formattersByFt = {
+          formatters_by_ft = {
             "*" = ["trim_whitespace"];
             cmake = ["cmake_format"];
             cpp = ["clang-format"];
@@ -314,7 +314,7 @@ in {
             vue = ["eslint_d"];
           };
 
-          extraOptions.format_on_save = {
+          format_on_save = {
             timeout_ms = 1000;
             lsp_fallback = true;
           };
