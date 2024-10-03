@@ -213,6 +213,7 @@ in {
       lspkind.enable = true;
       luasnip.enable = true;
       nvim-tree.enable = true;
+      orgmode.enable = true;
       presence-nvim.enable = true;
       smart-splits.enable = true;
       todo-comments.enable = true;
