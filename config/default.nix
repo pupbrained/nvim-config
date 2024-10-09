@@ -445,6 +445,11 @@ in {
             package = null;
           };
 
+          ocamllsp = {
+            enable = true;
+            package = null;
+          };
+
           zls = {
             enable = true;
             package = null;
@@ -454,7 +459,6 @@ in {
           eslint.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
-          ocamllsp.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
           ts-ls.enable = true;
