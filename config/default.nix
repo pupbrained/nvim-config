@@ -221,15 +221,6 @@ in {
       web-devicons.enable = true;
       which-key.enable = true;
 
-      avante = {
-        enable = true;
-        settings = {
-          provider = "copilot";
-          auto_suggestions_provider = "copilot";
-          behaviour.auto_suggestions = true;
-        };
-      };
-
       clangd-extensions = {
         enable = true;
         inlayHints.inline = "true";
