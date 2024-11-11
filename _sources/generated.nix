@@ -63,15 +63,15 @@
   };
   hover-nvim = {
     pname = "hover-nvim";
-    version = "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918";
+    version = "f8e162daccb2f117e19f3d5ad3647ac0cefb02e3";
     src = fetchFromGitHub {
       owner = "lewis6991";
       repo = "hover.nvim";
-      rev = "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918";
+      rev = "f8e162daccb2f117e19f3d5ad3647ac0cefb02e3";
       fetchSubmodules = false;
-      sha256 = "sha256-Q1k4ddyMlPSp2rX5CjxS70JJmRDbBHCowlu2CTuq0No=";
+      sha256 = "sha256-ICtYU8ENpSyiqZPEsiRzX2PT9JrsTLJZCXMYtfwYCnI=";
     };
-    date = "2024-06-12";
+    date = "2024-10-30";
   };
   lsp-lens-nvim = {
     pname = "lsp-lens-nvim";
@@ -111,15 +111,15 @@
   };
   rustaceanvim = {
     pname = "rustaceanvim";
-    version = "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8";
+    version = "35d1dbcf8b5d828a17601dfc4d5e76fcc34d4048";
     src = fetchFromGitHub {
       owner = "mrcjkb";
       repo = "rustaceanvim";
-      rev = "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8";
+      rev = "35d1dbcf8b5d828a17601dfc4d5e76fcc34d4048";
       fetchSubmodules = false;
-      sha256 = "sha256-2G0dNim+vrlXs5gaoVl7bjgmHF4TFSaTv/t7RZImlaQ=";
+      sha256 = "sha256-EZvkLPG4zNq8WlxEnVnMx2y2pm69/3gIjONtlPYzjuU=";
     };
-    date = "2024-09-29";
+    date = "2024-11-11";
   };
   savior-nvim = {
     pname = "savior-nvim";
@@ -135,15 +135,15 @@
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
-    version = "ff21db642847840db183b9421ab3d89795a7fbba";
+    version = "9e3209190c22953566ae4e6436ad2b4ff4dabb95";
     src = fetchFromGitHub {
       owner = "altermo";
       repo = "ultimate-autopair.nvim";
-      rev = "ff21db642847840db183b9421ab3d89795a7fbba";
+      rev = "9e3209190c22953566ae4e6436ad2b4ff4dabb95";
       fetchSubmodules = false;
-      sha256 = "sha256-S+0x2L66RbcI4s9J4JV7ZxVBFP1xOWyvi/9yzlR1fWY=";
+      sha256 = "sha256-I3B7Qdz5T/l+coY2MANNlnwBV64P7eDIBZ4LTcDhkHU=";
     };
-    date = "2024-09-13";
+    date = "2024-10-13";
   };
   veil-nvim = {
     pname = "veil-nvim";

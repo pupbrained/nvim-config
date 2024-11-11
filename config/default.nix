@@ -448,11 +448,11 @@ in {
 
           cmake.enable = true;
           eslint.enable = true;
-          lua-ls.enable = true;
+          lua_ls.enable = true;
           nixd.enable = true;
           tailwindcss.enable = true;
           taplo.enable = true;
-          ts-ls.enable = true;
+          ts_ls.enable = true;
           vls.enable = true;
           volar.enable = true;
         };
@@ -560,21 +560,24 @@ in {
 
       noice = {
         enable = true;
-        presets = {
-          inc_rename = true;
-          lsp_doc_border = true;
-        };
 
-        routes = [
-          {
-            filter = {
-              event = "msg_show";
-              kind = "";
-              find = "written";
-            };
-            opts.skip = true;
-          }
-        ];
+        settings = {
+          presets = {
+            inc_rename = true;
+            lsp_doc_border = true;
+          };
+
+          routes = [
+            {
+              filter = {
+                event = "msg_show";
+                kind = "";
+                find = "written";
+              };
+              opts.skip = true;
+            }
+          ];
+        };
       };
 
       notify = {
@@ -585,40 +588,42 @@ in {
 
       nvim-ufo = {
         enable = true;
-        enableGetFoldVirtText = true;
-        foldVirtTextHandler = ''
-          function(virtText, lnum, endLnum, width, truncate)
-            local newVirtText = {}
-            local suffix = (' 󰁂 %d '):format(endLnum - lnum)
-            local sufWidth = vim.fn.strdisplaywidth(suffix)
-            local targetWidth = width - sufWidth
-            local curWidth = 0
+        settings = {
+          enable_get_fold_virt_text = true;
+          fold_virt_text_handler = ''
+            function(virtText, lnum, endLnum, width, truncate)
+              local newVirtText = {}
+              local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+              local sufWidth = vim.fn.strdisplaywidth(suffix)
+              local targetWidth = width - sufWidth
+              local curWidth = 0
 
-            for _, chunk in ipairs(virtText) do
-              local chunkText = chunk[1]
-              local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+              for _, chunk in ipairs(virtText) do
+                local chunkText = chunk[1]
+                local chunkWidth = vim.fn.strdisplaywidth(chunkText)
 
-              if targetWidth > curWidth + chunkWidth then
-                table.insert(newVirtText, chunk)
-              else
-                chunkText = truncate(chunkText, targetWidth - curWidth)
-                local hlGroup = chunk[2]
-                table.insert(newVirtText, { chunkText, hlGroup })
-                chunkWidth = vim.fn.strdisplaywidth(chunkText)
-                if curWidth + chunkWidth < targetWidth then
-                  suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+                if targetWidth > curWidth + chunkWidth then
+                  table.insert(newVirtText, chunk)
+                else
+                  chunkText = truncate(chunkText, targetWidth - curWidth)
+                  local hlGroup = chunk[2]
+                  table.insert(newVirtText, { chunkText, hlGroup })
+                  chunkWidth = vim.fn.strdisplaywidth(chunkText)
+                  if curWidth + chunkWidth < targetWidth then
+                    suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+                  end
+                  break
                 end
-                break
+
+                curWidth = curWidth + chunkWidth
               end
 
-              curWidth = curWidth + chunkWidth
+              table.insert(newVirtText, { suffix, 'MoreMsg' })
+
+              return newVirtText
             end
-
-            table.insert(newVirtText, { suffix, 'MoreMsg' })
-
-            return newVirtText
-          end
-        '';
+          '';
+        };
       };
 
       nvim-jdtls = let
@@ -729,7 +734,6 @@ in {
         enable = true;
 
         settings = {
-          use_diagnostic_signs = true;
           focus = true;
 
           win = {

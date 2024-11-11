@@ -101,7 +101,7 @@
     },
     "hover-nvim": {
         "cargoLocks": null,
-        "date": "2024-06-12",
+        "date": "2024-10-30",
         "extract": null,
         "name": "hover-nvim",
         "passthru": null,
@@ -113,11 +113,11 @@
             "name": null,
             "owner": "lewis6991",
             "repo": "hover.nvim",
-            "rev": "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918",
-            "sha256": "sha256-Q1k4ddyMlPSp2rX5CjxS70JJmRDbBHCowlu2CTuq0No=",
+            "rev": "f8e162daccb2f117e19f3d5ad3647ac0cefb02e3",
+            "sha256": "sha256-ICtYU8ENpSyiqZPEsiRzX2PT9JrsTLJZCXMYtfwYCnI=",
             "type": "github"
         },
-        "version": "4339cbbcb572b1934c53dcb66ad4bf6a0abb7918"
+        "version": "f8e162daccb2f117e19f3d5ad3647ac0cefb02e3"
     },
     "lsp-lens-nvim": {
         "cargoLocks": null,
@@ -181,7 +181,7 @@
     },
     "rustaceanvim": {
         "cargoLocks": null,
-        "date": "2024-09-29",
+        "date": "2024-11-11",
         "extract": null,
         "name": "rustaceanvim",
         "passthru": null,
@@ -193,11 +193,11 @@
             "name": null,
             "owner": "mrcjkb",
             "repo": "rustaceanvim",
-            "rev": "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8",
-            "sha256": "sha256-2G0dNim+vrlXs5gaoVl7bjgmHF4TFSaTv/t7RZImlaQ=",
+            "rev": "35d1dbcf8b5d828a17601dfc4d5e76fcc34d4048",
+            "sha256": "sha256-EZvkLPG4zNq8WlxEnVnMx2y2pm69/3gIjONtlPYzjuU=",
             "type": "github"
         },
-        "version": "1e97a9e0ebacfdb3d3c4ba7b533cbbd13b0975a8"
+        "version": "35d1dbcf8b5d828a17601dfc4d5e76fcc34d4048"
     },
     "savior-nvim": {
         "cargoLocks": null,
@@ -221,7 +221,7 @@
     },
     "ultimate-autopair-nvim": {
         "cargoLocks": null,
-        "date": "2024-09-13",
+        "date": "2024-10-13",
         "extract": null,
         "name": "ultimate-autopair-nvim",
         "passthru": null,
@@ -233,11 +233,11 @@
             "name": null,
             "owner": "altermo",
             "repo": "ultimate-autopair.nvim",
-            "rev": "ff21db642847840db183b9421ab3d89795a7fbba",
-            "sha256": "sha256-S+0x2L66RbcI4s9J4JV7ZxVBFP1xOWyvi/9yzlR1fWY=",
+            "rev": "9e3209190c22953566ae4e6436ad2b4ff4dabb95",
+            "sha256": "sha256-I3B7Qdz5T/l+coY2MANNlnwBV64P7eDIBZ4LTcDhkHU=",
             "type": "github"
         },
-        "version": "ff21db642847840db183b9421ab3d89795a7fbba"
+        "version": "9e3209190c22953566ae4e6436ad2b4ff4dabb95"
     },
     "veil-nvim": {
         "cargoLocks": null,
