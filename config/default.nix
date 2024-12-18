@@ -137,7 +137,6 @@ in {
       neovide_floating_shadow = false;
       neovide_cursor_animation_length = 2.5e-2;
       neovide_cursor_vfx_mode = "railgun";
-      rust_recommended_style = false;
     };
 
     keymaps = with lib; let
