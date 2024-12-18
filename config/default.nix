@@ -183,6 +183,7 @@ in {
       (mkNormalLeader "<leader>j" "lua require('smart-splits').swap_buf_down()" "Move Down")
       (mkNormalLeader "<leader>k" "lua require('smart-splits').swap_buf_up()" "Move Up")
       (mkNormalLeader "<leader>l" "lua require('smart-splits').swap_buf_right()" "Move Right")
+      (mkNormalLeader "cc" "CopilotChatToggle" "Toggle Copilot Cha")
       (mkNormalLeader "t" "lua require('alternate-toggler').toggleAlternate()" "Toggle Alternate")
       (mkNormalLeader "lg" "LazyGit" "Open LazyGit")
       (mkNormalLeader "b" "lua require('buffer_manager.ui').toggle_quick_menu()" "Manage Buffers")
@@ -204,8 +205,9 @@ in {
     plugins = {
       auto-session.enable = true;
       cmp-cmdline.enable = true;
-      codeium-nvim.enable = true;
       comment.enable = true;
+      copilot-chat.enable = true;
+      copilot-cmp.enable = true;
       direnv.enable = true;
       fidget.enable = true;
       inc-rename.enable = true;
@@ -267,7 +269,7 @@ in {
           snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
 
           sources = [
-            {name = "codeium";}
+            {name = "copilot";}
             {name = "buffer";}
             {name = "luasnip";}
             {name = "nvim_lsp";}
@@ -277,10 +279,9 @@ in {
 
           formatting.format = lib.mkForce ''
             require('lspkind').cmp_format({
-              mode = "symbol",
-              maxwidth = 50,
+              maxwidth = 120,
               ellipsis_char = '...',
-              symbol_map = { Codeium = "", }
+              symbol_map = { Copilot = "", }
             })
           '';
         };
@@ -310,6 +311,12 @@ in {
             lsp_fallback = true;
           };
         };
+      };
+
+      copilot-lua = {
+        enable = true;
+        suggestion.enabled = false;
+        panel.enabled = false;
       };
 
       crates-nvim = {
@@ -727,6 +734,11 @@ in {
       treesitter = {
         enable = true;
         nixvimInjections = true;
+        settings = {
+          highlight.enable = true;
+          incremental_selection.enable = true;
+          indent.enable = true;
+        };
       };
 
       trouble = {
