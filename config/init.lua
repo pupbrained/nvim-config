@@ -162,50 +162,6 @@ require('actions-preview').setup({
   },
 })
 
--- Flatten
-local saved_terminal
-
-require('flatten').setup({
-  window = {
-    open = 'alternate',
-  },
-  callbacks = {
-    should_block = function(argv)
-      return vim.tbl_contains(argv, '-b')
-    end,
-    pre_open = function()
-      local term = require('toggleterm.terminal')
-      local termid = term.get_focused_id()
-      saved_terminal = term.get(termid)
-    end,
-    post_open = function(bufnr, winnr, ft, is_blocking)
-      if is_blocking and saved_terminal then
-        saved_terminal:close()
-      else
-        vim.api.nvim_set_current_win(winnr)
-      end
-
-      if ft == 'gitcommit' or ft == 'gitrebase' then
-        vim.api.nvim_create_autocmd('BufWritePost', {
-          buffer = bufnr,
-          once = true,
-          callback = vim.schedule_wrap(function()
-            vim.api.nvim_buf_delete(bufnr, {})
-          end),
-        })
-      end
-    end,
-    block_end = function()
-      vim.schedule(function()
-        if saved_terminal then
-          saved_terminal:open()
-          saved_terminal = nil
-        end
-      end)
-    end,
-  },
-})
-
 -- Veil
 local builtin = require('veil.builtin')
 

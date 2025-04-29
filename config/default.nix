@@ -11,7 +11,11 @@
     then "/Users/${username}"
     else "/home/${username}";
 
-  mkVimPlugin = sources: pkgs.vimUtils.buildVimPlugin {inherit (sources) src pname version;};
+  mkVimPlugin = sources:
+    pkgs.vimUtils.buildVimPlugin {
+      inherit (sources) src pname version;
+      doCheck = false;
+    };
 
   sources = import ../_sources/generated.nix {inherit (pkgs) fetchFromGitHub fetchgit fetchurl dockerTools;};
 
@@ -208,6 +212,8 @@ in {
       comment.enable = true;
       copilot-chat.enable = true;
       copilot-cmp.enable = true;
+      dap-ui.enable = true;
+      dap-virtual-text.enable = true;
       direnv.enable = true;
       fidget.enable = true;
       inc-rename.enable = true;
@@ -224,26 +230,29 @@ in {
 
       clangd-extensions = {
         enable = true;
-        inlayHints.inline = "true";
         enableOffsetEncodingWorkaround = true;
-        ast = {
-          roleIcons = {
-            type = "";
-            declaration = "";
-            expression = "";
-            specifier = "";
-            statement = "";
-            templateArgument = "";
-          };
 
-          kindIcons = {
-            compound = "";
-            recovery = "";
-            translationUnit = "";
-            packExpansion = "";
-            templateTypeParm = "";
-            templateTemplateParm = "";
-            templateParamObject = "";
+        settings = {
+          inlay_hints.inline = "true";
+          ast = {
+            role_icons = {
+              type = "";
+              declaration = "";
+              expression = "";
+              specifier = "";
+              statement = "";
+              templateArgument = "";
+            };
+
+            kind_icons = {
+              compound = "";
+              recovery = "";
+              translationUnit = "";
+              packExpansion = "";
+              templateTypeParm = "";
+              templateTemplateParm = "";
+              templateParamObject = "";
+            };
           };
         };
       };
@@ -315,14 +324,16 @@ in {
 
       copilot-lua = {
         enable = true;
-        suggestion.enabled = false;
-        panel.enabled = false;
+        settings = {
+          suggestion.enabled = false;
+          panel.enabled = false;
+        };
       };
 
-      crates-nvim = {
+      crates = {
         enable = true;
 
-        extraOptions = {
+        settings = {
           popup.border = "rounded";
 
           text = {
@@ -340,58 +351,51 @@ in {
       dap = {
         enable = true;
         adapters.executables.lldb.command = "lldb-vscode";
-        configurations = let
-          lldb = ["cpp"];
-        in
-          builtins.listToAttrs (map (language: {
-              name = language;
-              value = [
-                {
-                  name = "Launch";
-                  request = "launch";
-                  type = "lldb";
-                  cwd = "\${workspaceFolder}";
-                  program = helpers.mkRaw ''
-                    function()
-                      return vim.fn.input('Executable path: ', vim.fn.getcwd() .. '/', 'file')
-                    end
-                  '';
-                  args = helpers.mkRaw ''
-                    function()
-                      local arguments_string = vim.fn.input('Executable arguments: ')
-                      return vim.split(arguments_string, " +")
-                    end
-                  '';
 
-                  initCommands = lib.mkIf (language == "rust") (helpers.mkRaw ''
-                    function()
-                      local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+        configurations = builtins.listToAttrs (map (language: {
+            name = language;
+            value = [
+              {
+                name = "Launch";
+                request = "launch";
+                type = "lldb";
+                cwd = "\${workspaceFolder}";
+                program = helpers.mkRaw ''
+                  function()
+                    return vim.fn.input('Executable path: ', vim.fn.getcwd() .. '/', 'file')
+                  end
+                '';
+                args = helpers.mkRaw ''
+                  function()
+                    local arguments_string = vim.fn.input('Executable arguments: ')
+                    return vim.split(arguments_string, " +")
+                  end
+                '';
 
-                      local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
-                      local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+                initCommands = lib.mkIf (language == "rust") (helpers.mkRaw ''
+                  function()
+                    local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
 
-                      local commands = {}
-                      local file = io.open(commands_file, 'r')
-                      if file then
-                        for line in file:lines() do
-                          table.insert(commands, line)
-                        end
-                        file:close()
+                    local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+                    local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+
+                    local commands = {}
+                    local file = io.open(commands_file, 'r')
+                    if file then
+                      for line in file:lines() do
+                        table.insert(commands, line)
                       end
-                      table.insert(commands, 1, script_import)
-
-                      return commands
+                      file:close()
                     end
-                  '');
-                }
-              ];
-            })
-            lldb);
+                    table.insert(commands, 1, script_import)
 
-        extensions = {
-          dap-ui.enable = true;
-          dap-virtual-text.enable = true;
-        };
+                    return commands
+                  end
+                '');
+              }
+            ];
+          })
+          ["cpp"]);
       };
 
       gitsigns = {
@@ -588,8 +592,10 @@ in {
 
       notify = {
         enable = true;
-        maxWidth = 100;
-        extraOptions.render = "compact";
+        settings = {
+          max_width = 100;
+          render = "compact";
+        };
       };
 
       nvim-ufo = {
@@ -630,13 +636,6 @@ in {
             end
           '';
         };
-      };
-
-      nvim-jdtls = let
-        data = "${homeDir}/.jdtls/workspaces";
-      in {
-        inherit data;
-        enable = builtins.pathExists data;
       };
 
       obsidian = let
@@ -811,8 +810,6 @@ in {
         dressing-nvim
         # Breadcrumbs
         dropbar-nvim
-        # Open files from your terminal
-        flatten-nvim
         # Guess indentation
         guess-indent-nvim
         # Haskell LSP improvements

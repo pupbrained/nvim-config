@@ -15,15 +15,15 @@
   };
   buffer-manager-nvim = {
     pname = "buffer-manager-nvim";
-    version = "f196217f7c1ddae74ed51dfc2c3befe6d62b26d1";
+    version = "d82035f35c3a24aa5b7d13c511890bdcc8c33976";
     src = fetchFromGitHub {
       owner = "j-morano";
       repo = "buffer_manager.nvim";
-      rev = "f196217f7c1ddae74ed51dfc2c3befe6d62b26d1";
+      rev = "d82035f35c3a24aa5b7d13c511890bdcc8c33976";
       fetchSubmodules = false;
-      sha256 = "sha256-Z1F9+KUs2QEqnKGngOBkE4P3cjEZxW4WF0SPEtc4vkI=";
+      sha256 = "sha256-t3runUJzZRYh2FeTFN7d4ErJuoj6U1iKaB/SUiy9ei8=";
     };
-    date = "2024-11-18";
+    date = "2025-04-24";
   };
   comment-box-nvim = {
     pname = "comment-box-nvim";
@@ -63,15 +63,15 @@
   };
   hover-nvim = {
     pname = "hover-nvim";
-    version = "140c4d0ae9397b76baa46b87c574f5377de09309";
+    version = "1a8282fe3933c0c6f2769d7d6a9b7bab49984aee";
     src = fetchFromGitHub {
       owner = "lewis6991";
       repo = "hover.nvim";
-      rev = "140c4d0ae9397b76baa46b87c574f5377de09309";
+      rev = "1a8282fe3933c0c6f2769d7d6a9b7bab49984aee";
       fetchSubmodules = false;
-      sha256 = "sha256-t+Aigyh12oAVugDJkvXKwzLe9CasmzJHmPcoyxVyLnw=";
+      sha256 = "sha256-P63RQFFJhabGSeSmaMz4YirNUgbuu01aWRHbTp1qjTY=";
     };
-    date = "2024-12-11";
+    date = "2025-04-10";
   };
   lsp-lens-nvim = {
     pname = "lsp-lens-nvim";
@@ -87,15 +87,15 @@
   };
   modes-nvim = {
     pname = "modes-nvim";
-    version = "c7a4b1b383606832aab150902719bd5eb5cdb2b0";
+    version = "7c6ca20de4c9acb22ef06074e39fd2c021b99935";
     src = fetchFromGitHub {
       owner = "mvllow";
       repo = "modes.nvim";
-      rev = "c7a4b1b383606832aab150902719bd5eb5cdb2b0";
+      rev = "7c6ca20de4c9acb22ef06074e39fd2c021b99935";
       fetchSubmodules = false;
-      sha256 = "sha256-ShIK8ROowT1yFHgSIVHUFnnQOEMr3YPIqw4ixzR8w8M=";
+      sha256 = "sha256-V7a6h1MUxoA6LuINkVtrAlHx2OH5SUuapzWa4zVTCyE=";
     };
-    date = "2024-12-16";
+    date = "2025-04-10";
   };
   neotab-nvim = {
     pname = "neotab-nvim";
@@ -111,15 +111,15 @@
   };
   rustaceanvim = {
     pname = "rustaceanvim";
-    version = "0a618c1d1c05a8059880076feccb15301da6993d";
+    version = "3f2b7a94b7fa3c0f301dfa9644c94b543000efc2";
     src = fetchFromGitHub {
       owner = "mrcjkb";
       repo = "rustaceanvim";
-      rev = "0a618c1d1c05a8059880076feccb15301da6993d";
+      rev = "3f2b7a94b7fa3c0f301dfa9644c94b543000efc2";
       fetchSubmodules = false;
-      sha256 = "sha256-qmd1yVOG2s5/5ygWF9J6RCmDseI3N72zzW+3uIG/qs8=";
+      sha256 = "sha256-xf8GEAmq4l5OhzdcveTwPhVO25gp0tfP2H7S50c1ffg=";
     };
-    date = "2024-12-17";
+    date = "2025-04-27";
   };
   savior-nvim = {
     pname = "savior-nvim";
@@ -135,15 +135,15 @@
   };
   ultimate-autopair-nvim = {
     pname = "ultimate-autopair-nvim";
-    version = "9e3209190c22953566ae4e6436ad2b4ff4dabb95";
+    version = "b24b97c538b71b6de0ce9d84e47df27b6ecafd76";
     src = fetchFromGitHub {
       owner = "altermo";
       repo = "ultimate-autopair.nvim";
-      rev = "9e3209190c22953566ae4e6436ad2b4ff4dabb95";
+      rev = "b24b97c538b71b6de0ce9d84e47df27b6ecafd76";
       fetchSubmodules = false;
-      sha256 = "sha256-I3B7Qdz5T/l+coY2MANNlnwBV64P7eDIBZ4LTcDhkHU=";
+      sha256 = "sha256-yPPb7G7/Xx0ybhhRcXCZzGRrehgWqgWRE3nazPPvcjc=";
     };
-    date = "2024-10-13";
+    date = "2025-02-14";
   };
   veil-nvim = {
     pname = "veil-nvim";
@@ -159,15 +159,15 @@
   };
   vgit-nvim = {
     pname = "vgit-nvim";
-    version = "9afe79a3ae65594ca483c2e6161690ff9b85123b";
+    version = "a6dfbeec773ef345eb3b2ad60a84f22e55e17db4";
     src = fetchFromGitHub {
       owner = "tanvirtin";
       repo = "vgit.nvim";
-      rev = "9afe79a3ae65594ca483c2e6161690ff9b85123b";
+      rev = "a6dfbeec773ef345eb3b2ad60a84f22e55e17db4";
       fetchSubmodules = false;
-      sha256 = "sha256-Qm3iV4Ciry46ee3liNSL5OM9KkcNta+GOdce/9SncuQ=";
+      sha256 = "sha256-Gctpx/vLZdRmRgvq6m7Os3q2C+sUc54oTr9zlE/CvrQ=";
     };
-    date = "2024-08-03";
+    date = "2025-03-13";
   };
   wezterm-nvim = {
     pname = "wezterm-nvim";
