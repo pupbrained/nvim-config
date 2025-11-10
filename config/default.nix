@@ -36,8 +36,8 @@ in {
       register = "unnamedplus";
 
       providers = {
-        wl-copy.enable = true;
-        xclip.enable = true;
+        wl-copy.enable = pkgs.stdenv.isLinux;
+        xclip.enable = pkgs.stdenv.isLinux;
       };
     };
 
